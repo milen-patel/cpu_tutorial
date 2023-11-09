@@ -20,6 +20,7 @@ Suppose somebody hands you a piece of paper and tells you that it's contents are
 An easy solution to this issue, is to set a rule for our computer, that every number will be represented with the same number of bytes. The first rule that we will set for our computer is as follows: all numbers will be represented with eight binary digits. Why 8? The truth is we could pick any number we want to. Eight is a small enough number such that we aren't working with incredibly large binary digit strings, but also big enough where we aren't overly restricted. In fact, after we finish designing our computer to represent all numbers with eight binary digits, we will devote a chapter to redesigning the computer to represent all numbers with a different length! In the real world, different computers will use different number of bits. 32 and 64 are both common in modern processors. For those of you who have used a Windows computer and attempted to download something, you probably came across 32-bit and 64-bit versions on the download page - these are different versions of the same product but intended to work on two different types of CPUs!
 
 A brief interjection of computer vocabulary that I will use onwards:
+
 * A **bit** is a single digit in binary which is either 0 or 1.
   * The unique bits: 0, 1
 * A **nibble** is four bits.
