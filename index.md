@@ -2,6 +2,8 @@
 title: Let's Design a CPU
 ---
 
+# How Do Computers Really Work?
+
 > "Wisdom is not a product of schooling but of the lifelong attempt to acquire it."
 
 # Table of Contents

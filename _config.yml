@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
-title: Let's Understand How a CPU Works from Scratch
+title: Let's Understand How a CPU Works 
 description: Designing a CPU from the ground up, with no knowledge needed
 collections:
   parts:
