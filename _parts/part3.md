@@ -65,6 +65,7 @@ $$1010101_{2} = 1*2^6 + 0*2^5 + 1*2^4 + 0*2^3 + 1*2^2 + 0*2^1 + 1*2^0$$
 When you simplify the right hand side of the expression (all of the values on the right side are in decimal), you will find that $$1010101_{2}=85_{10}$$
 
 Here's the familiar table from the previous section, but with the current example and specified in base-2
+
 |   | 1 | 0 | 1 | 0 | 1 | 0 | 1 |
 |---|---|---|---|---|---|---|---|
 | Weight of Position Expressed as a Power of Two  | $$2^6$$  | $$2^5$$  | $$2^4$$  | $$2^3$$  | $$2^2$$ | $$2^1$$ | $$2^0$$
@@ -145,6 +146,7 @@ In general:
 Let's try add the following binary numbers $$101_2$$ and $$1_2$$. The first thing I will do, as seen in the table below, is to zero pad the shorter number so the two digits are the same length. This doesn't change the value, but makes 'stacking' the numbers more visually intuitive for the sake of me explaining. Now we are computing $$101_2 + 001_2$$. Just like decimal, we start with the least significant digit position and then work towards the most significant digit position (i.e. right to left). $$1_2+1_2=2_{10}$$. This is a carry-over because we only have 0's and 1's in binary, so we can't find a 2 into any digit position (this is formally explained by the two rules listed above). So, we leave a 0 in this digit position of the sum (Rule 2) and mark our carry as 1. Then, we look at the next digit position and add $$0_2+0_2+1_2=1_{10}=1_{2}$$. So, the next digit position of our result is 1 since there is no carry. Then the next position we add $$1_2+0_2=1_2=1_{10}$$ and there is once again no carry, so the corresponding digit in the result is 1. This gives us the answer $$110_2$$!
 
 I will paste the same exact table as from above but for this example, with the difference being that this is binary arithmetic instead of decimal arithmetic. You can verify by converting the two values to decimal and then asserting that the sum of their decimal values is the same value you get when you convert their binary sum, $$110_2$$, to decimal.
+
 | Computing X+Y  |   |   |   |
 |---|---|---|---|
 | X | 1 | 0 | 1 |
