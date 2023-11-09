@@ -17,8 +17,7 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 02 - [How Humans Intuitively Represent Numbers](/cpu_tutorial/parts/part2.html)
 * Chapter 03 - [The Language of Computers: Meet Binary](/cpu_tutorial/parts/part3.html)
 * Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
-
-
+* Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
 
 <hr style="width:50%; align: center"/>
 <img src="https://karenok.github.io/SAP-1-Computer/images/CS.png"
