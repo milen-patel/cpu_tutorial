@@ -4,6 +4,8 @@ title: Let's Design a CPU
 
 # How Do Computers Really Work?
 
+> "Wisdom is not a product of schooling but of the lifelong attempt to acquire it."
+
 For how many of our waking hours we spend each day staring into a screen, it's remarkable how few people understand whats happening on the other side of the glass. It may sound like an overtly complex engineering feat, but it turns out computers, if explained clearly, aren't all that confusing. 
 
 In this series, we will start by designing a basic CPU from scratch called the SAP-1 which was designed by Albert Paul Malvino in 1976. This simple yet powerful processor is designed to be easy to understand while also providing some impressive capabilities. You can even build this CPU after reading this series, which [I did in 2020](https://github.com/milen-patel/BreadboardCPU) when first introduced to the model.
@@ -16,10 +18,9 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 03 - [The Language of Computers: Meet Binary](/cpu_tutorial/parts/part3.html)
 * Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
 
-> "Wisdom is not a product of schooling but of the lifelong attempt to acquire it."
 
 
-<hr style="width:50%"/>
+<hr style="width:50%; align: center"/>
 <img src="https://karenok.github.io/SAP-1-Computer/images/CS.png"
      alt="Logic Gate Diagram"
-     style="float: left; margin-right: 10px;" />
+     style="float: left; margin: 10px;" />
