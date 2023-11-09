@@ -19,6 +19,36 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
 * Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
 
+# Future Chapters
+* Chapter XX - Logic Gates
+* Chapter XX - Building a 1-Bit Adder
+* Chatper XX - Ripple Carry Adders 
+* Chatper XX - Arithmetic Logic Unit (ALU)
+* Chapter XX - Sequential Logic
+* Chapter XX - Building a Register
+* Chapter XX - Interlude: Chaining a Register to the ALU
+* Chapter XX - The Clock
+* Chapter XX - Interlude: Building a Counter
+* Chapter XX - RAM
+* Chapter XX - The Memory Address Register (MAR)
+* Chapter XX - Program Counter and Computer Architecture
+* Chapter XX - The BUS
+* Chapter XX - Introduction to Control Unit
+* Chapter XX - Instruction Register
+* Chapter XX - Revisiting Control and Designing our Instruction Set
+* Chapter XX - Output Register and Display
+* Chapter XX - Make this an 16-Bit CPU
+* Chapter XX - Next Steps
+* Chapter XX - Latency and Throughput: Pipelining
+* Chapter XX - The Three Main Principles of an Operating System
+* Chapter XX - Modifying Hardware to Support an OS
+* Chapter XX - Compilers
+* Chapter XX - Programming Languages
+* Chapter XX - Designing a LISP-Like Programming Language
+* Chapter XX - Building a Compiler for our Programming Language
+* Chapter XX - Multi Core CPUs
+* Chapter XX - Synchornizing Threads
+
 <hr style="width:50%; margin: auto"/>
 <img src="https://karenok.github.io/SAP-1-Computer/images/CS.png"
      alt="Logic Gate Diagram"
