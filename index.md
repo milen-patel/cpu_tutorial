@@ -24,7 +24,7 @@ Whether you are a computer science major or a curious learner without engineerin
 
 > "Wisdom is not a product of schooling but of the lifelong attempt to acquire it."
 
-[CPU](https://karenok.github.io/SAP-1-Computer/images/CS.png)
+
 <img src="https://karenok.github.io/SAP-1-Computer/images/CS.png"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" />
+     alt="Logic Gate Diagram"
+     style="width: 50%; float: left; margin-right: 10px;" />
