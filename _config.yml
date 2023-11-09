@@ -1,0 +1,12 @@
+theme: jekyll-theme-minimal
+title: Let's Understand How a CPU Works from Scratch
+description: Designing a CPU from the ground up, with no knowledge needed
+collections:
+  parts:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: parts
+    values:
+      layout: default
