@@ -13,7 +13,7 @@ date: 2023-11-09
 </html>
 
 # Chapter 04 - Fixed-Width Numbers
-Topics Covered: Bits, Bytes, Width Requirements
+**Topics Covered:** Bits, Bytes, Width Requirements
 
 In regular decimal, we never think of the number of digit positions we are using. If you want to convey a number to someone else, you just say the number as it is regardless of how many digits it has. Obviously, humans work with numbers that usually use fewer than ~10-15 digits, but we could theoretically convey a number with 100 different digits and it wouldn't cause an issue. Computers, on the other hand, are not so flexible. As will become evident throughout the next chapters, things have to be both consistent and precise. The computer we design will not be a fan of binary numbers with variable number of digits. Let's motivate this better with an example.
 
