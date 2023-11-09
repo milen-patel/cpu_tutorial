@@ -13,13 +13,13 @@ date: 2023-11-09
 # Chapter 02 - How Humans Intuitively Represent Numbers
 **Topics Covered:** Formalizing Decimal, Base-10 Meaning
 
-$2^1$
+hey $2^1$ hey
 
-$$2^2$$
+hey $$2^2$$ hey
 
-\(2^2)\
+hey \(2^2)\ hey
 
-\[2^2]\
+hey \[2^2]\ hey
 
 You've likely heard of the notion that computers only understand 0's and 1's, so in this section will make sense of that.
 
