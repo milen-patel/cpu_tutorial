@@ -13,6 +13,14 @@ date: 2023-11-09
 # Chapter 02 - How Humans Intuitively Represent Numbers
 **Topics Covered:** Formalizing Decimal, Base-10 Meaning
 
+$2^1$
+
+$$2^2$$
+
+\(2^2)\
+
+\[2^2]\
+
 You've likely heard of the notion that computers only understand 0's and 1's, so in this section will make sense of that.
 
 Let's start with the number 845 which was randomly chosen for the sake of formalizing the way your mind intuitively perceives multi-digit numbers. 845, along with any other number, can be expressed in a less comapct way as a sum of it's digit positions. Instead of trying to confuse you by explaining, lets work this through by example. It should be no surprise that \(845 = 800 + 40 + 5)\. Similarly, the number 94 can be expressed as the sum of 90 and 4. The same decomposition can be used on even larger numbers: $`29742 = 20000 + 9000+ 700 + 40 + 2`$. No matter how large the example gets, your mind is able to easily verify all these statements as true by adding up all of the numbers that form their components. 
