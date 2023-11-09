@@ -27,4 +27,7 @@ Whether you are a computer science major or a curious learner without engineerin
 
 <img src="https://karenok.github.io/SAP-1-Computer/images/CS.png"
      alt="Logic Gate Diagram"
-     style="width: 50%; float: left; margin-right: 10px;" />
+     style="float: left; margin-right: 10px;" />
+<img src="https://embarcados.com.br/wp-content/uploads/2016/10/SAP1_Arq-1.png.webp"
+     alt="Logic Gate Diagram"
+     style="float: left; margin-right: 10px;" />
