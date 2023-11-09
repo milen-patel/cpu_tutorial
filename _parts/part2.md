@@ -9,6 +9,7 @@ date: 2023-11-09
 		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 	</head>
 	<a href="/cpu_tutorial">< Go Back</a>
+	<br />
 </html>
 
 # Chapter 02 - How Humans Intuitively Represent Numbers
