@@ -10,7 +10,7 @@ date: 2023-11-09
 	</head>
 </html>
 
-# Chapter 3 - The Language of Computers: Binary
+# Chapter 3 - The Language of Computers. Meet Binary
 **Topics Covered:** Base-2 Introduction, Binary Addition, Counting in Binary
 
 ### Why Computers Cannot Understand Decimal
