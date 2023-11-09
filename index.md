@@ -19,7 +19,7 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
 * Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
 
-<hr style="width:50%; align: center"/>
+<hr style="width:50%; margin: auto"/>
 <img src="https://karenok.github.io/SAP-1-Computer/images/CS.png"
      alt="Logic Gate Diagram"
      style="float: left; margin: 10px;" />
