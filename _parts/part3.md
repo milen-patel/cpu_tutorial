@@ -215,18 +215,20 @@ The method we described is entirely correct, but is a less formal way of getting
 If we know there are 100 values we can represent with two digit positions, and we want to know how many values we can represent with 3 digit positions, we can use the same concept combined with our previous result. For each of the 100 values we can represent with two digits, there are 10 different values we can pick for the third digit that would each generate a new number. For example, for the two digit number $$45$$, we can generate each of the following unique three digit numbers: $$045$$, $$145$$, $$245$$, $$345$$, $$445$$, $$545$$, $$645$$, $$745$$, $$845$$, $$945$$. So, the same logic tells us that we should multiply our 100 known two-digit values by the 10 different options each number could select for the third new digit to get $$100*10=1000$$. 
 
 Our Results:
-1) In base 10, with 1 digit we can represent $$10$$ different values
-2) In base 10, with 2 digits we can represent $$10*10=10^2=100$$ different values
-3) In base 10, with 3 digits we can represent $$10*10*10=10^3=1000$$ different values
+
+1. In base 10, with 1 digit we can represent $$10$$ different values
+2. In base 10, with 2 digits we can represent $$10*10=10^2=100$$ different values
+3. In base 10, with 3 digits we can represent $$10*10*10=10^3=1000$$ different values
 
 In general: In base 10, with K digits we can represent $$10*10*...*10=10^k$$ different values
 
 We can then perform a similar analysis on base two. With 1 digit, our options are 0 or 1, so there are 2 different values we can represent with two digits. With two digits, we can enumerate the different values as $$00$$, $$01$$, $$10$$, $$11$$ which yields four different values. With three digits, we use the fact that there are 4 different values we can represent with two digits. For each of these values, we can obtain a three digit number by adding in a 0 or 1 for the new digit posiiton. This means there are $$2*4=8$$ values we can represent with three digits.
 
 Our Results:
-1) In base 2, with 1 digit we can represent $$2$$ different values
-2) In base 2, with 2 digits we can represent $$2*2=2^2=4$$ different values
-3) In base 2, with 3 digits we can represent $$2*2*2=2^3=8$$ different values
+
+1. In base 2, with 1 digit we can represent $$2$$ different values
+2. In base 2, with 2 digits we can represent $$2*2=2^2=4$$ different values
+3. In base 2, with 3 digits we can represent $$2*2*2=2^3=8$$ different values
 
 In general: In base 2, with K digits we can represent $$2*2*...*2=2^k$$ different values
 
