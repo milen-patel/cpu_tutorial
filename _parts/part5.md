@@ -90,7 +90,7 @@ Oh - and in Two's Complement, there is no such thing as -0 and 0. If you don't b
 ### Converting Between Negative and Positive
 You may be wondering, how do I take a negative number in base 10 and convert it to binary? It turns out, you can convert the positive reprsentation to binary, and then Two's Complement has a unique property that makes negating numbers really easy.
 
-How to Negate a Number in Two's Complement? Invert every bit position (i.e. $$0\rarr1$$ and $$1\rarr0$$) and then add one to the result. You don't need to worry about why this works, but moreso on how to do it.
+How to Negate a Number in Two's Complement? Invert every bit position (i.e. $$0\Rightarrow1$$ and $$1\Rightarrow0$$) and then add one to the result. You don't need to worry about why this works, but moreso on how to do it.
 
 Let's try an example. Suppose we want to represent $$-5_{10}$$ in binary. Well, we know that 5 in binary can be represented as $$0101_2$$. So our rule says we first invert every bit position. So let the 1's become 0's and vice versa. After this, we have $$1010_2$$. And then the second step of the rule says to add 1 to the value. So we perform $$1010_2 + 0001_2$$ and obtain $$1011_2$$ as our final result. We can verify this by converting $$1011_2$$ back to decimal and expect to get -5.
 
