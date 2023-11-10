@@ -21,7 +21,7 @@ Whether you are a computer science major or a curious learner without engineerin
 
 # Future Chapters
 * Chapter XX - Logic Gates
-* Chapter XX - Building a 1-Bit Adder
+* Chapter XX - Addition with Logic Gates
 * Chatper XX - Ripple Carry Adders 
 * Chatper XX - Arithmetic Logic Unit (ALU)
 * Chapter XX - Sequential Logic
