@@ -24,7 +24,10 @@ Let's start with the number 845 which was randomly chosen for the sake of formal
 Now let's try express the same number in a different way: $$845=8*10^2+4*10^1+5*10^0$$
 At a first glance, this may not have seem true, but with a little bit of thinking, you should be able to verify that the left hand and ride hand side of that expression are equivalent. Although it seems like you've never thought of a number this way, this is the exact way your intuition processes these larger numbers. You've probably heard of the 'ones place', 'tens place', 'hundreds place', 'thousands place', and so on. Yet, you've never seen a number be described as this visually unappealing sum of exponents being multiplied by weights. The truth is, however, that these two concepts are the exact same. The right-most digit in a number is the ones place, and notice how $$10^0=1$$. Similarly, the digit second from the right is known as the tens place, and notice how $$10^1 = 10$$. The same logic holds for the next digit place which is known as the hundreds place, and once again notice how $$10^2=100$$. So really, the long expression at the start of the paragraph can be simplified to $$845=8*100 + 4*10 + 5*1 = 800 + 40 + 5$$. And now we're back at the original expression which was far from confusing in the previous paragraph. 
 
-$$800 = 845=8*10^2+4*10^1+5*10^0$$
+$$8*10^2 + 4*10^1 + 5*10^0$$
+$$8*100 + 4*10 + 5*1$$
+$$800 + 40 + 5$$
+$$845$$
 
 In this manner, you can express any number as a weighted sum of digits and corresponding powers of ten. Before we move on and explain why we are bothering with all of this, there are two more observations worth highlighting.
 
