@@ -15,7 +15,7 @@ date: 2023-11-10
 # Chapter 06 - Logic Gates
 **Topics Covered:** AND, OR, NOT, XOR, NAND, The Universal Gate, Truth Tables
 
-<img src="/cpu_tutorial/_asserts/part6/AND.png"
+<img src="/cpu_tutorial/_assets/part6/AND.png"
      alt="Logic Gate Diagram"
      style="float: left" />
 
