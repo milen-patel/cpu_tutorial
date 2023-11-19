@@ -15,6 +15,14 @@ date: 2023-11-10
 # Chapter 06 - Logic Gates
 **Topics Covered:** AND, OR, NOT, XOR, NAND, The Universal Gate, Truth Tables
 
+Now that I've made you suffer through enough chapters of binary, it's time to introduce a seperate yet similarly related concept: logic gates. There a few different types of logic gates we will need to understand, so I will introduce them one-by-one and then we will circle back and understand the bigger picture. This chapter should (hopefully) be a lighter read compared from the last few which probably involved you using a calculator to double check everything I was saying.
+
+Simply put, a logic gate takes in a variable number of inputs (atleast 1) and produce a single output. The interesting part, that that all the inputs and outputs are either 0's or 1's. We have spent a few painful chapters understanding the nuances of binary, but you can put that aside for this chapter. In the next chapter, the connection between this chapter and all the previous ones will become apparent.
+
+Let's start with the AND gate which takes in two inputs, and produces one output. If both of the inputs are 1, then the output of the AND gate is 1. For any other combination of inputs, the output will be a zero.
+
+{% include image.html url="_assets/AND.png" description="The AND Gate" %}
+
 <img src="/cpu_tutorial/_assets/part6/AND.png"
      alt="Logic Gate Diagram"
      style="float: left" />
@@ -61,3 +69,5 @@ NOT Gate Truth Table:
 |---|---|
 | 0 | 1 |
 | 1 | 0 |
+
+Determinism
