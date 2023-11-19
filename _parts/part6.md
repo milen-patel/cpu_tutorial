@@ -19,13 +19,9 @@ Now that I've made you suffer through enough chapters of binary, it's time to in
 
 Simply put, a logic gate takes in a variable number of inputs (atleast 1) and produce a single output. The interesting part, that that all the inputs and outputs are either 0's or 1's. We have spent a few painful chapters understanding the nuances of binary, but you can put that aside for this chapter. In the next chapter, the connection between this chapter and all the previous ones will become apparent.
 
-Let's start with the AND gate which takes in two inputs, and produces one output. If both of the inputs are 1, then the output of the AND gate is 1. For any other combination of inputs, the output will be a zero.
+Let's start with the AND gate which takes in two inputs, and produces one output. If both of the inputs are 1, then the output of the AND gate is 1. For any other combination of inputs, the output will be a zero. The following image is what an AND gate looks like: X and Y serve as the two inputs and the output is given on the right hand side.
 
-{% include image.html url="_assets/AND.png" description="The AND Gate" %}
-
-<img src="/cpu_tutorial/_assets/part6/AND.png"
-     alt="Logic Gate Diagram"
-     style="float: left" />
+![image info](../_assets/part6/AND.png)
 
 AND Gate Truth Table:
 
