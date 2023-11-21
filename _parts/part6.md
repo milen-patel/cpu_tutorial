@@ -111,6 +111,28 @@ These few logic gates may seem very simple to understand compared to binary, but
 
 ![Switch Construction](../_assets/part6/Switch_Construction.png)
 
+Let's try make some sense of this logic diagram intuitively. We notice that the output of the entire circuit is the two values of the AND gates OR'd together. So, as long as one of the AND gates is outputting a 1, then the entire circuit will output a 1. However, if neither of the gates output a 1, then the entire circuit will output a zero. Then, we look at the two AND gates and make the powerful observation that the input Z is being fed into both of the AND gates (although one is indirect). The value of Z feeds straight into the bottom AND gate while the top AND gate recieves the negated value of Z. This means that whenever Z is equal to 1, a 0 is fed into the top AND gate while a 1 is fed into the bottom AND gate. Conversely, whenever Z is equal to 0, a 1 is fed into the top AND gate while a 0 is fed into the bottom AND gate.
+
+Why does this matter? Well we know that an AND gate will only output a 1 if both of its inputs are 1. Combine this with the fact that, for any value of Z, one of the AND gates will recieve a 1 for one of its inputs while the other will recieve a 0. The AND gate that recieves a zero will automatically output a zero, regardless of it's other input, since this is a property of the AND gate (i.e. needing both of its inputs to be 1s for output to be 1). So, the value of Z will effectively shut off one and gate by giving it a 0 for an input.
+
+When Z is 0, the bottom AND gate is 'shut off' and outputs a zero. So, the output of the overall circuit is equal to 0 OR'd with the output of the top AND gate. Since the OR gate only turns on when one of the inputs is a 1, and we know one of the inputs is already a 0, we can reason that the output of the entire circuit will equal the output of the upper AND gate. So, what is the output of the upper AND gate? It would be 1 (from Z) OR'd with the value of X. With similar reasoning, we can see that this simply equals the value of X. So, when Z is 0, we allow the value of X to 'flow' through the circuit to the output. We also can see how there is no possibility of interference since the entire bottom half of the diagram is guaranteed to be zeroed out in this case.
+
+When Z is 1, the exact reverse thing happens! The top AND gate is forced to output a zero since one of its inputs is a zero. Then, the output of the entire circuit equals the output of the bottom AND gate. The output of the bottom AND gate equals the value of Y since we know the other input is the 1 coming from Z. So, the output of the entire circuit is the value of Z.
+
+For some readers, everything I just said will make sense. For others, however, only half of what I just explained will click. Don't read ahead until you are able to clearly understand what was just written. This is a new concept, so don't be discouraged if it doesn't immediately make sense. On top of it being a new concept, I am also intentionally introducing this to you at a fast pace to avoid getting into the nitty-gritty.
+
+### The Bigger Picture
+
+We have now introduced these very basic structures called logic gates. You immediately saw how they can get complicated when you start chaining them together, but that such combinations actually enable you to build rather interesting circuits. I will now make a claim which, barring one or two minor exceptions which we will later address, is both true and remarkably powerful.
+
+Claim: *computer processors are built entirely of logic gates*. You might be reading that in denial, but this is the unexaggerated truth: logic gates are the building blocks of computers. By chaining hundreds, millions, or even billions of logic gates together, you can build a fully functional computer. And that is the exact goal of this book.
+
+You saw how we can chain logic gates together to build a switch, so in the coming chapters we will explore more complex yet powerful arrangements of logic gates that implement other useful circuits. We will then combine these known circuits together to build an entire computer.
+
+If logic gates can be used to build computers, and you are holding a physical computer in your hand right now, does that mean logic gates physically exist? The answer is yes, you can seriously purchase a [10 pack of AND gates](https://www.amazon.com/Texas-Instruments-CD4081BE-Quad-DIP-14/dp/B00LQQ9MEW/ref=sr_1_4?crid=3P76A27E7NX9X&keywords=AND+gate+ic&qid=1700533554&sprefix=and+gate+ic%2Caps%2C87&sr=8-4) on Amazon for $6.L
+
 Abstract gates can be built physically
 Claim: Computers are made of logic gates (logic gates as the building block). There are still other gates though we just dont need them
 Determinism
+
+### The Universal Gate
