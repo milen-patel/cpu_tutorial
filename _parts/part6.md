@@ -144,7 +144,7 @@ You saw how we can chain logic gates together to build a switch, so in the comin
 
 If logic gates can be used to build computers, and you are holding a physical computer in your hand right now, does that mean logic gates physically exist? The answer is yes, you can seriously purchase a [10 pack of AND gates](https://www.amazon.com/Texas-Instruments-CD4081BE-Quad-DIP-14/dp/B00LQQ9MEW/ref=sr_1_4?crid=3P76A27E7NX9X&keywords=AND+gate+ic&qid=1700533554&sprefix=and+gate+ic%2Caps%2C87&sr=8-4) on Amazon for $6.
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/IC_Physical.png)
+![](https://milen-patel.github.io/cpu_tutorial/assets/part6/IC_Physical.jpeg)
 
 Let's actually take a minor digression to see how the physical chips work. If you click the link, you'll quickly see that the AND gate on Amazon looks nothing like the AND gates in our logic diagram.
 
