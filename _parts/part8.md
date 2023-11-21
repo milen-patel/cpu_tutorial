@@ -45,5 +45,6 @@ Remember when I was talking about legos earlier, this is where we use them. Just
 - talk about what the half adder is doing (the sum gate and the carry gate) - now we can represent two bits (draw a truth table)
 - we use an XOR gate for the sum gate and an and gate for the carry gate (explain the logic by referring to the truth table)
 
+
 - talk about full adders 
 - what makes them different
