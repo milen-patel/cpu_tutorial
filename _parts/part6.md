@@ -145,3 +145,5 @@ Determinism
 <img src="./assets/part6/AND.png" />
 
 {% include image.html url="assets/part6/AND.png" description="AND Gate" %}
+<img src="{{site.url}}{{site.baseurl}}/{{ assets/part6/AND.png }}"
+{% <img src="{{site.url}}{{site.baseurl}}/{{ assets/part6/AND.png }}" %}
