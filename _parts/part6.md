@@ -142,3 +142,4 @@ Determinism
 <img src="assets/part6/AND.png" />
 <img src="../part6/AND.png" />
 <img src="/assets/part6/AND.png" />
+<img src="./assets/part6/AND.png" />
