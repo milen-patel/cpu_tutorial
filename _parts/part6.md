@@ -13,7 +13,7 @@ date: 2023-11-10
 </html>
 
 # Chapter 06 - Logic Gates
-**Topics Covered:** AND, OR, NOT, XOR, NAND, The Universal Gate, Truth Tables
+**Topics Covered:** Elementary Logic Gates, Truth Tables, Basic Circuits, The Universal Gate
 
 Now that I've made you suffer through enough chapters of binary, it's time to introduce a seperate yet similarly related concept: logic gates. There a few different types of logic gates we will need to understand, so I will introduce them one-by-one and then we will circle back and understand the bigger picture. This chapter should (hopefully) be a lighter read compared from the last few which probably involved you using a calculator to double check everything I was saying.
 
@@ -122,6 +122,8 @@ These few logic gates may seem very simple to understand compared to binary, but
 | 1 | 1 |  1 | 1 |
 
 {% include image.html url="assets/part6/Switch_Construction.png" %}
+
+![](https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_Construction.png)
 
 Let's try make some sense of this logic diagram intuitively. We notice that the output of the entire circuit is the two values of the AND gates OR'd together. So, as long as one of the AND gates is outputting a 1, then the entire circuit will output a 1. However, if neither of the gates output a 1, then the entire circuit will output a zero. Then, we look at the two AND gates and make the powerful observation that the input Z is being fed into both of the AND gates (although one is indirect). The value of Z feeds straight into the bottom AND gate while the top AND gate recieves the negated value of Z. This means that whenever Z is equal to 1, a 0 is fed into the top AND gate while a 1 is fed into the bottom AND gate. Conversely, whenever Z is equal to 0, a 1 is fed into the top AND gate while a 0 is fed into the bottom AND gate.
 
