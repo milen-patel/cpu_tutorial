@@ -19,6 +19,8 @@ Now that I've made you suffer through enough chapters of binary, it's time to in
 
 Simply put, a logic gate takes in a variable number of inputs (atleast 1) and produce a single output. The interesting part, that that all the inputs and outputs are either 0's or 1's. We have spent a few painful chapters understanding the nuances of binary, but you can put that aside for this chapter. In the next chapter, the connection between this chapter and all the previous ones will become apparent.
 
+## AND Gate
+
 Let's start with the AND gate which takes in two inputs, and produces one output. If both of the inputs are 1, then the output of the AND gate is 1. For any other combination of inputs, the output will be a zero. The following image is what an AND gate looks like: X and Y serve as the two inputs and the output is given on the right hand side.
 
 {% include image.html url="assets/part6/AND.png" %}
@@ -33,6 +35,8 @@ Recall that, in the picture above, X and Y are binary inputs. So X can be either
 | 0 | 1 |  0 |
 | 1 | 0 |  0 |
 | 1 | 1 |  1 |
+
+## OR Gate
 
 Now, lets move on to the OR gate which also takes in two inputs. The difference here is that this gate will output a 1 whenever atleast 1 of the inputs is 1. If both of the inputs are a one, the output of the gate will still be 1. It also does not matter which of the inputs is 1, the output will be 1 as long as either of the gates is 1. With this information, we can reason that the only time an OR gate will ever output a 0 is if both of the inputs are 0's. Here's what an OR gate with inputs named X and Y looks like:
 
@@ -49,11 +53,14 @@ Just as we gave a truth table for the AND gate, below is the truth table for an 
 | 1 | 0 |  1 |
 | 1 | 1 |  1 |
 
-**XOR Gate Truth Table:**
+
+## XOR Gate
 
 Similar to the OR gate is the XOR gate which means "Exclusive OR". The difference between this gate and the regular OR gate is that this will only output a 1 if exactly 1 of the inputs is 1. So, if both of the inputs are 1's, then the gate will output a zero. Besides this, the other three rows in the truth table remain unaffected. A picture of the gate and truth table are given below.
 
 {% include image.html url="assets/part6/XOR.png" %}
+
+**XOR Gate Truth Table:**
 
 | X | Y | XOR |
 |---|---|---|
@@ -62,22 +69,27 @@ Similar to the OR gate is the XOR gate which means "Exclusive OR". The differenc
 | 1 | 0 |  1 |
 | 1 | 1 |  0 |
 
-**NOT Gate Truth Table:**
+## NOT Gate
+
 The NOT gate, sometimes called an inverter, is different than the rest we have considered so far because it only takes in one input. Since there is one input and the input is binary, we know that the truth table will only have two rows to represent the two sole possible input values. The inverter will output the inverse of the input. So, 1's become 0's and vice versa. Below is an image of an inverter followed by its corresponding truth table.
 
 {% include image.html url="assets/part6/NOT.png" %}
+
+**NOT Gate Truth Table:**
 
 | X | NOT |
 |---|---|
 | 0 | 1 |
 | 1 | 0 |
 
-**NAND Gate Truth Table:**
+
+## NAND Gate
 
 Now we move onto the the NAND gate which, in English, reads "Not AND". This gate will take whatever the output is of the AND gate and invert it. The NAND gate will output a 1 unless both inputs are 1's in which case it will output a zero. This means the the truth table will be the exact opposite of the AND gate's truth table. The diagram and truth table are given below.
 
 {% include image.html url="assets/part6/NAND.png" %}
 
+**NAND Gate Truth Table:**
 
 | X | Y | NAND |
 |---|---|---|
