@@ -40,7 +40,7 @@ Recall that, in the picture above, X and Y are binary inputs. So X can be either
 
 Now, lets move on to the OR gate which also takes in two inputs. The difference here is that this gate will output a 1 whenever atleast 1 of the inputs is 1. If both of the inputs are a one, the output of the gate will still be 1. It also does not matter which of the inputs is 1, the output will be 1 as long as either of the gates is 1. With this information, we can reason that the only time an OR gate will ever output a 0 is if both of the inputs are 0's. Here's what an OR gate with inputs named X and Y looks like:
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/OR.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/OR.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 Just as we gave a truth table for the AND gate, below is the truth table for an OR gate.
 
@@ -58,7 +58,7 @@ Just as we gave a truth table for the AND gate, below is the truth table for an 
 
 Similar to the OR gate is the XOR gate which means "Exclusive OR". The difference between this gate and the regular OR gate is that this will only output a 1 if exactly 1 of the inputs is 1. So, if both of the inputs are 1's, then the gate will output a zero. Besides this, the other three rows in the truth table remain unaffected. A picture of the gate and truth table are given below.
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 **XOR Gate Truth Table:**
 
@@ -73,7 +73,7 @@ Similar to the OR gate is the XOR gate which means "Exclusive OR". The differenc
 
 The NOT gate, sometimes called an inverter, is different than the rest we have considered so far because it only takes in one input. Since there is one input and the input is binary, we know that the truth table will only have two rows to represent the two sole possible input values. The inverter will output the inverse of the input. So, 1's become 0's and vice versa. Below is an image of an inverter followed by its corresponding truth table.
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/NOT.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NOT.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 **NOT Gate Truth Table:**
 
@@ -87,7 +87,7 @@ The NOT gate, sometimes called an inverter, is different than the rest we have c
 
 Now we move onto the the NAND gate which, in English, reads "Not AND". This gate will take whatever the output is of the AND gate and invert it. The NAND gate will output a 1 unless both inputs are 1's in which case it will output a zero. This means the the truth table will be the exact opposite of the AND gate's truth table. The diagram and truth table are given below.
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 **NAND Gate Truth Table:**
 
@@ -100,11 +100,11 @@ Now we move onto the the NAND gate which, in English, reads "Not AND". This gate
 
 What's interesting is that the NAND gate can be constructed by taking a regular and gate and then feeding the input through a NOT gate. This is entirely valid, we can chain logic gates together to build more powerful circuits. So, this circuit below is functionally equivalent to a NAND gate.
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_Construction.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_Construction.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 Similarly, we can construct the XOR gate with the following combination of other logic gates.
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_Construction.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_Construction.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 This one is a little bit harder to understand. The easiest option is to create a truth table for this circuit and then compare it against the truth table for the XOR gate to see that they always output the same value for any input. If you're like me, this alone won't satisfy you since you want an intuitive explanation. Here is how I would reason through this: the circuit ends with an AND gate which means it only outputs a 1 when both of the inputs are 1's. How do we make the first input a 1? The first input to the AND gate will be a one whenever X or Y is true since the input to the AND gate is the output of an OR gate. How do we make the second input to the AND gate a 1? We make the output of the NAND gate a 1. This happens as long as the inputs are not both 1. So we know the two conditions, and we need them to be true simultaneously. So putting this together, we can reason that the circuit will only output a 1 if "atleast X or Y is a 1 BUT not both of them are 1". And this is exactly how we described the XOR gate!
 
@@ -122,7 +122,7 @@ These few logic gates may seem very simple to understand compared to binary, but
 | 1 | 1 |  1 | 1 |
 
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_Construction.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_Construction.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 Let's try make some sense of this logic diagram intuitively. We notice that the output of the entire circuit is the two values of the AND gates OR'd together. So, as long as one of the AND gates is outputting a 1, then the entire circuit will output a 1. However, if neither of the gates output a 1, then the entire circuit will output a zero. Then, we look at the two AND gates and make the powerful observation that the input Z is being fed into both of the AND gates (although one is indirect). The value of Z feeds straight into the bottom AND gate while the top AND gate recieves the negated value of Z. This means that whenever Z is equal to 1, a 0 is fed into the top AND gate while a 1 is fed into the bottom AND gate. Conversely, whenever Z is equal to 0, a 1 is fed into the top AND gate while a 0 is fed into the bottom AND gate.
 
@@ -144,11 +144,11 @@ You saw how we can chain logic gates together to build a switch, so in the comin
 
 If logic gates can be used to build computers, and you are holding a physical computer in your hand right now, does that mean logic gates physically exist? The answer is yes, you can seriously purchase a [10 pack of AND gates](https://www.amazon.com/Texas-Instruments-CD4081BE-Quad-DIP-14/dp/B00LQQ9MEW/ref=sr_1_4?crid=3P76A27E7NX9X&keywords=AND+gate+ic&qid=1700533554&sprefix=and+gate+ic%2Caps%2C87&sr=8-4) on Amazon for $6.
 
-![](https://milen-patel.github.io/cpu_tutorial/assets/part6/IC_Physical.jpeg)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/IC_Physical.jpeg" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 Let's actually take a minor digression to see how the physical chips work. If you click the link, you'll quickly see that the AND gate on Amazon looks nothing like the AND gates in our logic diagram.
 
-![](https://cdn.sparkfun.com/assets/5/b/9/9/b/51dc7fb8ce395f1d1c000000.png?_gl=1*j716c4*_ga*MTY3NTE1NDc1My4xNzAwNTM5MTY1*_ga_T369JS7J9N*MTcwMDUzOTE2NS4xLjAuMTcwMDUzOTE2NS42MC4wLjA.)
+<img src="https://cdn.sparkfun.com/assets/5/b/9/9/b/51dc7fb8ce395f1d1c000000.png?_gl=1*j716c4*_ga*MTY3NTE1NDc1My4xNzAwNTM5MTY1*_ga_T369JS7J9N*MTcwMDUzOTE2NS4xLjAuMTcwMDUzOTE2NS42MC4wLjA." style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
 
 Abstract gates can be built physically
 Claim: Computers are made of logic gates (logic gates as the building block). There are still other gates though we just dont need them
