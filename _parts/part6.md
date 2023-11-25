@@ -150,7 +150,11 @@ So far, I have been using diagrams to visualize circuits, but only using diagram
 
 We start with the logical AND expression, which can be represented with multiplication or the absence of a sign. So, $$A*B$$ and $$AB$$ are equivalent expressions that read in English as "A and B". With just two inputs, this can easily be translated to a simple logic gate with two inputs. If we gave the expression $$ABC$$ (equivalent to $$A*B*C$$), then this translates to "A and B and C". But the AND gate we learned about only takes two inputs? Well, logical expressions and logic circuits are very similar, but you usually need to find a way to express a logical expression using logic gates. In the case of $$ABC$$, we can easily invent the circuit below:
 
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Triple_AND.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
+We could even scale this up to any number of variables. Here's how the expression $$ABCD$$ would look like as a circuit:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Quad_AND.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 # The Bigger Picture
 
