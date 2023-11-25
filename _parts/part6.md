@@ -19,7 +19,7 @@ Now that I've made you suffer through enough chapters of binary, it's time to in
 
 Simply put, a logic gate takes in a variable number of inputs (atleast 1) and produce a single output. The interesting part, that that all the inputs and outputs are either 0's or 1's. We have spent a few painful chapters understanding the nuances of binary, but you can put that aside for this chapter. In the next chapter, the connection between this chapter and all the previous ones will become apparent.
 
-## AND Gate
+# AND Gate
 
 Let's start with the AND gate which takes in two inputs, and produces one output. If both of the inputs are 1, then the output of the AND gate is 1. For any other combination of inputs, the output will be a zero. The following image is what an AND gate looks like: X and Y serve as the two inputs and the output is given on the right hand side.
 
@@ -36,7 +36,7 @@ Recall that, in the picture above, X and Y are binary inputs. So X can be either
 | 1 | 0 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND_10.png" /> |
 | 1 | 1 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND_11.png" /> |
 
-## OR Gate
+# OR Gate
 
 Now, lets move on to the OR gate which also takes in two inputs. The difference here is that this gate will output a 1 whenever atleast 1 of the inputs is 1. If both of the inputs are a one, the output of the gate will still be 1. It also does not matter which of the inputs is 1, the output will be 1 as long as either of the gates is 1. With this information, we can reason that the only time an OR gate will ever output a 0 is if both of the inputs are 0's. Here's what an OR gate with inputs named X and Y looks like:
 
@@ -54,7 +54,7 @@ Just as we gave a truth table for the AND gate, below is the truth table for an 
 | 1 | 1 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/OR_11.png" /> |
 
 
-## XOR Gate
+# XOR Gate
 
 Similar to the OR gate is the XOR gate which means "Exclusive OR". The difference between this gate and the regular OR gate is that this will only output a 1 if exactly 1 of the inputs is 1. So, if both of the inputs are 1's, then the gate will output a zero. Besides this, the other three rows in the truth table remain unaffected. A picture of the gate and truth table are given below.
 
@@ -69,7 +69,7 @@ Similar to the OR gate is the XOR gate which means "Exclusive OR". The differenc
 | 1 | 0 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_10.png" /> |
 | 1 | 1 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_11.png" /> |
 
-## NOT Gate
+# NOT Gate
 
 The NOT gate, sometimes called an inverter, is different than the rest we have considered so far because it only takes in one input. Since there is one input and the input is binary, we know that the truth table will only have two rows to represent the two sole possible input values. The inverter will output the inverse of the input. So, 1's become 0's and vice versa. Below is an image of an inverter followed by its corresponding truth table.
 
@@ -83,7 +83,7 @@ The NOT gate, sometimes called an inverter, is different than the rest we have c
 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NOT_1.png" /> |
 
 
-## NAND Gate
+# NAND Gate
 
 Now we move onto the the NAND gate which, in English, reads "Not AND". This gate will take whatever the output is of the AND gate and invert it. The NAND gate will output a 1 unless both inputs are 1's in which case it will output a zero. This means the the truth table will be the exact opposite of the AND gate's truth table. The diagram and truth table are given below.
 
@@ -119,19 +119,20 @@ This one is a little bit harder to understand. The easiest option is to create a
 
 These few logic gates may seem very simple to understand compared to binary, but it turns out they can be chained together to do some pretty interesting things. Consider the circuit below with three inputs which, at first glance, probably looks like gibberish. But if you make a truth table for it, you will see that the circuit is a switch. Whenever Z is 0 the gate outputs whatever the value of X is. Whenever Z is 0, the gate outputs whatever the value of Y is. So, Z is effectively switching the output between X and Y. Pretty neat! The truth table has been given below, but you should try complete it on your own. 
 
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_Construction.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
 | X | Y | Z | Output | Picture
 |---|---|---|---|---|
 | 0 | 0 |  0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_000.png" /> |
 | 0 | 0 |  1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_001.png" /> |
-| 0 | 1 |  0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_010.png" /> |
-| 0 | 1 |  1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_011.png" /> |
-| 1 | 0 |  0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_100.png" /> |
-| 1 | 0 |  1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_101.png" /> |
+| 0 | 1 |  0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_010.png" /> |
+| 0 | 1 |  1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_011.png" /> |
+| 1 | 0 |  0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_100.png" /> |
+| 1 | 0 |  1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_101.png" /> |
 | 1 | 1 |  0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_110.png" /> |
 | 1 | 1 |  1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_111.png" /> |
 
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_Construction.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Let's try make some sense of this logic diagram intuitively. We notice that the output of the entire circuit is the two values of the AND gates OR'd together. So, as long as one of the AND gates is outputting a 1, then the entire circuit will output a 1. However, if neither of the gates output a 1, then the entire circuit will output a zero. Then, we look at the two AND gates and make the powerful observation that the input Z is being fed into both of the AND gates (although one is indirect). The value of Z feeds straight into the bottom AND gate while the top AND gate recieves the negated value of Z. This means that whenever Z is equal to 1, a 0 is fed into the top AND gate while a 1 is fed into the bottom AND gate. Conversely, whenever Z is equal to 0, a 1 is fed into the top AND gate while a 0 is fed into the bottom AND gate.
 
@@ -143,7 +144,7 @@ When Z is 1, the exact reverse thing happens! The top AND gate is forced to outp
 
 For some readers, everything I just said will make sense. For others, however, only half of what I just explained will click. Don't read ahead until you are able to clearly understand what was just written. This is a new concept, so don't be discouraged if it doesn't immediately make sense. On top of it being a new concept, I am also intentionally introducing this to you at a fast pace to avoid getting into the nitty-gritty.
 
-### A better way of expressing circuits
+# A better way of expressing circuits
 
 So far, I have been using diagrams to visualize circuits, but only using diagrams will become complicated as we move forward in the next chapters. Instead, it would be nice if we could represent some of these diagrams using just text. Fortunately, this problem has already been solved, so we will spend some time here seeing how we can express logic gates in a textual form. For this subsection, lets assume that $$A$$, $$B$$, $$C$$, or any letter is a binary input (i.e. a variable that takes on either the value 1 or the value 0).
 
@@ -151,7 +152,7 @@ We start with the logical AND expression, which can be represented with multipli
 
 
 
-### The Bigger Picture
+# The Bigger Picture
 
 We have now introduced these very basic structures called logic gates. You immediately saw how they can get complicated when you start chaining them together, but that such combinations actually enable you to build rather interesting circuits. I will now make a claim which, barring one or two minor exceptions which we will later address, is both true and remarkably powerful.
 
@@ -171,5 +172,5 @@ Abstract gates can be built physically
 Claim: Computers are made of logic gates (logic gates as the building block). There are still other gates though we just dont need them
 Determinism
 
-### The Universal Gate
+# The Universal Gate
 
