@@ -13,18 +13,16 @@ In this series, we will start by designing a basic CPU from scratch called the S
 Whether you are a computer science major or a curious learner without engineering experience, this guide is intended to be read by any audience and makes no prior assumption of any knowledge beyond basic math concepts you (hopefully) learned in middle school.
 
 # Table of Contents
-* Chapter 01 - TODO
+* Chapter 01 - **In Progress...**
 * Chapter 02 - [How We Intuitively See Numbers](/cpu_tutorial/parts/part2.html)
 * Chapter 03 - [The Language of Computers](/cpu_tutorial/parts/part3.html)
 * Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
 * Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
 * Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part6.html)
-* Chapter 07 - TODO
+* Chapter 07 - **In Progress...**
 * Chapter 08 - [Addition with Logic Gates](/cpu_tutorial/parts/part8.html)
 
 # Future Chapters
-* Chapter XX - Logic Gates
-* Chapter XX - Addition with Logic Gates
 * Chatper XX - Ripple Carry Adders 
 * Chatper XX - Arithmetic Logic Unit (ALU)
 * Chapter XX - Sequential Logic
