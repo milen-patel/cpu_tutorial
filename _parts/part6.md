@@ -23,7 +23,7 @@ Simply put, a logic gate takes in a variable number of inputs (atleast 1) and pr
 
 Let's start with the AND gate which takes in two inputs, and produces one output. If both of the inputs are 1, then the output of the AND gate is 1. For any other combination of inputs, the output will be a zero. The following image is what an AND gate looks like: X and Y serve as the two inputs and the output is given on the right hand side.
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND.png" style="" />
 
 Recall that, in the picture above, X and Y are binary inputs. So X can be either 0 or 1 just as Y can be either 0 or 1. We know that the only time that Output=1 is when $X=1$ and $Y=1$. Another way to view the functionality of the gate is by giving a **truth table**. A truth table is a table (duh) that enumerates all of the different possible input combinations on the rows while providing the output of the logic gate on the right-most column. See the table below. There are only four rows in this table, because with two binary inputs, there are only four different input combinations (try invent another one if you don't believe me).
 
@@ -105,6 +105,15 @@ What's interesting is that the NAND gate can be constructed by taking a regular 
 Similarly, we can construct the XOR gate with the following combination of other logic gates.
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_Construction.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
+
+We can verify this is equivalent by comparing the truth tables.
+
+| X | Y | NAND | Picture | New Picture
+|---|---|---|---|
+| 0 | 0 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_00.png" /> | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_Construction_00.png" /> |
+| 0 | 1 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_01.png" /> | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_Construction_01.png" /> |
+| 1 | 0 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_10.png" /> | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_Construction_10.png" /> |
+| 1 | 1 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_11.png" /> | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_Construction_11.png" /> |
 
 This one is a little bit harder to understand. The easiest option is to create a truth table for this circuit and then compare it against the truth table for the XOR gate to see that they always output the same value for any input. If you're like me, this alone won't satisfy you since you want an intuitive explanation. Here is how I would reason through this: the circuit ends with an AND gate which means it only outputs a 1 when both of the inputs are 1's. How do we make the first input a 1? The first input to the AND gate will be a one whenever X or Y is true since the input to the AND gate is the output of an OR gate. How do we make the second input to the AND gate a 1? We make the output of the NAND gate a 1. This happens as long as the inputs are not both 1. So we know the two conditions, and we need them to be true simultaneously. So putting this together, we can reason that the circuit will only output a 1 if "atleast X or Y is a 1 BUT not both of them are 1". And this is exactly how we described the XOR gate!
 
