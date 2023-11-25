@@ -14,10 +14,13 @@ Whether you are a computer science major or a curious learner without engineerin
 
 # Table of Contents
 * Chapter 01 - TODO
-* Chapter 02 - [How Humans Intuitively Represent Numbers](/cpu_tutorial/parts/part2.html)
-* Chapter 03 - [The Language of Computers: Meet Binary](/cpu_tutorial/parts/part3.html)
+* Chapter 02 - [How We Intuitively See Numbers](/cpu_tutorial/parts/part2.html)
+* Chapter 03 - [The Language of Computers](/cpu_tutorial/parts/part3.html)
 * Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
 * Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
+* Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part6.html)
+* Chapter 07 - TODO
+* Chapter 08 - [Addition with Logic Gates](/cpu_tutorial/parts/part8.html)
 
 # Future Chapters
 * Chapter XX - Logic Gates
