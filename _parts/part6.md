@@ -46,12 +46,12 @@ Just as we gave a truth table for the AND gate, below is the truth table for an 
 
 **OR Gate Truth Table:**
 
-| X | Y | OR |
-|---|---|---|
-| 0 | 0 |  0 |
-| 0 | 1 |  1 |
-| 1 | 0 |  1 |
-| 1 | 1 |  1 |
+| X | Y | OR | Picture
+|---|---|---|---|
+| 0 | 0 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/OR_00.png" /> |
+| 0 | 1 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/OR_01.png" /> |
+| 1 | 0 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/OR_10.png" /> |
+| 1 | 1 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/OR_11.png" /> |
 
 
 ## XOR Gate
@@ -62,12 +62,12 @@ Similar to the OR gate is the XOR gate which means "Exclusive OR". The differenc
 
 **XOR Gate Truth Table:**
 
-| X | Y | XOR |
-|---|---|---|
-| 0 | 0 |  0 |
-| 0 | 1 |  1 |
-| 1 | 0 |  1 |
-| 1 | 1 |  0 |
+| X | Y | XOR | Picture
+|---|---|---|---|
+| 0 | 0 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_00.png" /> |
+| 0 | 1 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_01.png" /> |
+| 1 | 0 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_10.png" /> |
+| 1 | 1 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_11.png" /> |
 
 ## NOT Gate
 
@@ -77,10 +77,10 @@ The NOT gate, sometimes called an inverter, is different than the rest we have c
 
 **NOT Gate Truth Table:**
 
-| X | NOT |
-|---|---|
-| 0 | 1 |
-| 1 | 0 |
+| X | NOT | Picture
+|---|---|---|
+| 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NOT_0.png" /> |
+| 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NOT_1.png" /> |
 
 
 ## NAND Gate
@@ -91,12 +91,12 @@ Now we move onto the the NAND gate which, in English, reads "Not AND". This gate
 
 **NAND Gate Truth Table:**
 
-| X | Y | NAND |
-|---|---|---|
-| 0 | 0 |  1 |
-| 0 | 1 |  1 |
-| 1 | 0 |  1 |
-| 1 | 1 |  0 |
+| X | Y | NAND | Picture
+|---|---|---|---|
+| 0 | 0 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_00.png" /> |
+| 0 | 1 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_01.png" /> |
+| 1 | 0 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_10.png" /> |
+| 1 | 1 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_11.png" /> |
 
 What's interesting is that the NAND gate can be constructed by taking a regular and gate and then feeding the input through a NOT gate. This is entirely valid, we can chain logic gates together to build more powerful circuits. So, this circuit below is functionally equivalent to a NAND gate.
 
