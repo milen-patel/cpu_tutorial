@@ -121,14 +121,14 @@ These few logic gates may seem very simple to understand compared to binary, but
 
 | X | Y | Z | Output | Picture
 |---|---|---|---|---|
-| 0 | 0 |  0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/SWITCH_000.png" /> |
-| 0 | 0 |  1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/SWITCH_001.png" /> |
-| 0 | 1 |  0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/SWITCH_010.png" /> |
-| 0 | 1 |  1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/SWITCH_011.png" /> |
-| 1 | 0 |  0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/SWITCH_100.png" /> |
-| 1 | 0 |  1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/SWITCH_101.png" /> |
-| 1 | 1 |  0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/SWITCH_110.png" /> |
-| 1 | 1 |  1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/SWITCH_111.png" /> |
+| 0 | 0 |  0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_000.png" /> |
+| 0 | 0 |  1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_001.png" /> |
+| 0 | 1 |  0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_010.png" /> |
+| 0 | 1 |  1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_011.png" /> |
+| 1 | 0 |  0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_100.png" /> |
+| 1 | 0 |  1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_101.png" /> |
+| 1 | 1 |  0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_110.png" /> |
+| 1 | 1 |  1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_111.png" /> |
 
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_Construction.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" />
