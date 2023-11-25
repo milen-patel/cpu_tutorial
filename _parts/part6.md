@@ -29,12 +29,12 @@ Recall that, in the picture above, X and Y are binary inputs. So X can be either
 
 **AND Gate Truth Table:**
 
-| X | Y | AND |
-|---|---|---|
-| 0 | 0 |  0 |
-| 0 | 1 |  0 |
-| 1 | 0 |  0 |
-| 1 | 1 |  1 |
+| X | Y | AND | Picture
+|---|---|---|---|
+| 0 | 0 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND_00.png" /> |
+| 0 | 1 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND_01.png" /> |
+| 1 | 0 |  0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND_10.png" /> |
+| 1 | 1 |  1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND_11.png" /> |
 
 ## OR Gate
 
@@ -133,6 +133,14 @@ When Z is 0, the bottom AND gate is 'shut off' and outputs a zero. So, the outpu
 When Z is 1, the exact reverse thing happens! The top AND gate is forced to output a zero since one of its inputs is a zero. Then, the output of the entire circuit equals the output of the bottom AND gate. The output of the bottom AND gate equals the value of Y since we know the other input is the 1 coming from Z. So, the output of the entire circuit is the value of Z.
 
 For some readers, everything I just said will make sense. For others, however, only half of what I just explained will click. Don't read ahead until you are able to clearly understand what was just written. This is a new concept, so don't be discouraged if it doesn't immediately make sense. On top of it being a new concept, I am also intentionally introducing this to you at a fast pace to avoid getting into the nitty-gritty.
+
+### A better way of expressing circuits
+
+So far, I have been using diagrams to visualize circuits, but only using diagrams will become complicated as we move forward in the next chapters. Instead, it would be nice if we could represent some of these diagrams using just text. Fortunately, this problem has already been solved, so we will spend some time here seeing how we can express logic gates in a textual form. For this subsection, lets assume that $$A$$, $$B$$, $$C$$, or any letter is a binary input (i.e. a variable that takes on either the value 1 or the value 0).
+
+We start with the logical AND expression, which can be represented with multiplication or the absence of a sign. So, $$A*B$$ and $$AB$$ are equivalent expressions that read in English as "A and B". With just two inputs, this can easily be translated to a simple logic gate with two inputs. If we gave the expression $$ABC$$ (equivalent to $$A*B*C$$), then this translates to "A and B and C". But the AND gate we learned about only takes two inputs? Well, logical expressions and logic circuits are very similar, but you usually need to find a way to express a logical expression using logic gates. In the case of $$ABC$$, we can easily invent the circuit below:
+
+
 
 ### The Bigger Picture
 
