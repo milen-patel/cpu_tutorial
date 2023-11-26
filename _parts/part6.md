@@ -180,7 +180,7 @@ For logical negation (NOT), there are two different but equally valid representa
 
 To represent XOR, we have this odd looking symbol: $$\oplus$$. So $$X\oplus Y$$ is the exclusive-OR between variables X and Y.
 
-As it turns out, those three operators combined with the order of operations you already know intuitively are enough to represent any combination of logic gates. For example, although we don't have a NAND symbol, we can represent NAND with an inverted AND: $$\overlline{XY}$$
+As it turns out, those three operators combined with the order of operations you already know intuitively are enough to represent any combination of logic gates. For example, although we don't have a NAND symbol, we can represent NAND with an inverted AND: $$\overline{XY}$$
 
 As you can probably imagine, these expressions can get incredibly complicated and virtually impossible to read. There is an entire field of study that involves simplying expressions down as much as possible. In many cases, it is easy to take a convoluted expression and simplify it down to a more readable expression. For example, the following expressions are logically equal but the second is more readable than the first: $$AB + DA + AC \equiv A(B + D +C)$$ (The triple equals is used to show logical equality). Reducing expressions can get complicated rather quickly, and I don't want it to be a primary concern of this book. As we introduce and simplify expressions in the future, you will either be presented with the steps taken to simplify the expression or given the final reduced expression. In either scenario, you do not need to focus heavily on *how* the statements were simplified, and it is safe for you to accept our simplified equations as the truth.
 
