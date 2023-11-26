@@ -22,7 +22,7 @@ So the focus of the next few chapters will be solving this issue. In chapter 6, 
 
 Until this point, every logic circuit we have introduced has been **deterministic**. This means that the output of the circuit depends strictly on the inputs, and whenever you set the inputs to a given value, the output will always be the same. This may sound obvious, but take a look at the circuit below.
 
-<img src="../assets/part10/Example1.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Example1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 This should look very confusing - we have the output of a logic gate feeding back into the input of a logic gate. Is this even valid? The answer is yes, and it is this exact mechanism that enables us to store information in logic gates. But let's look at this gate a bit closer to see what happening. The first claim which I will make is that, at the initial configuration, the output of all logic gates is zero. Just assume this to be true for now, and over the next few chapters it will become clear why this is a convenient assumption to make. 
 
