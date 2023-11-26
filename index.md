@@ -19,8 +19,7 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
 * Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
 * Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part6.html)
-* Chapter 07 - *In Progress...*
-* Chapter 08 - [Addition with Logic Gates](/cpu_tutorial/parts/part8.html)
+* Chapter 07 - [Addition with Logic Gates](/cpu_tutorial/parts/part8.html)
 
 # Future Chapters
 * Chatper XX - Ripple Carry Adders 
