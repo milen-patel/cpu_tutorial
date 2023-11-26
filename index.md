@@ -54,3 +54,5 @@ Whether you are a computer science major or a curious learner without engineerin
 <img src="https://karenok.github.io/SAP-1-Computer/images/CS.png"
      alt="Logic Gate Diagram"
      style="float: left; margin: 10px;" />
+
+[View entire source](/cpu_tutorial/parts/full_text.html)
