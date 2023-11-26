@@ -22,7 +22,7 @@ So the focus of the next few chapters will be solving this issue. In chapter 6, 
 
 Until this point, every logic circuit we have introduced has been **deterministic**. This means that the output of the circuit depends strictly on the inputs, and whenever you set the inputs to a given value, the output will always be the same. This may sound obvious, but take a look at the circuit below.
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Example10.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="../assets/part10/Example1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 This should look very confusing - we have the output of a logic gate feeding back into the input of a logic gate. Is this even valid? The answer is yes, and it is this exact mechanism that enables us to store information in logic gates. But let's look at this gate a bit closer to see what happening. The first claim which I will make is that, at the initial configuration, the output of all logic gates is zero. Just assume this to be true for now, and over the next few chapters it will become clear why this is a convenient assumption to make. 
 
@@ -37,3 +37,7 @@ If you're anything like I was, you should find this incredibly confusing. Sit do
 If we had to describe the behaviour of the circuit in English, we could reason as follows: "The value of OUT will be a 1 if X was, at any point in history, a 1. If X has always been zero, then the gate will output a zero."
 
 Now in all honesty, reading that explanation might have made you realize that this is a pretty useless circuit. It doesn't serve a valuable purpose besides me confusing you. But what this does introduce is the idea of **non-determinism**. We originally said that all of our previously encountered circuits are deterministic because they always give the same output for a fixed input. Here, however, we have found this to not be true. We saw two different scenarios where the input was a zero but in one case the circuit outputted a 1 and in the other case a 0. This is the essence of non-determinism: the output of circuits now depends both on current inputs and previous inputs. For these non-deterministic circuits, which I will also refer to as **sequential circuits**, the concept of using a truth table no longer makes sense since the information in each row (i.e. the current inputs) is not enough to explain the output. In some casees, we can modify our truth tables to include previous inputs and then truth tables may be used, but in many cases this is not practical.
+
+# Latches
+
+Now that we have introduced sequential logic, it's time to see how we can create sequential circuits that store information. The first circuit we will examine is called a latch.
