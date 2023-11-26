@@ -187,6 +187,7 @@ As you can probably imagine, these expressions can get incredibly complicated an
 That being said, there are two famous simplifications that I will provide below. These simplifications are called De Morgan's laws and come up frequently in expression simplification. You should take some time to reason through why the two claims are logically true.
 
 $$\overline{AB} \equiv \overline{A} + \overline{B}$$
+
 $$\overline{A + B} \equiv \overline{A}\ *\ \overline{B}$$
 
 # The Bigger Picture
@@ -204,11 +205,18 @@ If logic gates can be used to build computers, and you are holding a physical co
 
 Let's actually take a minor digression to see how the physical chips work. If you click the link, you'll quickly see that the AND gate on Amazon looks nothing like the AND gates in our logic diagram.
 
-<img src="https://cdn.sparkfun.com/assets/5/b/9/9/b/51dc7fb8ce395f1d1c000000.png?_gl=1*j716c4*_ga*MTY3NTE1NDc1My4xNzAwNTM5MTY1*_ga_T369JS7J9N*MTcwMDUzOTE2NS4xLjAuMTcwMDUzOTE2NS42MC4wLjA." style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://cdn.sparkfun.com/assets/5/b/9/9/b/51dc7fb8ce395f1d1c000000.png?_gl=1*j716c4*_ga*MTY3NTE1NDc1My4xNzAwNTM5MTY1*_ga_T369JS7J9N*MTcwMDUzOTE2NS4xLjAuMTcwMDUzOTE2NS42MC4wLjA." style="display: block; margin-left: auto; margin-right: auto; width=70%" />
 
-Abstract gates can be built physically
-Claim: Computers are made of logic gates (logic gates as the building block). There are still other gates though we just dont need them
-Determinism
+In the diagram, pins 7 and 14 are used to power the chip, so we can ignore those. Look at the first three pins, however, and you will see an AND gate. The first two pins are the input while the third pin is the output. This means that if you connect pins 1 and 2 to wires and then place electricity on the both of the wires (hence the AND), the chip will put electricity onto the third pin. Looking at the rest of the diagram, you can see that there are a total of four AND gates on this chip. You do not need to understand how these chips are physically built, and if I'm being honest, I don't have the clearest understanding myself. We will build our computer strictly using logic gates, and that will be the lowest level of understanding we have for how this computer can be physically built. If you *really, really* want to know how logic gates are physically built, there is an abundance of resources online, none of which make perfect sense to me. So yes, perhaps I lied a little bit in the introduction when I claimed that you would understand how a computer works from scratch. In reality, you will understand how computers work down to logic gates, and we will leave that very lowest level of physically building the gates aside. For those of you curious, there is actually a really neat [article](https://hackaday.com/2021/04/26/logic-flows-literally-in-this-water-adder/) about someone who implemented logic gates with water. If you're looking for a little more explanation on how logic gates work but don't want to go into the nitty-gritty of electricity, then this article should hopefully satisfy your craving.
 
-# The Universal Gate
+# The Universal Gate (Optional)
+
+This chapter has already covered enough material, and I don't want to distract you by adding even more to that load. But, there is one concept that I remember blowing my mind when I was first learning about logic gates. 
+
+The mindblowing fact: All logic gates can be constructed by using NAND gates. If you don't believe me, then take a look at the diagram below which shows some of the gate construction and verify that the truth tables work out equivalently.
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Universal_Gate.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+We previously claimed that you can build an entire computer out of logic gates. Now that we know the NAND gate can be used to construct any other logic gate, we can make the secondary claim that you can build an entire computer solely using NAND gates. This is pretty neat!
+
 

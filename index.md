@@ -26,7 +26,7 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chatper XX - Ripple Carry Adders 
 * Chatper XX - Arithmetic Logic Unit (ALU)
 * Chapter XX - Sequential Logic
-* Chapter XX - Building a Register
+* Chapter XX - Building a Register (Determinism vs Non-Determinism)
 * Chapter XX - Interlude: Chaining a Register to the ALU
 * Chapter XX - The Clock
 * Chapter XX - Interlude: Building a Counter
