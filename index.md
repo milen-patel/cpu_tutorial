@@ -20,14 +20,14 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
 * Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part6.html)
 * Chapter 07 - [Addition with Logic Gates](/cpu_tutorial/parts/part7.html)
+* Chapter 08 - *In Progress...Ripple Carry Adders *
+* Chapter 09 - *In Progress...Arithmetic Logic Unit (ALU)*
+* Chapter 10 - [Storing Data with Logic Gates](/cpu_tutorial/_parts/part10.html)
 
 # Future Chapters
-* Chatper XX - Ripple Carry Adders 
-* Chatper XX - Arithmetic Logic Unit (ALU)
-* Chapter XX - Sequential Logic
 * Chapter XX - Building a Register (Determinism vs Non-Determinism)
 * Chapter XX - Interlude: Chaining a Register to the ALU
-* Chapter XX - The Clock
+* Chapter XX - The Clock (Propogation Delay)
 * Chapter XX - Interlude: Building a Counter
 * Chapter XX - RAM
 * Chapter XX - The Memory Address Register (MAR)
