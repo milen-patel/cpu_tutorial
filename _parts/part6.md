@@ -174,9 +174,14 @@ As is the case with algebra, the use of parenthesis is valid (and often necessar
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Example2.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-For logical negation (NOT), there are two different but equally valid representations: $$\neg{X}$$ or $$\bar{X}$$. You will see these used interchangeably online, but for the sake of this book, we will stick to the latter representation. So the expression $$\bar{(A+B)}(C + D)$$ can be represented with logic gates accordingly:
+For logical negation (NOT), there are two different but equally valid representations: $$\neg{X}$$ or $$\overline{X}$$. You will see these used interchangeably online, but for the sake of this book, we will stick to the latter representation. So the expression $$\bar{(A + B)}(C + D)$$ can be represented with logic gates accordingly:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Example3.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+To represent XOR, we have this odd looking symbol: $$\oplus$$. So $$X\oplusY$$ is the exclusive-OR between variables X and Y.
 
 # The Bigger Picture
+
 
 We have now introduced these very basic structures called logic gates. You immediately saw how they can get complicated when you start chaining them together, but that such combinations actually enable you to build rather interesting circuits. I will now make a claim which, barring one or two minor exceptions which we will later address, is both true and remarkably powerful.
 
