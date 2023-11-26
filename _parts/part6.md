@@ -186,8 +186,8 @@ As you can probably imagine, these expressions can get incredibly complicated an
 
 That being said, there are two famous simplifications that I will provide below. These simplifications are called De Morgan's laws and come up frequently in expression simplification. You should take some time to reason through why the two claims are logically true.
 
-1. $$\overline{AB} \equiv \overline{A} + \overline{B}$$
-2. $$\overline{A + B} \equiv \overline{A}\ *\ \overline{B}$$$
+$$\overline{AB} \equiv \overline{A} + \overline{B}$$
+$$\overline{A + B} \equiv \overline{A}\ *\ \overline{B}$$
 
 # The Bigger Picture
 
