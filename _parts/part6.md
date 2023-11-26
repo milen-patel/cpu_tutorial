@@ -15,7 +15,7 @@ date: 2023-11-10
 # Chapter 06 - Logic Gates
 **Topics Covered:** Elementary Logic Gates, Truth Tables, Basic Circuits, The Universal Gate
 
-Now that I've made you suffer through enough chapters of binary, it's time to introduce a seperate yet similarly related concept: logic gates. There a few different types of logic gates we will need to understand, so I will introduce them one-by-one and then we will circle back and understand the bigger picture. This chapter should (hopefully) be a lighter read compared from the last few which probably involved you using a calculator to double check everything I was saying.
+Now that I've made you suffer through enough chapters of binary, it's time to introduce a seperate yet similarly related concept: logic gates. There's a few different types of logic gates we will need to understand, so I will introduce them one-by-one and then we will circle back and understand the bigger picture. This chapter should (hopefully) be a lighter read compared from the last few which probably involved you using a calculator to double check everything I was saying.
 
 Simply put, a logic gate takes in a variable number of inputs (atleast 1) and produce a single output. The interesting part, that that all the inputs and outputs are either 0's or 1's. We have spent a few painful chapters understanding the nuances of binary, but you can put that aside for this chapter. In the next chapter, the connection between this chapter and all the previous ones will become apparent.
 
@@ -26,6 +26,8 @@ Let's start with the AND gate which takes in two inputs, and produces one output
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/AND.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Recall that, in the picture above, X and Y are binary inputs. So X can be either 0 or 1 just as Y can be either 0 or 1. We know that the only time that Output=1 is when $$X=1$$ and $$Y=1$$. Another way to view the functionality of the gate is by giving a **truth table**. A truth table is a table (duh) that enumerates all of the different possible input combinations on the rows while providing the output of the logic gate on the right-most column. See the table below. There are only four rows in this table, because with two binary inputs, there are only four different input combinations (try invent another one if you don't believe me).
+
+*Remark: For the following diagrams (and all diagrams in subsequent chapters), the darker green is used to represent a 0 while the brighter green represents a 1. The lines on the diagrams are wires, and the only thing you need to recall is that when we put a 0 or a 1 on a wire (i.e. electricity or no electricity), the wire will conduct that value over it's entire length.*
 
 **AND Gate Truth Table:**
 
@@ -102,6 +104,8 @@ What's interesting is that the NAND gate can be constructed by taking a regular 
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/NAND_Construction.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
+We have subtly introduced a new concept: **logic circuits**. When we feed the output of a logic gate into the input of another logic gate, we can create more useful and complex circuits. Whereas a logic gate always takes in one or more input and produces a single output, a logic circuit takes one or more inputs and produces a **variable** number of outputs. We will see this in action in future chapters.
+
 Similarly, we can construct the XOR gate with the following combination of other logic gates.
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/XOR_Construction.png" style="display: block; margin-left: auto; margin-right: auto;" />
@@ -117,9 +121,11 @@ We can verify this is equivalent by comparing the truth tables.
 
 This one is a little bit harder to understand. The easiest option is to create a truth table for this circuit and then compare it against the truth table for the XOR gate to see that they always output the same value for any input. If you're like me, this alone won't satisfy you since you want an intuitive explanation. Here is how I would reason through this: the circuit ends with an AND gate which means it only outputs a 1 when both of the inputs are 1's. How do we make the first input a 1? The first input to the AND gate will be a one whenever X or Y is true since the input to the AND gate is the output of an OR gate. How do we make the second input to the AND gate a 1? We make the output of the NAND gate a 1. This happens as long as the inputs are not both 1. So we know the two conditions, and we need them to be true simultaneously. So putting this together, we can reason that the circuit will only output a 1 if "atleast X or Y is a 1 BUT not both of them are 1". And this is exactly how we described the XOR gate!
 
-These few logic gates may seem very simple to understand compared to binary, but it turns out they can be chained together to do some pretty interesting things. Consider the circuit below with three inputs which, at first glance, probably looks like gibberish. But if you make a truth table for it, you will see that the circuit is a switch. Whenever Z is 0 the gate outputs whatever the value of X is. Whenever Z is 0, the gate outputs whatever the value of Y is. So, Z is effectively switching the output between X and Y. Pretty neat! The truth table has been given below, but you should try complete it on your own. 
+These few logic gates may seem very simple to understand compared to binary, but it turns out they can be chained together to do some pretty interesting things. Consider the circuit below with three inputs which, at first glance, probably looks like gibberish. But if you make a truth table for it, you will see that the circuit is a switch. Whenever Z is 0 the gate outputs whatever the value of X is. Whenever Z is 0, the gate outputs whatever the value of Y is. So, Z is effectively switching the output between X and Y. Pretty neat! 
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Switch_Construction.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+The truth table has been given below, but you should try complete it on your own. 
 
 | X | Y | Z | Output | Picture
 |---|---|---|---|---|
@@ -155,6 +161,18 @@ We start with the logical AND expression, which can be represented with multipli
 We could even scale this up to any number of variables. Here's how the expression $$ABCD$$ would look like as a circuit:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Quad_AND.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+Before we move on to see how we can textually represent other logic gates, let's understand why we use multiplication for representing the logical AND. Recall that in an expression, all of the variables ($$X$$, $$Y$$, $$Z$$, etc.) are binary inputs. When we go to evaluate a logical expression, we substitute in 0's and 1's accordingly for all of the variables and after some manipulation, expect to end up with either 0 or 1 (because the expression has to evaluate to a single binary value). So, if you recall from your high school algebra class, if we multiply anything by zero, the final output is zero. So when we have an expression such as $$X*Y*Z$$, if any variable is zero, then the entire thing resolves to zero, and the only case which this can evaluate to a 1 is if all three variables are one. It's convenient that our notation for logical expression abides by basic algebraic properties since it eases your intuitive ability to grasp what an expression is saying. The reason we can omit the explicit multiplication signs ($$XYZ$$ instead of $$X*Y*Z$$) also relates to algebra. If $$P$$ is a variable, then algebra tells us that $$5p$$ is equivalent to $$5*p$$, so in the latter case, the use of the multiplication sign isn't required since we can infer that a lack of an operator means to multiply the two operands.
+
+So, we've seen how the logical AND can be represented in this written form, so how do logical OR's work? The answer is with addition. $$X + Y$$ reads out to "X or Y". Similarly, $$X + Y + Z$$ reads out to "X or Y or Z". The (roughly speaking) reason we use the addition sign to represent logical OR is because you need only one of the variables to evaluate to 1 for the expression to be true (i.e. $$0 + 1 = 1$$).
+
+Just as logic gates can be chained together, operators in a logical statement can be chained together. For example $$X + YZ$$ would translate to "X or both Y and Z". With logic gates, this would look like the diagram below.
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Example1.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+As is the case with algebra, the use of parenthesis is valid (and often necessary). That *PEMDAS* acronym you haven't heard in years is valid here for specifying order of operations in that parenthesis should be evaluated before multiplication which should be evaluated before addition (the rest of the operators in PEMDAS don't really exist in our means of representing expressions). For sake of illustration, the following expression is visualized by the diagram below: $$X(Y + Z)$$
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part6/Example2.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 # The Bigger Picture
 
