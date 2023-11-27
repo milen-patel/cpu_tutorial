@@ -93,6 +93,17 @@ Now we have both of our equations. The equation for the Sum bit is $$A \oplus B 
 
 ![Example of a Full Adder](<../assets/part7/Full Adder.png>)
 
-![Example of a Full Adder](../assets/part7/example.dig)
+Let's trace through the inputs in our truth table and look at it's respective circuit:
 
-- show examples with table
+| A | B | C | X (Sum) | Y (Carry Out) | Picture
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 0 | 0 | 0 | ![Full Adder 1](<../assets/part7/Full Adder.png>)
+| 0 | 0 | 1 | 1 | 0 | ![Full Adder 2](<../assets/part7/Full Adder 2.png>)
+| 0 | 1 | 0 | 1 | 0 | ![Full Adder 3](<../assets/part7/Full Adder 3.png>)
+| 0 | 1 | 1 | 0 | 1 | ![Full Adder 4](<../assets/part7/Full Adder 4.png>)
+| 1 | 0 | 0 | 1 | 0 | ![Full Adder 5](<../assets/part7/Full Adder 5.png>)
+| 1 | 0 | 1 | 0 | 1 | ![Full Adder 6](<../assets/part7/Full Adder 6.png>)
+| 1 | 1 | 0 | 0 | 1 | ![Full Adder 7](<../assets/part7/Full Adder 7.png>)
+| 1 | 1 | 1 | 1 | 1 | ![Full Adder 8](<../assets/part7/Full Adder 8.png>)
+
+Cool right? Now, you might be thinking how can we further build on this concept. In Chapter 8, we are going to introduce the idea of ripple Ripple Carry Adders which will allow us to combine multiple Full Adders together to do multi-bit addition and subtraction!
