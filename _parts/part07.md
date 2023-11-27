@@ -1,5 +1,5 @@
 ---
-title: Chapter 8
+title: Chapter 7
 date: 2023-11-10
 ---
 
@@ -19,7 +19,7 @@ Now that we have learned about logic gates, I think it's time we learned why the
 
 As mentioned in the previous paragraph, we can use these logic gates to build more complicated circuits. You might be thinking what does he mean by more complicated circuits (I promise we will start out easy). The simplest circuit that we can have is an adder. Let's take an example below:
 
-![Example of 0+0](../assets/part8/0+0%20OR.png)
+![Example of 0+0](../assets/part7/0+0%20OR.png)
 
 Above we have a circuit representing the equation $$A+B=X$$ (in other words, $$0{2}+0{2}=0{2}$$). In this example, what we are trying to demonstrate is that the OR gate can be used to add two numbers together. 
 
@@ -27,17 +27,17 @@ Above we have a circuit representing the equation $$A+B=X$$ (in other words, $$0
 
 Let's look at a slightly different example:
 
-![Example of 0+1](../assets/part8/0+1%20OR.png)
+![Example of 0+1](../assets/part7/0+1%20OR.png)
 
 Here, we are adding the bit 0 (number 0) with the bit 1 (number 1) which gives us the bit 1 (number 1). Makes sense right? I know I'm definetly boring you, so let's look a slightly harder example:
 
-![Example of 1+1](../assets/part8/1+1%20OR.png)
+![Example of 1+1](../assets/part7/1+1%20OR.png)
 
 Here, we are adding the bit 1 (number 1) with the bit 1 (number 1) which gives us the bit 1 (number 1). If you realized there's a mistake here, you're right. The number 1 plus the number 1 should be returning the number 2. You might be thinking that there is no possible we can represent the number two (written as **10** in binary) with the current logic gate (OR gate) we are using. This is where things get exciting.
 
 Remember when I was talking about legos earlier, this is where we use them. Just like how we can connect different legos with each other to build crazy things, we can use logic gates to build crazy circuits. Here is where we introduce the half adder:
 
-![Example of a Half Adder](../assets/part8/Half%20Adder.png)
+![Example of a Half Adder](../assets/part7/Half%20Adder.png)
 
 The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to the number 2 which we saw in the example in the paragraph above (meaning we need to somehow represent two bits in the output of a circuit since the number 2 is represented by two binary digits). This is where a half adder is useful because we can now represent the sum and carry out digits (which was talked about in Chapter 3). In the circuit above, the X acts as the least significant bit (the sum bit) and the Y acts as the most significant bit (the carry out bit). Now, your question might be how did we know to use the XOR gate to calculate X and the AND gate to calculate Y? Take a look at this truth table below:
 
@@ -52,11 +52,11 @@ Before we go any further, we should note that these calculations are the same as
 
 If we combine both of these bits together (in the form of YX with the X bit being the least significant bit and the Y bit being the most significant bit), we can have an output now that represents the equation $$1{2}+1{2}=2{10}$$ because the number 2 can be represented as **10** in binary. Here is an example of the circuit below:
 
-![Example of a Half Adder 1+1](../assets/part8/Half%20Adder%201+1.png)
+![Example of a Half Adder 1+1](../assets/part7/Half%20Adder%201+1.png)
 
 Here is another example of using a half adder for the equation $$1{2}+0{2}=1{10}$$:
 
-![Example of a Half Adder 1+0](../assets/part8/Half%20Adder%201+0.png)
+![Example of a Half Adder 1+0](../assets/part7/Half%20Adder%201+0.png)
 
 In this example, we can see that the output is **01** (or the number 1). Again, the X is used as the least significant bit and the Y is used as the most significant bit.
 

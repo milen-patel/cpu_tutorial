@@ -13,22 +13,21 @@ In this series, we will start by designing a basic CPU from scratch called the S
 Whether you are a computer science major or a curious learner without engineering experience, this guide is intended to be read by any audience and makes no prior assumption of any knowledge beyond basic math concepts you (hopefully) learned in middle school.
 
 # Table of Contents
-* Chapter 01 - TODO
-* Chapter 02 - [How Humans Intuitively Represent Numbers](/cpu_tutorial/parts/part2.html)
-* Chapter 03 - [The Language of Computers: Meet Binary](/cpu_tutorial/parts/part3.html)
-* Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
-* Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
-* Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part6.html)
-* Chapter 07 - [Truth Tables and Equations](/cpu_tutorial/parts/part7.html)
-* Chapter 08 - [Addition with Logic Gates](/cpu_tutorial/parts/part8.html)
+* Chapter 01 - *In Progress...*
+* Chapter 02 - [How We Intuitively See Numbers](/cpu_tutorial/parts/part02.html)
+* Chapter 03 - [How Computers See Numbers](/cpu_tutorial/parts/part03.html)
+* Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part04.html)
+* Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part05.html)
+* Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part06.html)
+* Chapter 07 - [Addition with Logic Gates](/cpu_tutorial/parts/part07.html)
+* Chapter 08 - *In Progress...Ripple Carry Adders*
+* Chapter 09 - *In Progress...Arithmetic Logic Unit (ALU)*
+* Chapter 10 - [Storing Data with Logic Gates](/cpu_tutorial/parts/part10.html)
 
 # Future Chapters
-* Chatper XX - Ripple Carry Adders 
-* Chatper XX - Arithmetic Logic Unit (ALU)
-* Chapter XX - Sequential Logic
-* Chapter XX - Building a Register
+* Chapter XX - Building a Register (Determinism vs Non-Determinism)
 * Chapter XX - Interlude: Chaining a Register to the ALU
-* Chapter XX - The Clock
+* Chapter XX - The Clock (Propogation Delay)
 * Chapter XX - Interlude: Building a Counter
 * Chapter XX - RAM
 * Chapter XX - The Memory Address Register (MAR)
@@ -54,3 +53,5 @@ Whether you are a computer science major or a curious learner without engineerin
 <img src="https://karenok.github.io/SAP-1-Computer/images/CS.png"
      alt="Logic Gate Diagram"
      style="float: left; margin: 10px;" />
+
+[View entire source](/cpu_tutorial/parts/full_text.html)
