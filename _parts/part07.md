@@ -52,11 +52,11 @@ Before we go any further, we should note that these calculations are the same as
 
 If we combine both of these bits together (in the form of YX with the X bit being the least significant bit and the Y bit being the most significant bit), we can have an output now that represents the equation $$1_{2}+1_{2}=2_{10}$$ because the number 2 can be represented as **10** in binary. Here is an example of the circuit below:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Half%20Adder1+1.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Half%20Adder%201+1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Here is another example of using a half adder for the equation $$1_{2}+0_{2}=1_{10}$$:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Half%20Adder1+0.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Half%20Adder%201+0.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 In this example, we can see that the output is **01** (or the number 1). Again, the X is used as the least significant bit and the Y is used as the most significant bit.
 
@@ -108,13 +108,13 @@ Let's trace through the inputs in our truth table and look at it's respective ci
 | A | B | C | X (Sum) | Y (Carry Out) | Picture
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | 0 | 0 | 0 | 0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
-| 0 | 0 | 1 | 1 | 0 | ![Full Adder 2](<../assets/part7/Full Adder 2.png>)
-| 0 | 1 | 0 | 1 | 0 | ![Full Adder 3](<../assets/part7/Full Adder 3.png>)
-| 0 | 1 | 1 | 0 | 1 | ![Full Adder 4](<../assets/part7/Full Adder 4.png>)
-| 1 | 0 | 0 | 1 | 0 | ![Full Adder 5](<../assets/part7/Full Adder 5.png>)
-| 1 | 0 | 1 | 0 | 1 | ![Full Adder 6](<../assets/part7/Full Adder 6.png>)
-| 1 | 1 | 0 | 0 | 1 | ![Full Adder 7](<../assets/part7/Full Adder 7.png>)
-| 1 | 1 | 1 | 1 | 1 | ![Full Adder 8](<../assets/part7/Full Adder 8.png>)
+| 0 | 0 | 1 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%202.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 1 | 0 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%203.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 1 | 1 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%204.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 0 | 0 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%205.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 0 | 1 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%206.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 1 | 0 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%207.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 1 | 1 | 1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%208.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Cool right? Now, you might be thinking how can we further build on this concept. In Chapter 8, we are going to introduce the idea of ripple Ripple Carry Adders which will allow us to combine multiple Full Adders together to do multi-bit addition and subtraction (and, you'll see why the carry out bit was important to learn about)!
 
