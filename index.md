@@ -14,12 +14,12 @@ Whether you are a computer science major or a curious learner without engineerin
 
 # Table of Contents
 * Chapter 01 - *In Progress...*
-* Chapter 02 - [How We Intuitively See Numbers](/cpu_tutorial/parts/part2.html)
-* Chapter 03 - [How Computers See Numbers](/cpu_tutorial/parts/part3.html)
-* Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part4.html)
-* Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part5.html)
-* Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part6.html)
-* Chapter 07 - [Addition with Logic Gates](/cpu_tutorial/parts/part7.html)
+* Chapter 02 - [How We Intuitively See Numbers](/cpu_tutorial/parts/part02.html)
+* Chapter 03 - [How Computers See Numbers](/cpu_tutorial/parts/part03.html)
+* Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part04.html)
+* Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part05.html)
+* Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part06.html)
+* Chapter 07 - [Addition with Logic Gates](/cpu_tutorial/parts/part07.html)
 * Chapter 08 - *In Progress...Ripple Carry Adders*
 * Chapter 09 - *In Progress...Arithmetic Logic Unit (ALU)*
 * Chapter 10 - [Storing Data with Logic Gates](/cpu_tutorial/parts/part10.html)

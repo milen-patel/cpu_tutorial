@@ -16,6 +16,8 @@ date: 2023-11-09
 # Chapter 10 - Sequential Logic
 **Topics Covered:** Determinism vs Non-Determinism, Latches
 
+*⚠Warning: This and the following chapter will be the most confusing in the book for most readers. Please don't get discouraged here, take the time you need to make sense of everything and you will find that the rest of the book is far easier to process and more rewarding.*
+
 You've seen a decent number of circuits created by logic gates so far, and have even built up the first component of the CPU, the ALU. But, we can't progress any further without having a way to store data. What is the point of having an ALU that can add and subtract numbers if we have no means of storing the result? The answer is that there isn't really a point.
 
 So the focus of the next few chapters will be solving this issue. In chapter 6, I told you that we can build an entire computer out of logic gates which means that we also have to be able to store binary values with logic gates. You might be thinking that this is impossible, but it turns out we can manipulate logic gates to create circuits that store bits!
@@ -64,9 +66,40 @@ It turns out that if we make the following, seemingly minor, modification to the
 
 Seeing this diagram should help you reason through why this works as a latch. When $$S=1$$, the switch is just selecting to output whatever is on the input $$D$$. At the moment $$S$$ goes from 1 to 0, the switch changes to select from its other input, which was its current output right before $$S$$ became zero. So you can see that when $$S$$ goes from 1 to 0, the value of $$D$$ is *latched* in! This should also be a bit confusing, so take some time to reason through what is happening.
 
-I previously mentioned that we have no truth tables for sequential circuits, but we can show a **timing diagram** which shows all of the historical inputs/outputs of a circuit. A timing diagram is given below for this circuit.
+I previously mentioned that we have no truth tables for sequential circuits, but we can show a **timing diagram** which shows all of the historical inputs/outputs of a circuit. A timing diagram is given below for this circuit with the comment that the horizontal dimension is time.
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Latch_Timing_Diagram.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+This has all been explained, but the key observations you should understand are as follows:
+
+1. When $$D=1$$, the output follows $$D$$
+2. When $$S$$ goes from 1 to 0, the value of $$D$$ is trapped and becomes the 'saved' value on the output
+3. When $$D=0$$, the output never changes, even if the value of $$D$$ changes
+
+If all of the behavior in the timing diagram is clear to you, then you have understood 95% of what you need to know about latches. The next subsection will explain the remaining 5%.
+
+# Negative vs. Positive Latches
+
+Congratulations on understanding the majority of latches. One small remark will conclude this chapter.
+
+What we have looked at so far is more formally known as a **Positive Latch**. 'Positive' comes from the fact that the output only changes when $$S=1$$. 
+
+It turns out that a **Negative Latch** has the same behaviour but in the opposite direction. The negative latch only changes values when $$S=0$$. We can construct a negative latch by swapping the two inputs of the switch that we used to construct the positive latch in the prior subsection. The image below shows a positive latch (on the top) and a negative latch (on the bottom).
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Negative_Latch.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+
+The key observations you should understand about the negative latch are the exact opposite of those from the positive latch:
+
+1. When $$D=0$$, the output follows $$D$$
+2. When $$S$$ goes from 0 to 1, the value of $$D$$ is trapped and becomes the 'saved' value on the output
+3. When $$D=1$$, the output never changes, even if the value of $$D$$ changes
+
+For sake of illustration, I have included a timing diagram of a negative latch below.
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Negative_Latch_Timing_Diagram.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+That's all you need to know about latches! You will see why I made the distinction between positive and negative latches in the next chapter.
 # Chapter 02 - How Humans Intuitively Represent Numbers
 **Topics Covered:** Formalizing Decimal, Base-10 Meaning
 
