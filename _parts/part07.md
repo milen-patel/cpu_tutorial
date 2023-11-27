@@ -77,7 +77,7 @@ We can use the explanation from Chapter 7 to construct and simplify an expressio
 
 1. Start with the initial expression from the SOP rule learned in Chapter 6: 
 
-$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$
+<p style="text-align: center;">$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</p>
 2. Use the distributive law to further isolate the equation: 
 $$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$
 3. First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: 
