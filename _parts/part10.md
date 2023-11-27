@@ -16,6 +16,8 @@ date: 2023-11-26
 # Chapter 10 - Sequential Logic
 **Topics Covered:** Determinism vs Non-Determinism, Latches
 
+*⚠Warning⚠: This and the following chapter will be the most confusing in the book for most readers. Please don't get discouraged here, take the time you need to make sense of everything and you will find that the rest of the book is far easier to process and more rewarding.*
+
 You've seen a decent number of circuits created by logic gates so far, and have even built up the first component of the CPU, the ALU. But, we can't progress any further without having a way to store data. What is the point of having an ALU that can add and subtract numbers if we have no means of storing the result? The answer is that there isn't really a point.
 
 So the focus of the next few chapters will be solving this issue. In chapter 6, I told you that we can build an entire computer out of logic gates which means that we also have to be able to store binary values with logic gates. You might be thinking that this is impossible, but it turns out we can manipulate logic gates to create circuits that store bits!
@@ -67,3 +69,13 @@ Seeing this diagram should help you reason through why this works as a latch. Wh
 I previously mentioned that we have no truth tables for sequential circuits, but we can show a **timing diagram** which shows all of the historical inputs/outputs of a circuit. A timing diagram is given below for this circuit.
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Latch_Timing_Diagram.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+This has all been explained, but the key observations you should understand are as follows:
+
+1. When $$D=1$$, the output follows $$D$$
+2. When $$S$$ goes from 1 to 0, the value of $$D$$ is trapped and becomes the 'saved' value on the output
+3. When $$D=0$$, the output never changes, even if the value of $$D$$ changes
+
+If all of the behavior in the timing diagram is clear to you, then you have understood 95% of what you need to know about latches. The next subsection will explain the remaining 5%.
+
+# Negative vs. Positive Latches
