@@ -76,6 +76,7 @@ Remember how we were talking about lego bricks earlier? Well, you might hate me,
 We can use the explanation from Chapter 7 to construct and simplify an expression for the truth table above. Let's create an equation for the Sum bit:
 
 1. Start with the initial expression from the SOP rule learned in Chapter 6: 
+
 $$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$
 2. Use the distributive law to further isolate the equation: 
 $$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$
@@ -119,5 +120,4 @@ Let's trace through the inputs in our truth table and look at it's respective ci
 Cool right? Now, you might be thinking how can we further build on this concept. In Chapter 8, we are going to introduce the idea of ripple Ripple Carry Adders which will allow us to combine multiple Full Adders together to do multi-bit addition and subtraction (and, you'll see why the carry out bit was important to learn about)!
 
 
-- center image
 - fix explanations
