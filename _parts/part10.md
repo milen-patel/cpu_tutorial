@@ -41,3 +41,23 @@ Now in all honesty, reading that explanation might have made you realize that th
 # Latches
 
 Now that we have introduced sequential logic, it's time to see how we can create sequential circuits that store information. The first circuit we will examine is called a latch.
+
+A latch takes two inputs: D which represents data and S which represents the set line. The latch will output a singular value, Q. 
+
+The latch behaves as follows: The initial output of the latch will be 0. As long as S is zero, the output of the latch will not change. To change the value of Q, you must set the new value on D and change S to 1. In other words, when S is 1, the latch will output the value of D. When S goes from 1 to 0, the circuit will 'latch' on the last value of D and save that as the output value.
+
+This circuit allows us to save the value of D at the exact moment that S goes from 1 to 0. While S is 0, the output Q, will not change (and it will be whatever the value of D was at the moment S became 0). While S is 1, the output will equal whatever the value of D is. So, if we have some value 'saved' in the latch and we want to save a new value, we put the value on D, and then set S to 1 and back to 0. At the moment S goes from 1 to 0, the value on the line D will be latched in (hence the name) and will become the output of the circuit. As long as S is 0, the latch will output this same value, and it is safe to change the value of D without affecting the output of the circuit.
+
+So, how exactly do we build this circuit? Well in chapter 6, we saw how we could build a switch. Here was the final circuit we ended up with.
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Switch.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+It turns out the switch, also known as a multiplexor, is so common that we have our own symbol used to represent the switch. That diagram is given below.
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Switch2.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+The two circuits are equivalent. When $$S=0$$ the output equals $$A$$ and when $$S=1$$, the output equals $$D$$.
+
+It turns out that if we make the following, seemingly minor, modification to the switch, then we end up with the described latch.
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Latch_From_Switch.png" style="display: block; margin-left: auto; margin-right: auto;" />
