@@ -78,15 +78,19 @@ We can use the explanation from Chapter 7 to construct and simplify an expressio
 1. Start with the initial expression from the SOP rule learned in Chapter 6: 
 
 <p style="text-align: center;">$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</p>
+
 2. Use the distributive law to further isolate the equation: 
 
 <p style="text-align: center;">$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$</p>
+
 3. First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: 
 
 <p style="text-align: center;">$$\bar A (B \oplus C) + A (\bar B \bar C + B C)$$</p>
+
 4. Then, use the rule $$\overline{X \oplus Y} = \bar X \bar Y + XY$$ to simplify the second part of the expression: 
 
 <p style="text-align: center;">$\bar A (B \oplus C) + A (\overline{B \oplus C})$</p>
+
 5. Wait a second! The expression now kind of looks similar to a rule we already used in Step 3 ($$X \oplus Y = \bar X Y + X \bar Y$$), so now we can simplify the expression to its final form: 
 
 <p style="text-align: center;">$$A \oplus B \oplus C$$</p>
@@ -96,15 +100,19 @@ Now, let's look at how to find the equation for the carry over bit:
 1. Start with the initial expression from the SOP rule learned in Chapter 6: 
 
 <p style="text-align: center;">$$\bar A B C + A \bar B C + A B \bar C + A B C$$</p>
+
 2. Use the distributive law to further isolate the equation: 
 
 <p style="text-align: center;">$$C(\bar A B + A \bar B) + AB(C + \bar C)$$</p>
+
 3. Use the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: 
 
 <p style="text-align: center;">$$C(A \oplus B) + AB(C + \bar C)$$</p>
+
 4. Use the rule $$X + \bar X = 1$$ to simplify the second part of the expression: 
 
 <p style="text-align: center;">$$C(A \oplus B) + AB(1)$$</p>
+
 5. Use the rule $$X*1$$ to further simplify the expression to its final form: 
 
 <p style="text-align: center;">$$C(A \oplus B) + AB$$</p>
