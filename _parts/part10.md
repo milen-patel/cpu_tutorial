@@ -14,7 +14,7 @@ date: 2023-11-26
 
 
 # Chapter 10 - Sequential Logic
-**Topics Covered:** Determinism vs Non-Determinism
+**Topics Covered:** Determinism vs Non-Determinism, Latches
 
 You've seen a decent number of circuits created by logic gates so far, and have even built up the first component of the CPU, the ALU. But, we can't progress any further without having a way to store data. What is the point of having an ALU that can add and subtract numbers if we have no means of storing the result? The answer is that there isn't really a point.
 
@@ -61,3 +61,9 @@ The two circuits are equivalent. When $$S=0$$ the output equals $$A$$ and when $
 It turns out that if we make the following, seemingly minor, modification to the switch, then we end up with the described latch.
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Latch_From_Switch.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+Seeing this diagram should help you reason through why this works as a latch. When $$S=1$$, the switch is just selecting to output whatever is on the input $$D$$. At the moment $$S$$ goes from 1 to 0, the switch changes to select from its other input, which was its current output right before $$S$$ became zero. So you can see that when $$S$$ goes from 1 to 0, the value of $$D$$ is *latched* in! This should also be a bit confusing, so take some time to reason through what is happening.
+
+I previously mentioned that we have no truth tables for sequential circuits, but we can show a **timing diagram** which shows all of the historical inputs/outputs of a circuit. A timing diagram is given below for this circuit.
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Latch_Timing_Diagram.png" style="display: block; margin-left: auto; margin-right: auto;" />
