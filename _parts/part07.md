@@ -73,10 +73,26 @@ Remember how we were talking about lego bricks earlier? Well, you might hate me,
 | 1 | 1 | 0 | 0 | 1
 | 1 | 1 | 1 | 1 | 1
 
-We can use the explanation from Chapter 7 to construct an equation for the truth tabel above. Let's create an equation for the Sum bit:
+We can use the explanation from Chapter 7 to construct and simplify an expression for the truth table above. Let's create an equation for the Sum bit:
 
-Step 1: $\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$
+1. Start with the initial expression from the SOP rule learned in Chapter 6: $$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$
+2. Use the distributive law to further isolate the equation: $$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$
+3. First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: $$\bar A (B \oplus C) + A (\bar B \bar C + B C)$$
+4. Then, use the rule $$\overline{X \oplus Y} = \bar X \bar Y + XY$$ to simplify the second part of the expression: $\bar A (B \oplus C) + A (\overline{B \oplus C})$
+5. Wait a second! The expression now kind of looks similar to a rule we already used in Step 3 ($$X \oplus Y = \bar X Y + X \bar Y$$), so now we can simplify to the final form of: $$A \oplus B \oplus C$$
 
-Step 2: $\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$
+Now, let's look at how to find the equation for the carry over bit:
 
-Step 3: $\bar A (B \oplus C) + A (B \odot C)$
+1. Start with the initial expression from the SOP rule learned in Chapter 6: $$\bar A B C + A \bar B C + A B \bar C + A B C$$
+2. Use the distributive law to further isolate the equation: $$C(\bar A B + A \bar B) + AB(C + \bar C)$$
+3. Use the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: $$C(A \oplus B) + AB(C + \bar C)$$
+4. Use the rule $$X + \bar X = 1$$ to simplify the second part of the expression: $$C(A \oplus B) + AB(1)$$
+5. Use the rule $$X*1$$ to further simplify the expression: $$C(A \oplus B) + AB$$
+
+Now we have both of our equations. The equation for the Sum bit is $$A \oplus B \oplus C$$ and the equation for the carry over bit is $$C(A \oplus B) + AB$$. We can now build our circuit which is below:
+
+![Example of a Full Adder](<../assets/part7/Full Adder.png>)
+
+![Example of a Full Adder](../assets/part7/example.dig)
+
+- show examples with table
