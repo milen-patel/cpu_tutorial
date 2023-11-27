@@ -1,6 +1,7 @@
 theme: jekyll-theme-minimal
 title: Let's Understand How a CPU Works 
 description: Designing a CPU from the ground up, with no knowledge needed
+google_analytics: G-SF6SRSNGQF
 collections:
   parts:
     output: true
