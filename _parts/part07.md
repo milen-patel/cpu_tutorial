@@ -93,7 +93,7 @@ We can use the explanation from Chapter 6 to construct and simplify an expressio
 
 * Wait a second! The expression now kind of looks similar to a rule we already used in Step 3 ($$X \oplus Y = \bar X Y + X \bar Y$$), so now we can simplify the expression to its final form: 
 
-<div style="text-align: center;"><mark><strong>$$A \oplus B \oplus C$$</strong></mark></div>
+<div style="text-align: center;"><strong>$$A \oplus B \oplus C$$</strong></div>
 
 Now, let's look at how to find the equation for the carry over bit:
 
@@ -117,7 +117,7 @@ Now, let's look at how to find the equation for the carry over bit:
 
 <div style="text-align: center;"><strong>$$C(A \oplus B) + AB$$</strong></div>
 
-Now we have both of our equations. The equation for the Sum bit is $$A \oplus B \oplus C$$ and the equation for the carry over bit is $$C(A \oplus B) + AB$$. We can now build our circuit which is below:
+Now we have both of our equations. The equation for the Sum bit is **$$A \oplus B \oplus C$$** and the equation for the carry over bit is **$$C(A \oplus B) + AB$$**. We can now build our circuit which is below:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
@@ -135,6 +135,3 @@ Let's trace through the inputs in our truth table and look at it's respective ci
 | 1 | 1 | 1 | 1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%208.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Cool right? Now, you might be thinking how can we further build on this concept. In Chapter 8, we are going to introduce the idea of ripple Ripple Carry Adders which will allow us to combine multiple Full Adders together to do multi-bit addition and subtraction (and, you'll see why the carry out bit was important to learn about)!
-
-
-- fix explanations
