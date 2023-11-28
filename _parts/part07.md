@@ -77,7 +77,7 @@ We can use the explanation from Chapter 6 to construct and simplify an expressio
 
 * Start with the initial expression from the SOP rule learned in Chapter 6: 
 
-<p style="text-align: center;"><b>$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</b></p>
+<div style="text-align: center;"><b>$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</b></div>
 
 * Use the distributive law to further isolate the equation: 
 
