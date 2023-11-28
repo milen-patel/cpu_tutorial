@@ -73,7 +73,7 @@ Remember how we were talking about lego bricks earlier? Well, you might hate me,
 | 1 | 1 | 0 | 0 | 1
 | 1 | 1 | 1 | 1 | 1
 
-We can use the explanation from Chapter 7 to construct and simplify an expression for the truth table above. Let's create an equation for the Sum bit:
+We can use the explanation from Chapter 6 to construct and simplify an expression for the truth table above. Let's create an equation for the Sum bit:
 
 * Start with the initial expression from the SOP rule learned in Chapter 6: 
 
