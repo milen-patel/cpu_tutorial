@@ -77,45 +77,45 @@ We can use the explanation from Chapter 6 to construct and simplify an expressio
 
 * Start with the initial expression from the SOP rule learned in Chapter 6: 
 
-<p style="text-align: center;font-weight: bold;">$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</p>
+<p style="text-align: center;"><b>$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</b></p>
 
 * Use the distributive law to further isolate the equation: 
 
-<p style="text-align: center;font-weight: bold;">$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$</p>
+<p style="text-align: center;">$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$</p>
 
 * First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ *(here's a challenge - try to create two truth tables for each of the expressions to check if they are equivalent)* to simplify the first part of the expression: 
 
-<p style="text-align: center;font-weight: bold;">$$\bar A (B \oplus C) + A (\bar B \bar C + B C)$$</p>
+<p style="text-align: center;">$$\bar A (B \oplus C) + A (\bar B \bar C + B C)$$</p>
 
 * Then, use the rule $$\overline{X \oplus Y} = \bar X \bar Y + XY$$ *(you can use the truth table trick again to see if both expressions are the same)* to simplify the second part of the expression: 
 
-<p style="text-align: center;font-weight: bold;">$$\bar A (B \oplus C) + A (\overline{B \oplus C})$$</p>
+<p style="text-align: center;">$$\bar A (B \oplus C) + A (\overline{B \oplus C})$$</p>
 
 * Wait a second! The expression now kind of looks similar to a rule we already used in Step 3 ($$X \oplus Y = \bar X Y + X \bar Y$$), so now we can simplify the expression to its final form: 
 
-<p style="text-align: center;font-weight: bold;">$$A \oplus B \oplus C$$</p>
+<p style="text-align: center;">$$A \oplus B \oplus C$$</p>
 
 Now, let's look at how to find the equation for the carry over bit:
 
 * Start with the initial expression from the SOP rule learned in Chapter 6: 
 
-<p style="text-align: center;font-weight: bold;">$$\bar A B C + A \bar B C + A B \bar C + A B C$$</p>
+<p style="text-align: center;">$$\bar A B C + A \bar B C + A B \bar C + A B C$$</p>
 
 * Use the distributive law to further isolate the equation: 
 
-<p style="text-align: center;font-weight: bold;">$$C(\bar A B + A \bar B) + AB(C + \bar C)$$</p>
+<p style="text-align: center;">$$C(\bar A B + A \bar B) + AB(C + \bar C)$$</p>
 
 * Use the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: 
 
-<p style="text-align: center;font-weight: bold;">$$C(A \oplus B) + AB(C + \bar C)$$</p>
+<p style="text-align: center;">$$C(A \oplus B) + AB(C + \bar C)$$</p>
 
 * Use the rule $$X + \bar X = 1$$ to simplify the second part of the expression: 
 
-<p style="text-align: center;font-weight: bold;">$$C(A \oplus B) + AB(1)$$</p>
+<p style="text-align: center;">$$C(A \oplus B) + AB(1)$$</p>
 
 * Use the rule $$X*1$$ to further simplify the expression to its final form: 
 
-<p style="text-align: center;font-weight: bold;">$$C(A \oplus B) + AB$$</p>
+<p style="text-align: center;">$$C(A \oplus B) + AB$$</p>
 
 Now we have both of our equations. The equation for the Sum bit is $$A \oplus B \oplus C$$ and the equation for the carry over bit is $$C(A \oplus B) + AB$$. We can now build our circuit which is below:
 
