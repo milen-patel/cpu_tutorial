@@ -81,7 +81,7 @@ We can use the explanation from Chapter 6 to construct and simplify an expressio
 
 * Use the distributive law to further isolate the equation: 
 
-<div style="text-align: center;"><strong>$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$**</strong></div>
+<div style="text-align: center;"><strong>$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$</strong></div>
 
 * First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ *(here's a challenge - try to create two truth tables for each of the expressions to check if they are equivalent)* to simplify the first part of the expression: 
 
@@ -93,7 +93,7 @@ We can use the explanation from Chapter 6 to construct and simplify an expressio
 
 * Wait a second! The expression now kind of looks similar to a rule we already used in Step 3 ($$X \oplus Y = \bar X Y + X \bar Y$$), so now we can simplify the expression to its final form: 
 
-<div style="text-align: center;"><strong>$$A \oplus B \oplus C$$</strong></div>
+<div style="text-align: center;"><mark><strong>$$A \oplus B \oplus C$$</strong></mark></div>
 
 Now, let's look at how to find the equation for the carry over bit:
 
