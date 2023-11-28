@@ -12,7 +12,7 @@ date: 2023-11-10
 	<p></p>
 </html>
 
-# Chapter 08 - Addition with Logic Gates
+# Chapter 07 - Addition with Logic Gates
 **Topics Covered:** Half Adder, Full Adder
 
 Now that we have learned about logic gates, I think it's time we learned why they are so important (hopefully, the not so boring part). The average computer today can process around billions of operations per second which is mind-blowing. However, those processes can't happen without the use of logic gates. Logic gates allow us to build more complex circuits inside of computers which allow these kinds of processes to occur. Let me back up for a second here. I think the best way to describe logic gates is comparing them to legos. In Chapter 6, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different lego pieces and build our first house.
@@ -75,45 +75,45 @@ Remember how we were talking about lego bricks earlier? Well, you might hate me,
 
 We can use the explanation from Chapter 7 to construct and simplify an expression for the truth table above. Let's create an equation for the Sum bit:
 
-1. Start with the initial expression from the SOP rule learned in Chapter 6: 
+* Start with the initial expression from the SOP rule learned in Chapter 6: 
 
 <p style="text-align: center;">$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</p>
 
-2. Use the distributive law to further isolate the equation: 
+* Use the distributive law to further isolate the equation: 
 
 <p style="text-align: center;">$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$</p>
 
-3. First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: 
+* First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ *(here's a challenge - try to create two truth tables for each of the expressions to check if they are equivalent)* to simplify the first part of the expression: 
 
 <p style="text-align: center;">$$\bar A (B \oplus C) + A (\bar B \bar C + B C)$$</p>
 
-4. Then, use the rule $$\overline{X \oplus Y} = \bar X \bar Y + XY$$ to simplify the second part of the expression: 
+* Then, use the rule $$\overline{X \oplus Y} = \bar X \bar Y + XY$$ *(you can use the truth table trick again to see if both expressions are the same)* to simplify the second part of the expression: 
 
 <p style="text-align: center;">$\bar A (B \oplus C) + A (\overline{B \oplus C})$</p>
 
-5. Wait a second! The expression now kind of looks similar to a rule we already used in Step 3 ($$X \oplus Y = \bar X Y + X \bar Y$$), so now we can simplify the expression to its final form: 
+* Wait a second! The expression now kind of looks similar to a rule we already used in Step 3 ($$X \oplus Y = \bar X Y + X \bar Y$$), so now we can simplify the expression to its final form: 
 
 <p style="text-align: center;">$$A \oplus B \oplus C$$</p>
 
 Now, let's look at how to find the equation for the carry over bit:
 
-1. Start with the initial expression from the SOP rule learned in Chapter 6: 
+* Start with the initial expression from the SOP rule learned in Chapter 6: 
 
 <p style="text-align: center;">$$\bar A B C + A \bar B C + A B \bar C + A B C$$</p>
 
-2. Use the distributive law to further isolate the equation: 
+* Use the distributive law to further isolate the equation: 
 
 <p style="text-align: center;">$$C(\bar A B + A \bar B) + AB(C + \bar C)$$</p>
 
-3. Use the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: 
+* Use the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: 
 
 <p style="text-align: center;">$$C(A \oplus B) + AB(C + \bar C)$$</p>
 
-4. Use the rule $$X + \bar X = 1$$ to simplify the second part of the expression: 
+* Use the rule $$X + \bar X = 1$$ to simplify the second part of the expression: 
 
 <p style="text-align: center;">$$C(A \oplus B) + AB(1)$$</p>
 
-5. Use the rule $$X*1$$ to further simplify the expression to its final form: 
+* Use the rule $$X*1$$ to further simplify the expression to its final form: 
 
 <p style="text-align: center;">$$C(A \oplus B) + AB$$</p>
 
