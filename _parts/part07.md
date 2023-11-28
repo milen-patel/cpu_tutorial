@@ -77,11 +77,11 @@ We can use the explanation from Chapter 6 to construct and simplify an expressio
 
 * Start with the initial expression from the SOP rule learned in Chapter 6: 
 
-<div style="text-align: center;"><b>$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</b></div>
+<div style="text-align: center;"><strong>$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</strong></div>
 
 * Use the distributive law to further isolate the equation: 
 
-<p style="text-align: center;">$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$</p>
+<div style="text-align: center;">**$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$**</div>
 
 * First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ *(here's a challenge - try to create two truth tables for each of the expressions to check if they are equivalent)* to simplify the first part of the expression: 
 
