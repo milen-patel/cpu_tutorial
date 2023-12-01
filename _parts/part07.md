@@ -15,10 +15,9 @@ date: 2023-11-10
 # Chapter 07 - Addition with Logic Gates
 **Topics Covered:** Half Adder, Full Adder
 
+As we saw in the previous chapter, chaining logic gates together allows us to build more complex circuits which will eventually end up with a computer. Let me back up for a second here, I think the best way to describe logic gates is comparing them to legos. In Chapter 6, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different lego pieces and build our first house.
 
-Now that we have learned about logic gates, I think it's time we learned why they are so important (hopefully, the not so boring part). The average computer today can process around billions of operations per second which is mind-blowing. However, those processes can't happen without the use of logic gates. Logic gates allow us to build more complex circuits inside of computers which allow these kinds of processes to occur. Let me back up for a second here. I think the best way to describe logic gates is comparing them to legos. In Chapter 6, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different lego pieces and build our first house.
-
-As mentioned in the previous paragraph, we can use these logic gates to build more complicated circuits. You might be thinking what does he mean by more complicated circuits (I promise we will start out easy). The simplest circuit that we can have is an adder. Let's take an example below:
+In the earliest chapters we were introduced to base-2 and learned how to add two binary numbers together. In this chapter, let's automate this process by designing a circuit that can add two binary numbers together. You already know that computers can add incredibly large numbers together, but for the sake of us getting started, we will restrict our circuit to adding two 1-bit values (recall that a bit is a binary digit), namely A and B. Let's take an example below as a first contender of a circuit that takes 1-bit values A and B as input and outputs their sum ($$A+B$$) as X:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/0+0%20OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
