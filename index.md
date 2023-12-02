@@ -20,8 +20,8 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part05.html)
 * Chapter 06 - [Logic Gates](/cpu_tutorial/parts/part06.html)
 * Chapter 07 - [Addition with Logic Gates](/cpu_tutorial/parts/part07.html)
-* Chapter 08 - *In Progress...Ripple Carry Adders*
-* Chapter 09 - *In Progress...Arithmetic Logic Unit (ALU)*
+* Chapter 08 - [Ripple Carry Adders](/cpu_tutorial/parts/part08.html)
+* Chapter 09 - [Arithmetic Logic Unit (ALU)](/cpu_tutorial/parts/part08.html)
 * Chapter 10 - [Storing Data with Logic Gates](/cpu_tutorial/parts/part10.html)
 
 # Future Chapters
