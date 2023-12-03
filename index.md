@@ -1,6 +1,15 @@
 ---
 title: Let's Design a CPU
 ---
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SF6SRSNGQF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SF6SRSNGQF');
+</script>
 
 # How Do Computers Really Work?
 
