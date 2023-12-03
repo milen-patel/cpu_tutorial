@@ -642,51 +642,239 @@ We previously claimed that you can build an entire computer out of logic gates. 
 
 
 
-# Chapter 08 - Addition with Logic Gates
+# Chapter 07 - Addition with Logic Gates
 **Topics Covered:** Half Adder, Full Adder
 
-Now that we have learned about logic gates, I think it's time we learned why they are so important (hopefully, the not so boring part). The average computer today can process around billions of operations per second which is mind-blowing. However, those processes can't happen without the use of logic gates. Logic gates allow us to build more complex circuits inside of computers which allow these kinds of processes to occur. Let me back up for a second here. I think the best way to describe logic gates is comparing them to legos. In chapter 06, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different pieces and build our first house.
+Now that we have learned about logic gates, I think it's time we learned why they are so important (hopefully, the not so boring part). The average computer today can process around billions of operations per second which is mind-blowing. However, those processes can't happen without the use of logic gates. Logic gates allow us to build more complex circuits inside of computers which allow these kinds of processes to occur. Let me back up for a second here. I think the best way to describe logic gates is comparing them to legos. In Chapter 6, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different lego pieces and build our first house.
 
-As mentioned in the previous paragraph, we can use these logic gates to build more complicated circuits. You might be thinking what does he mean by more complicated circuits (I promise we will start out easy). The simplest circuit that we can have is an adder. Let's take a very simple example below:
+As mentioned in the previous paragraph, we can use these logic gates to build more complicated circuits. You might be thinking what does he mean by more complicated circuits (I promise we will start out easy). The simplest circuit that we can have is an adder. Let's take an example below:
 
-![Example of 0+0](../assets/part7/0+0%20OR.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/0+0%20OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Above we have an example of a circuit representing the equation 0+0=0 (in the form of A+B=C). In this example, what we are trying to demonstrate is that the OR gate can be used to add two numbers together. 
+Above we have a circuit representing the equation $$A+B=X$$ (in other words, $$0_{2}+0_{2}=0_{2}$$). In this example, what we are trying to demonstrate is that the OR gate can be used to add two numbers together. 
 
-*Aside: In the example above, the A, B, C which are all 0s are not the number 0, but the bit 0, which is equivalent to the number 0 ($$2^0*0=0$$). So, technically, we are adding the bit 0 (the number 0) to another bit 0 (the number 0) giving us the bit 0 (the number 0).*
+*Aside: In the example above, the A, B, C which are all 0s are not the number 0, but the bit 0, which is equivalent to the number 0. So, technically, we are adding the bit 0 (the number 0) to another bit 0 (the number 0) giving us the bit 0 (the number 0). Review Chapter 3 if this does not make sense!*
 
 Let's look at a slightly different example:
 
-![Example of 0+1](../assets/part7/0+1%20OR.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/0+1%20OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Here, we are adding the bit 0 (number 0) with the bit 1 (number 1) which gives us the bit 1 (number 1). Makes sense right? I know I'm definetly boring you, so let's look a slightly harder example:
 
-![Example of 1+1](../assets/part7/1+1%20OR.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/1+1%20OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Here, we are adding the bit 1 (number 1) with the bit 1 (number 1) which gives us the bit 1 (number 1). If you realized there's a mistake here, you're right. The number 1 plus the number 1 should be returning 2. You might be thinking that there is no possible we can represent the number two (written as **10** in binary) with the current logic gate we have. This is where things get exciting.
+Here, we are adding the bit 1 (number 1) with the bit 1 (number 1) which gives us the bit 1 (number 1). If you realized there's a mistake here, you're right. The number 1 plus the number 1 should be returning the number 2 (written as **10** in binary - notice how we need two bits). You might be thinking that there is no possible way we can represent the number two with just one OR gate (since it only outputs one bit). This is where things get exciting.
 
-Remember when I was talking about legos earlier, this is where we use them. Just like how we can connect different legos with each other to build crazy things, we can use logic gates to build crazy circuits. Here is where we introduce the half adder:
+Remember when I was talking about legos earlier, this is where we use them. Just like how we can connect different legos with each other to build more complicated things, we can connect different logic gates to build more complicated circuits. Here is where we introduce the half adder:
 
-![Example of a Half Adder](../assets/part7/Half%20Adder.png)
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Half%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to the number 2 which we saw in the example in the paragraph above (meaning we need to somehow represent two bits in the output of a circuit). This is where a half adder is useful because we can now represent the sum and carryout (which was talked about in Chapter 3). In the circuit above, the Y acts as the least significant bit (the sum bit) and the X acts as the most significant bit (the carry out bit). Now, your question might be how did we know to use the XOR gate to calculate Y and the AND gate to calculate X? Take a look at this truth table below:
+The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to the number 2 which we saw in the example in the paragraph above (meaning we need to somehow represent two bits in the output of a circuit since the number 2 is represented by two binary digits). This is where a half adder is useful because we can now represent the sum and carry out digits (which was talked about in Chapter 3). In the circuit above, the X acts as the least significant bit (the sum bit) and the Y acts as the most significant bit (the carry out bit). Now, your question might be how did we know to use the XOR gate to calculate X and the AND gate to calculate Y? Take a look at this truth table below:
 
-| A | B | Y (Sum) | X (Carry Out)
+| A | B | X (Sum) | Y (Carry Out)
 |:---:|:---:|:---:|:---:|
 | 0 | 0 |  0 | 0
 | 0 | 1 |  1 | 0
 | 1 | 0 |  1 | 0
 | 1 | 1 |  0 | 1
 
-Before we step any further, we should note that these calculations are the same as the ones in Chapter 3. First, looking at the Sum column (Y output), we can see that it looks pretty familar to one of the truth tables in Chapter 6. If you were thinking an XOR gate, then you're right! And, looking at the Carry Out column (X output), we can see that the output looks similar to an AND gate. If we combine both of these bits together, we can have an output now that represents the equation $$1+1=2$$ with the Y bit being the least significant bit and the X bit being the most significant bit (**10** written in binary). Here is an example of the circuit below:
+Before we go any further, we should note that these calculations are the same as the ones in Chapter 3. First, looking at the Sum Column (X Output), we can see that it looks pretty familar to one of the truth tables in Chapter 6. If you were thinking an XOR gate, then you're right! And, looking at the Carry Out Column (Y Output), we can see that the output looks similar to an AND gate. Now we can see why the half adder uses a XOR gate and an AND gate instead of using a normal OR gate.
 
-![Example of a Half Adder 1+1](../assets/part7/Half%20Adder%201+1.png)
+If we combine both of these bits together (in the form of YX with the X bit being the least significant bit and the Y bit being the most significant bit), we can have an output now that represents the equation $$1_{2}+1_{2}=2_{10}$$ because the number 2 can be represented as **10** in binary. Here is an example of the circuit below:
 
-Here is another example of using a half adder for the equation $$1+0=1$$:
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Half%20Adder%201+1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-![Example of a Half Adder 1+0](../assets/part7/Half%20Adder%201+0.png)
+Here is another example of using a half adder for the equation $$1_{2}+0_{2}=1_{10}$$:
 
-In this example, we can see that the output is **01** (or the number 1). 
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Half%20Adder%201+0.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+In this example, we can see that the output is **01** (or the number 1). Again, the X is used as the least significant bit and the Y is used as the most significant bit.
+
+Remember how we were talking about lego bricks earlier? Well, you might hate me, but we are going to add another brick on top of our current circuit. Let's say we want to add another input to our circuit and call it the carry in bit (this will make a lot more sense, I promise). So now we want to add the A, B, and C bits together to output a sum bit (X) and a carry out bit (Y). Let's take a look at the truth table and build the full adder circuit:
+
+| A | B | C | X (Sum) | Y (Carry Out)
+|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 0 | 0 | 0
+| 0 | 0 | 1 | 1 | 0
+| 0 | 1 | 0 | 1 | 0
+| 0 | 1 | 1 | 0 | 1
+| 1 | 0 | 0 | 1 | 0
+| 1 | 0 | 1 | 0 | 1
+| 1 | 1 | 0 | 0 | 1
+| 1 | 1 | 1 | 1 | 1
+
+We can use the explanation from Chapter 6 to construct and simplify an expression for the truth table above. Let's create an equation for the Sum bit:
+
+* Start with the initial expression from the SOP rule learned in Chapter 6: 
+
+<div style="text-align: center;"><strong>$$\bar A \bar B C+\bar A B \bar C+A \bar B \bar C + A B C$$</strong></div>
+
+* Use the distributive law to further isolate the equation: 
+
+<div style="text-align: center;"><strong>$$\bar A (\bar B C + B \bar C) + A (\bar B \bar C + B C)$$</strong></div>
+
+* First, use the the rule $$X \oplus Y = \bar X Y + X \bar Y$$ *(here's a challenge - try to create two truth tables for each of the expressions to check if they are equivalent)* to simplify the first part of the expression: 
+
+<div style="text-align: center;"><strong>$$\bar A (B \oplus C) + A (\bar B \bar C + B C)$$</strong></div>
+
+* Then, use the rule $$\overline{X \oplus Y} = \bar X \bar Y + XY$$ *(you can use the truth table trick again to see if both expressions are the same)* to simplify the second part of the expression: 
+
+<div style="text-align: center;"><strong>$$\bar A (B \oplus C) + A (\overline{B \oplus C})$$</strong></div>
+
+* Wait a second! The expression now kind of looks similar to a rule we already used in Step 3 ($$X \oplus Y = \bar X Y + X \bar Y$$), so now we can simplify the expression to its final form: 
+
+<div style="text-align: center;"><strong>$$A \oplus B \oplus C$$</strong></div>
+
+Now, let's look at how to find the equation for the carry over bit:
+
+* Start with the initial expression from the SOP rule learned in Chapter 6: 
+
+<div style="text-align: center;"><strong>$$\bar A B C + A \bar B C + A B \bar C + A B C$$</strong></div>
+
+* Use the distributive law to further isolate the equation: 
+
+<div style="text-align: center;"><strong>$$C(\bar A B + A \bar B) + AB(C + \bar C)$$</strong></div>
+
+* Use the rule $$X \oplus Y = \bar X Y + X \bar Y$$ to simplify the first part of the expression: 
+
+<div style="text-align: center;"><strong>$$C(A \oplus B) + AB(C + \bar C)$$</strong></div>
+
+* Use the rule $$X + \bar X = 1$$ to simplify the second part of the expression: 
+
+<div style="text-align: center;"><strong>$$C(A \oplus B) + AB(1)$$</strong></div>
+
+* Use the rule $$X*1$$ to further simplify the expression to its final form: 
+
+<div style="text-align: center;"><strong>$$C(A \oplus B) + AB$$</strong></div>
+
+Now we have both of our equations. The equation for the Sum bit is **$$A \oplus B \oplus C$$** and the equation for the carry over bit is **$$C(A \oplus B) + AB$$**. We can now build our circuit which is below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+Let's trace through the inputs in our truth table and look at it's respective circuit:
+
+| A | B | C | X (Sum) | Y (Carry Out) | Picture
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 0 | 0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 0 | 1 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%202.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 1 | 0 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%203.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 1 | 1 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%204.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 0 | 0 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%205.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 0 | 1 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%206.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 1 | 0 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%207.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 1 | 1 | 1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%208.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+Cool right? Now, you might be thinking how can we further build on this concept. In Chapter 8, we are going to introduce the idea of ripple Ripple Carry Adders which will allow us to combine multiple Full Adders together to do multi-bit addition and subtraction (and, you'll see why the carry out bit was important to learn about)!
+# Chapter 08 - Ripple Carry Adders
+**Topics Covered:** Ripple-Carry Adders, Adder-Subtractor
+
+Now that we know how to do simple addition using half adders and full adders (which are used to do one-bit addition), I believe we are ready to learn more about ripple-carry adders (for, you guessed it, multi-bit addition). Remember, how I kept telling you that we'd talk about the carry-in bit. Well, get excited because this is the chapter where we get to learn why that bit was so important that we needed to create a half adder on steriods (the full adder).
+
+Imagine now we are adding two numbers: 3 and 1. In binary format, we can represent 3 as **11** and 1 as **01**. Essentially, our expression here can be represented as **11+01**. Let's add these values using a table.
+
+| | Third Bit (Carry Over) | Second Bit | First Bit |
+|:-- |:---:|:---:|:---:|
+| Carry Over from Previous Column  |   | 1 |   |
+| Number 3 |   | 1 | 1 |
+| Number 1 |   | 0 | 1 |
+| **Result** | **1** | **0** | **0** |
+
+In the above table, we add the binary equivalent of the number 3 (row 2) with the binary equivalent of the number 1 (row 3) to get a result of **100** which equals the number 4 (row 4). But, more importantly, do you notice how we now have a carry-over bit from the first column to the second column? This is why full-adders are so important: now, we can finally use our new carry-in input to account for that carry-over bit in the second column. Let's now try to build this using multiple full adders (otherwise called a ripple carry adder which is, nonetheless, multiple full adders which are combined).
+
+Before we get into building the circuit for full adders, let's go over a few details. Notice how we have two bits for each of the numbers, we can use a full adder to do the addition for each corresponding bit (or each column of the table). So, essentially, we can use a full adder to represent the addition happening in the *First Bit* column and use another full adder to represent the addition happening in the *Second Bit* column. **Each corresponding bit (in other words, each bit in the same position) will be added together from both binary values.** Let's look at the circuit below to see what this looks like.
+
+![Ripple Carry 1](<../assets/part8/Ripple Carry 1.png>)
+
+In the example above, let's let AB be equal to the number 3 or 11 in binary and let's let CD be equal to number 1 or 01 in binary. Notice how each corresponding bit goes to the same full adder (so the bits B and D go to Full Adder #1 and the bits C and A go to Full Adder #2). Intuitively, this makes sense because we are adding bits which are in the same place value.
+
+So where does the carry-in bit come into play? Notice how when we add the bits in the *First Bit* column, there's a carry over? Well, we can use the carry-over bit outputted from the first full adder and insert into the carry-in input in the second full adder. This is shown in the image below.
+
+![Ripple Carry 2](<../assets/part8/Ripple Carry 2.png>)
+
+This is an important concept because now we are on our way to creating our first Ripple Carry Adder. We can use the carry-over bit to now do addition with multi-bit binary values. Without the carry-over ouput and the carry-in input on a full adder, we wouldn't accurately be able to do multi-bit addition. 
+
+Let's finish the circuit and display the output:
+
+![Ripple Carry 3](<../assets/part8/Ripple Carry 3.png>)
+
+Congrats!!! You just built your first Ripple Carry Adder. 
+
+Now, let's try a slightly harder example. This time we will be added 2 4-bit binary values (the general rule for ripple carry adders is you can add 2 n-bit binary values at a time). So, just for example sake, I chose two random numbers: 15, 1111 in binary, and 8, 1000 in binary. We can create another table like we did for the last example:
+
+| | Fifth Bit (Carry Over) | Fourth Bit | Third Bit | Second Bit | First Bit |
+|:-- |:---:|:---:|:---:|:---:|:---:|
+| Carry Over from Previous Column  |   | 0 | 0 | 0 | 0 |
+| Number 15 |   | 1 | 1 | 1 | 1 |
+| Number 8 |   | 1 | 0 | 0 | 0 |
+| **Result** | **1** | **0** | **1** | **1** | **1** |
+
+So the result of **1111+1000** was **10111** which is 32. Let's build our ripple carry adder:
+
+![Ripple Carry Adder 4](<../assets/part8/Ripple Carry Adder 4.png>)
+
+So again, we need to add the bits from the same place values and carry over the carry-over output of one full adder into the carry-in input of the next full adder. 
+
+*Aside: In both of the ripple carry adder examples, in the first full adder, we have a weird looking symbol going into the carry-in input. This symbol is just supposed to represent a grounded input meaning it sends an electrical signal of 0 or off.*
+
+Now that you're an expert in full adders and ripple carry adders, it's time for another round of roids. This time around we are going to create a circuit called the adder-subtractor. An adder-subtractor allows us to perform subtraction with binary values with a few tweaks to our ripple carry adder. Before we introduce the circuit, let's go over a few important details:
+
+1. In order to subtract one binary value from another, we need to invert the subtrahend (the number that is being subtracted) by using two's complement (invert every bit position and then add one to the result). 
+2. We need to learn what a 2-to-1 multiplexor is first. Essentially, we have a selector bit (C in the truth table and circuit below) which chooses between two different inputs. So if we have two inputs, A and B, the A bit will be outputted if the selector bit is 0 and the B bit will outputted if the selector bit is 1. That's it, simple right? I've included the truth table and an example of the circuit below:
+
+| C | A | B | Y |
+|:--:|:--:|:--:|:--:|
+| 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 |
+| 0 | 1 | 0 | 1 |
+| 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 |
+
+![2-to-1 Multiplexor](<../assets/part8/2-to-1 Multiplexor.png>)
+
+Now, that we have reviewed binary subtraction and what a multiplexor is, let's take a look at an adder-subtractor circuit: 
+
+![Adder Subtractor](<../assets/part8/Adder Subtractor.png>)
+
+So, let's dissect this. The first thing we notice is the use of the 2-to-1 multiplexor, not gates, and the use of the extra input button (which I will refer to as the A/S bit) all the way to the right. Remember, how we were talking about knowing how to subtract, that's mainly why we implemented all of these extra components. In an adder-subtractor circuit, the addition works as it does in a ripple carry adder - nothing changes. However, in order to do subtraction, we need to invert the bits and add one to the binary value. When we turn on the A/S bit, see how that input is connected to the carry-in input of the first full adder and is also connected to all the multiplexors. Respectfully, this adds the one we mentioned above and then chooses the inverted bit from the multiplexors (notice how one input of each multiplexor is inverted).
+
+Now that we understand how the circuit functions at a high level, let's take a look at two examples. The first example I want to look at is basic addition. Again, addition in an adder-subtractor circuit works the same way it does in a ripple carry adder. Before we jump into the example, note that input A is labelled as ABCD and carries the value of $$1000_{2}$$ and input B is labelled as EFGH and carries the value of $$1111_{2}$$. Together, they should add to $$10000_{2}$$.
+
+![Adder Subtractor Add Example](<../assets/part8/Adder Subtractor 1.png>)
+
+Next, let's take a look at a subtraction example. Wen we do subtraction, the format or expression we use is $$B-A$$ and both B and A are in two's complement form. Moreover, we ignore the last output bit (the V bit) - the last carry-out bit. In our example below, the value of B is $$0011_{2}$$ and the value of A is $$0001_{2}$$. 
+
+![Adder Subtractor Subtract Example](<../assets/part8/Adder Subtractor 2.png>)
+
+The last thing I want to point out is that the output will only be in two's complement when we are doing subtraction and $$B<A$$ or if the A/S bit is 1 AND the last carry-out bit is 0. For the first case, let's think about intuitively. If we are adding two positive numbers, the result will always be positive meaning we don't need to use two's complement. If we are subtracting two numbers and $$B<A$$, that result will always be negative signaling a need for two's complement - try this out! We can actually add a signal to our circuit to indicate whether the result is in two's complement or not which is shown below:
+
+![Adder Subtractor 3](<../assets/part8/Adder Subtractor 3.png>)
+# Chapter 09 - Arithmetic Logic Unit (ALU)
+**Topics Covered:** ALU
+
+Now that we understand some of the funamentals of how numbers and logic are represented in the computer world, I think it is time we broaden our knowledge by introducing the Artithemtic Logic Unit, ALU. ALU can simply be defined as a circuit which allows us to perform arithmetic and logical operations using binary numbers and all of the processing in a computer goes through the ALU (so you can think of it as the main unit in the computer or the brains). Technically speaking, you might have heard the Central Processing Unit, or CPU, being called the brains of the computer. In modern computing, the ALU is actually a circuit that is part of the CPU. However, for our purposes, we are going to keep it simple and learn about the ALU first. ALUs are actually one of the oldest concepts in computer science and were originally suggested by John von Neumann in 1945, so a lot of older computers actually have basic implementations of ALUs and the only thing they could do was simple arithmetic and logical operations!
+
+So we have defined what an ALU is, you might now be wondering what it consists of? I think it would be helpful to break it down into three simple parts: the input, the opcode, and the output. Let's try to define what each of these parts are and how they function:
+
+* Input: The input is what you think it probably is. The ALU will take in two binary operands (integers only) and we can define both of these to be n bits. Depending on the number of bits, we can change the internal circuitry of the ALU to adjust its operations (we will go into this more further into the chapter). But for now, think about the ripple carry adder or adder/subtractor. Remember, how we could add/subtract two n-sized binary values. 
+* Operands: This is where the ALU gets interesting. The operand is an n-bit input into the ALU which allows us to execute different operations depending on the combination. So a 2-bit operand will allow us to perform 4 various operations, a 3-bit operand will allow us to perform 8 bit operations, a 4-bit operand will allow us to perform 16 operations, and so on. As you can see, the general rule we follow for determining the number of operations we perform based on an n-bit input is $$2^n$$. So you might be wondering what these operations consist of. The operand can essentially define various arithemtic operations such as addition, subtraction, incrementing, and decrementing; bitwise logical operations such as AND, OR, XOR, One's Complement; and, bit shift operations. Don't worry if you don't understand some of the words or how this works because that's the purpose of this chapter. 
+* Output: Lastly, we have the output. This just represents the result of our operation. We can also have other outputs from our calculation such as a carry-out bit which specifies if there was carry-over, zero bit which specifies if the actual result was 0, negative bit which specifies if the result was negative, or overflow bit which specifies if there is an overflow meaning the result cannot be represented by the output because it is too large.
+
+
+
+
+- go into how the different operations work
+    - build a one-bit ALU
+    - multi-bit ALU
+        - give a diagram of the ALU (best thing to do is insert an image)
+        - explain what's happening from top to bottom
+        - go into the middle portion and explain the circuitry (first only do addition, subtraction)
+        - add in logic operations (just two)
+        - add in bitwise operations 
+        - build the circuitry for flags and explain how this works
+
 
 # Chapter 10 - Sequential Logic
 **Topics Covered:** Determinism vs Non-Determinism, Latches
