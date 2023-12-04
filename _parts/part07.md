@@ -41,7 +41,7 @@ Remember when I was talking about legos earlier, this is where we use them. Just
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Half%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to the number 2 which we saw in the example in the paragraph above (meaning we need to somehow represent two bits in the output of a circuit since the number 2 is represented by two binary digits). This is where a half adder circuit is useful because we can now represent the sum and carry out digits (which was talked about in Chapter 3). In the circuit above, the X acts as the least significant bit (the sum bit) and the Y acts as the most significant bit (the carry out bit). Now, your question might be how did we know to use the XOR gate to calculate X and the AND gate to calculate Y? Take a look at this truth table below which represents the addition of two 1-bit binary values:
+The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to the number 2 which we saw in the example in the paragraph above (meaning we need to somehow represent two bits in the output of a circuit since the number 2 is represented by two binary digits). We can represent the equation as $$A_{2}+B_{2}=YX_{2}$$. This is where a half adder circuit is useful because we can now represent the sum and carry-out digits (which was talked about in Chapter 3). In the circuit above, the X acts as the least significant bit (the sum bit) and the Y acts as the most significant bit (the carry-out bit). Now, your question might be how did we know to use the XOR gate to calculate X and the AND gate to calculate Y? Take a look at this truth table below which represents the addition of two 1-bit binary values:
 
 | A | B | X (Sum) | Y (Carry Out)
 |:---:|:---:|:---:|:---:|
@@ -62,7 +62,7 @@ Here is another example of using a half adder for the equation $$1_{2}+0_{2}=1_{
 
 In this example, we can see that the output is **01** (or the number 1). Again, the X is used as the least significant bit and the Y is used as the most significant bit.
 
-Remember how we were talking about lego bricks earlier? Well, you might hate me, but we are going to add another brick on top of our current circuit. Let's say we want to add another input to our circuit and call it the carry in bit (this will make a lot more sense, I promise). So now we want to add the A, B, and C bits together to output a sum bit (X) and a carry out bit (Y). Let's take a look at the truth table and build the full adder circuit (again, this truth table is a representation of adding 3 1-bit values and their ouputs):
+Remember how we were talking about lego bricks earlier? Well, you might hate me, but we are going to add another brick on top of our current circuit. Let's say we want to add another input to our circuit and call it the carry-in bit (this will make a lot more sense, I promise). So now we want to add the A, B, and C (carry-in) bits together to output a sum bit (X) and a carry-out bit (Y), so the equation we are now trying to build our circuit for can be represented by $$A_{2}+B_{2}+C{2}=YX{2}$$. Let's take a look at the truth table and build the full adder circuit (again, this truth table is a representation of adding 3 1-bit values and their ouputs):
 
 | A | B | C | X (Sum) | Y (Carry Out)
 |:---:|:---:|:---:|:---:|:---:|
@@ -75,9 +75,9 @@ Remember how we were talking about lego bricks earlier? Well, you might hate me,
 | 1 | 1 | 0 | 0 | 1
 | 1 | 1 | 1 | 1 | 1
 
-*Aside: If the above truth table is still confusing, think about it this way. The equation we are trying to represent with the truth table and circuit is $$A_{2}+B_{2}+C{2}=YX{2}$$. If we add any row of values together, such as the last one where all the inputs are equal to the binary bit 1, then an easy trick we can do to find the output is convert all the inputs to numbers (which in this case are all equal to 1), add them (the result being 3), and then convert them back to binary (which gives us **11**).*
+*Aside: If the above truth table is still confusing, think about it this way. Again, the equation we are trying to represent with the truth table and circuit is $$A_{2}+B_{2}+C{2}=YX{2}$$. If we add any row of values together, such as the last one where all the inputs are equal to the binary bit 1, then an easy trick we can do to find the output is convert all the inputs to numbers (which in this case are all equal to 1), add them (the result being 3), and then convert them back to binary (which gives us **11**).*
 
-Next, we are going to use the SOP trick we learned in Chapter 6 to construct and simplify an expression for the truth table above. If you want to skip this part, feel free. I only included this part if you wanted to go over another SOP example (as long as you understand that you can take the ouput of a truth table, convert it to a boolean expression, and then use that expression to build a circuit, you understand the basis of building a logical circuit) Let's create an equation for the Sum bit:
+Next, we are going to use the SOP trick we learned in Chapter 6 to construct and simplify an expression for the truth table above. If you want to skip this part, feel free. I only included this part if you wanted to go over another SOP example (as long as you understand that you can take the ouput of a truth table, convert it to a boolean expression, and then use that expression to build a circuit, you understand the basis of how to build a logical circuit) Let's create an equation for the Sum bit:
 
 * Start with the initial expression from the SOP rule learned in Chapter 6: 
 
@@ -140,4 +140,4 @@ Let's trace through the inputs in our truth table and look at it's respective ci
 | 1 | 1 | 0 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%207.png" style="display: block; margin-left: auto; margin-right: auto;" />
 | 1 | 1 | 1 | 1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder%208.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Cool right? Now, you might be thinking how can we further build on this concept. In Chapter 8, we are going to introduce the idea of ripple Ripple Carry Adders which will allow us to combine multiple Full Adders together to do multi-bit addition and subtraction (and, you'll see why the carry out bit was important to learn about)!
+Cool right? Now, you might be thinking how can we further build on this concept. In Chapter 8, we are going to introduce the idea of ripple Ripple Carry Adders which will allow us to combine multiple Full Adders together to do multi-bit addition and subtraction (and, you'll see why the carry-out bit was important to learn about)!
