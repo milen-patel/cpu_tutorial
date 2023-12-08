@@ -88,7 +88,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>Y</string>
+          <string>Carry</string>
         </entry>
       </elementAttributes>
       <pos x="1320" y="360"/>
@@ -98,7 +98,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>X</string>
+          <string>Sum</string>
         </entry>
       </elementAttributes>
       <pos x="960" y="240"/>
