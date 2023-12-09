@@ -25,6 +25,8 @@ date: 2023-11-10
 
 Now that we have learned about logic gates, I think it's time we learned why they are so important (hopefully, the not so boring part). As mentioned in Chapter 6 briefly, logic gates are the building blocks of computers and when you chain logic gates together (to build circuits), you can essentially build a computer. That being said, we move onto the next step of our journey - building circuits. In Chapter 6, we skimmed over the definition of a logic circuit. In computer science, a circuit allows us to represent more complex logic beyond the basic AND and OR gates and allows us to transform our binary inputs into the outputs we desire. An easier way to think about this is by using legos. In Chapter 6, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different lego pieces and build our first circuit.
 
+### Half Adder
+
 In the earliest chapters we were introduced to base-2 and learned how to add two binary numbers together. In this chapter, let's automate this process by designing a circuit that can add two binary numbers together. I just want to make a quick note by stating that you can build a circuit to do a lot of different things. But, we are going to start out by building circuits that add binary values together for two reasons. First, if you take any computer science degree, most classes are going to start from the ground up just like we did with addition in kindergarden and first grade and work their way up in difficulty. And the second reason is in early computing, most computers were built to serve basic needs such as solving arithmetic problems. So, I think it would be helpful to follow this course and then build up our knowledge.
 
 You already know that computers can add incredibly large numbers together, but for the sake of us getting started, we will restrict our circuit to adding two 1-bit values (recall that a bit is a binary digit), namely A and B. Let's take an example below as a first contender of a circuit that takes 1-bit values A and B as input and outputs their sum ($$A+B$$) as Y:
@@ -69,6 +71,8 @@ Here is another example of using a half adder for the equation $$1_{2}+0_{2}=1_{
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half_Adder_3.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 In this example, we can see that the output is **01** (or the number 1). Again, the Y is used as the least significant bit and the X is used as the most significant bit.
+
+### Full Adder
 
 Remember how we were talking about lego bricks earlier? Well, you might hate me, but we are going to add another brick on top of our current circuit. Let's say we want to add another input to our circuit and call it the carry-in bit (this will make a lot more sense, I promise). So now we want to add the A, B, and C (carry-in) bits together to output a sum bit (Y) and a carry-out bit (X), so the equation we are now trying to build our circuit for can be represented by $$A_{2}+B_{2}+C_{2}=XY_{2}$$. Let's take a look at the truth table and build the full adder circuit (again, this truth table is a representation of adding 3 1-bit values and their ouputs):
 
