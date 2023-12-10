@@ -1,5 +1,5 @@
 ---
-title: Chapter 8
+title: Chapter 9
 date: 2023-11-10
 ---
 
@@ -51,7 +51,7 @@ Below is a circuit that represents how to perform the AND bitwise operation on t
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/Bitwise_AND.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-#### Bit Shift Operations
+#### Bit Shift Operations (Optional)
 
 We also ran into another term that didn't seem familar: bit shift. Bit shift operations are essentially a way to multiply or divide the number by 2. Say you were presented a binary value of $$0110_{2}$$ (which is $$6_{10}$$). If we shifted all the bits to the left by 1, it would become $$1100_{2}$$ (or $$12_{10}$$). Now, let's try the opposite and shift the original value of $$0110_{2}$$ to the right. Now, this would become $$0011_{2}$$ (or $$3_{10}$$). Cool right! So, it turns out shifting the digits to the left means that we are multiplying the number by 2 and shifting the digits to the right means we are dividing by 2. However, depending on if we are dealing with unsigned or signed numbers, the bit shift operations behaves a bit differently.
 
@@ -88,20 +88,56 @@ Now that the explanation makes some sense, here is an example of the circuit wit
 
 ### 1-bit ALU
 
-As you can tell, the ALU has many different parts to it, so we are going to build it one step at a time. First, we are going to start out by building a 1-bit ALU to actually understand how the ALU processes information. Again, our ALU is going to be responsible for 4 different things: adding, subtracting, and performing AND/OR logic.
+As you can tell, the ALU has many different parts to it, so we are going to build it one step at a time. First, we are going to start out by building a 1-bit ALU to actually understand how the ALU processes information. Again, our ALU is going to be responsible for 4 different things: adding, subtracting, performing AND logic and performing a XOR logic.
 
-*Aside: I know it doesn't make much sense to only have a 1-bit ALU (because what computer only does operations on 1 bit of information). However, take this example with a grain of salt. We want to explore more of how the data flows through the ALU compared to the analyzing the actual result of the ALU (we will study this part in the later part of the chapter when we build a multi-bit ALU).*
+*Aside: I know it doesn't make much sense to only have a 1-bit ALU (because what computer only does operations on 1 bit of information). However, take this example with a grain of salt. We want to explore more of how the data flows through the ALU compared to the analyzing the actual result of the ALU (we will study this part in the later part of the chapter when we build a 4-bit ALU).*
 
 The first step in building this 1-bit ALU is building out some of the logic. We spent the last two chapters discussing how to build an Adder-Subtractor circuit. We can use that knowledge here to build a one-bit Adder-Subtractor circuit to perform two of the four operations we need (adding and subtracting). Below is a circuit that represents a 1-bit Adder-Subtractor:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/1-bit_ALU_1.png" style="display: block; margin-left: auto; margin-right: auto;" /> - THIS SHOULD BE REPLACED BY A DIAGRAM!
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/1-bit_ALU_1.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Notice how in the image above, we technically already have a 1-bit opcode (the A/S bit) choosing between two different operations (addition and subtraction). 
 
 Next, we can also add further logic to our circuit by implementing the AND logic.  
 
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/1-bit_ALU_2.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Notice how we are seperating the logic for the Adder/Subtractor and the AND gate. The ALU will now perform the calculations for both the Adder/Subtractor and AND gate seperately. Let's not worry too much about the inputs and outputs of the logic, but in this image below, notice how the logic for the Adder/Subtractor and AND gate is being calculated seperately:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/1-bit_ALU_3.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Alright, now we want to add the last piece of logic to our ALU which is shifting left. Again, since this is a 1-bit example, don't worry about the inputs and outputs, worry about how the logic flows. In our ALU, when we perform the left shift, we will only be performing it on Input A and ignore Input B. Usually in computer architecture, when we performing shifting operations, we shift the value of Input A by a specified amount of bits; however, for our use case, we will keep it simple. 
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/1-bit_ALU_4.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Notice how in the image above, we have a completely different logical section for performing calculations using the XOR gate. This behaves in the same way that the AND gate does essentially.
+
+Now that we have all the logical components of our ALU in place, it is time to understand how the ALU chooses the correct output based on the operand we provide. In any given scenario, the ALU will be given two inputs, it will calculate the output as shown in the image for all of the possible scenarios, and then we provide the ALU another input (called the operand) to select the output we desire based on what operation we want the ALU to complete. So if we wanted the ALU to perform the bitwise AND operation, the ALU will also complete calculations for adding/subtracting and the bitwise XOR operation, and based on the operands provided, it will select the result of the bitwise AND operation. You're probably asking what is the purpose of doing all the calculations if we just select the result of one of them at the end. In our situation, we are just trying to demonstrate what the ALU is doing without the thought of efficiency to keep it as simple as possible for now (modern computers are much more efficient). In the image below, we have implemented the operands into the circuit:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/1-bit_ALU_5.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Let's walk through this. The first operand is responsible for selecting whether to do addition or subtraction AND selecting whether to choose the result from the bitwise AND operation or the bitwise XOR operation. So for example, if we wanted to do addition, the first operand would be turned off (0), so the result of the addition logic and bitwise XOR logic would be inputted into the final multiplexor. Then, the second operand will choose between the addition logic and bitwise XOR logic. And since we want to do addition with our ALU, the second operand would be turned on (1) ouputting the result of the addition. Let's look at a truth table and trace the logic using that:
+
+| Operation Performed | Operand 1 | Operand 2 |
+|:--:|:--:|:--:|
+| XOR | 0 | 0 |
+| AND | 1 | 0 |
+| Addition | 0 | 1 |
+| Subtraction | 1 | 1 |
+
+Congrats! You just built your first ALU!
+
+### Multi-Bit ALU
+
+
+
+
+
+
+
+
 
 plan out the 1 bit ALU section (diagrams instead!)
-	- add AND logic
-	- add shift logic
 	- add operands logic and output logic
 	- add in any flags we need
 extend this to 4 bit ALU
