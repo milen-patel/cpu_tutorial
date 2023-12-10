@@ -129,4 +129,28 @@ Congrats! You just built your first ALU!
 
 ### Multi-Bit ALU
 
+Now that we understand how the logic flows in an ALU, it's time to build a multi-bit ALU (which will make a lot more sense if we want to do calculations)! More specifically, we will be creating a 4-bit ALU. Before we dive into creating the 4-bit ALU, there are some small changes we will make to our 1-bit ALU in order for it to work with 4 bits:
 
+* The first change we will make is to bring back the 4-bit Adder-Subtractor instead of using a 1-bit Adder-Subtractor. And instead of using the entire circuit we can instead use an IC (which was introduced at the end of Chapter 6). We can abstract the complex circuitry we built using the 7483 Full Adder IC. Keep in mind that this circuit is just a 4-bit Ripple Carry Adder, and we still need to invert the A input and add 1 to the carry-in to make it into an Adder-Subtractor. I have included an image of the 7483 IC below:
+	* <img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/7483.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+		* This IC has multiple inputs/outputs, let me quickly describe what each does to you. The A1, A2, A3, A4 inputs are for responsible for receiving the A input; the B1, B2, B3, B4 inputs are responsible for receiving the B input; the S1, S2, S3, S4 are responsible for outputting the sum of the addition/subtraction; C4 is the final carry-out; C0 is the initial carry-in (to signal whether we are performing addition or subtraction); and the VCC and GND are the power and ground respectively. 
+* Next, we will include 4 AND gates and 4 XOR gates instead of just 1 AND gate and 1 XOR gate since we now how 4 bits for each of the two inputs and need to perform bitwise operations on each corresponding bit.
+* Finally, the last major change our 4-bit ALU will have is we will be increasing the number of multiplexors used to account for the extra bits. For example, notice in our diagram of the 1-bit ALU, we use one multiplexor to choose between the AND and XOR logic. In our 4-bit ALU, we need to use four multiplexors (one multiplexor to choose between each corresponding bit). For example, we need one multiplexor each for the ouput for the first, second, third, and fourth bit. 
+	* We also need to increase the number of multiplexors when displaying our final output where we choose between displaying the result of the addition/subtraction and the AND/OR bitwise logic.
+
+Now that we have read through the changes, let's build out 4-bit ALU:
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_1.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Keep in mind the same operand inputs apply that we went looked at when we built the 1-bit ALU. 
+
+The last part to building our ALU is creating the flags: carry, overflow, zero, negative. Here is how we build each one of these flags:
+* Negative: This indicates whether our result was negative and we can use the MSB (Y3) to toggle this flag.
+* Zero: This indicates whether the result is 0 and is an inverted OR gate. This makes sense because we want all of the bits to be turned off and the output of an inverted OR gate will only ever be on if all the inputs are off. 
+* Carry: This indicates whether we have a carry from our addition operations (only used in unsigned addition) and is just the ouput of C4 from the 7483 IC we use.
+* Overflow: This indicates that our output is out of range and cannot be represented by the number of bits we have (for signed operations). The overflow is on when we are adding two positive numbers and the result is negative OR if we are adding two negative numbers and the result is positive (remember, we can check whether an input/output is positive or negative by using the MSB). So in order to build an overflow flag, we can use the equation $$A_{3}B_{3}\overline{Y_{3}+\overlineA_{3}\overlineB_{3}{Y_{3}}$$. The first side of this equation checks if input A and B are both negative, the MSBs have the value of 1, and the ouput is positive, the MSB has the value of 0 (which it flips to 1 with the NOT symbol to make the AND gate true and indicate there is an overflow). The second side of the equation does the vice versa. It checks that the ouput is negative, the MSB has a value of 1, and input A and B are both positive, the MSBs have the value of 0 (which it flips to 1 with the NOT symbol to make the AND gate true and indicate there is an overflow).
+
+Here is our finished ALU below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_2.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Congrats! We finished building our 4-bit ALU. I highly encourage you to download the Digital file and play around with the ALU to ensure you really understand how it works. Try modifying it too! In the later sections, we are going to be looking at and building some more components which are important to how a computer processes and stores information. 
