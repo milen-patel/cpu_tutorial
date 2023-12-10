@@ -130,15 +130,3 @@ Congrats! You just built your first ALU!
 ### Multi-Bit ALU
 
 
-
-
-
-
-
-
-
-plan out the 1 bit ALU section (diagrams instead!)
-	- add operands logic and output logic
-	- add in any flags we need
-extend this to 4 bit ALU
-
