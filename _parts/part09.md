@@ -20,7 +20,7 @@ date: 2023-11-10
 	<p></p>
 </html>
 
-# Chapter 09 - Arithmetic Logic Unit (ALU)
+# Chapter 09 - Arithmetic Logic Unit (ALU) -- ROUGH DRAFT (EDITS COMING)
 **Topics Covered:** ALU
 
 Now that we understand some of the funamentals of how numbers and logic are represented in the computer world, I think it is time we broaden our knowledge by introducing the Artithemtic Logic Unit, ALU. 
