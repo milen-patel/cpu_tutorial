@@ -20,7 +20,7 @@ date: 2023-11-09
 	<p></p>
 </html>
 
-# Chapter 02 - How Humans Intuitively Represent Numbers
+# Chapter 02 - How Humans See Numbers
 **Topics Covered:** Formalizing Decimal, Base-10 Meaning
 
 You've likely heard of the notion that computers only understand 0's and 1's, so in this section we will make sense of that.

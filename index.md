@@ -22,7 +22,7 @@ Whether you are a computer science major or a curious learner without engineerin
 
 # Table of Contents
 * Chapter 01 - *In Progress...*
-* Chapter 02 - [How We Intuitively See Numbers](/cpu_tutorial/parts/part02.html)
+* Chapter 02 - [How Humans See Numbers](/cpu_tutorial/parts/part02.html)
 * Chapter 03 - [How Computers See Numbers](/cpu_tutorial/parts/part03.html)
 * Chapter 04 - [Fixed-Width Numbers](/cpu_tutorial/parts/part04.html)
 * Chapter 05 - [What about Negative Numbers?](/cpu_tutorial/parts/part05.html)
