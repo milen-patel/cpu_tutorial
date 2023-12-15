@@ -25,33 +25,35 @@ date: 2023-11-10
 
 Now that we have learned about logic gates, I think it's time we learned why they are so important (hopefully, the not so boring part). As mentioned in Chapter 6 briefly, logic gates are the building blocks of computers and when you chain logic gates together (to build circuits), you can essentially build a computer. That being said, we move onto the next step of our journey - building circuits. In Chapter 6, we skimmed over the definition of a logic circuit. In computer science, a circuit allows us to represent more complex logic beyond the basic AND and OR gates and allows us to transform our binary inputs into the outputs we desire. An easier way to think about this is by using legos. In Chapter 6, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different lego pieces and build our first circuit.
 
-### Half Adder
+### Representing Addition Using Logic Circuits
 
-In the earliest chapters we were introduced to base-2 and learned how to add two binary numbers together. In this chapter, let's automate this process by designing a circuit that can add two binary numbers together. I just want to make a quick note by stating that you can build a circuit to do a lot of different things. But, we are going to start out by building circuits that add binary values together for two reasons. First, if you take any computer science degree, most classes are going to start from the ground up just like we did with addition in kindergarden and first grade and work their way up in difficulty. And the second reason is in early computing, most computers were built to serve basic needs such as solving arithmetic problems. So, I think it would be helpful to follow this course and then build up our knowledge.
+In the earliest chapters we were introduced to idea of Base-2 and learned how to add two binary numbers together (signed and unsigned). In this chapter, let's automate this process by designing a circuit that can add two binary numbers together. I just want to make a quick note by stating that you can build a circuit to do a lot of different things. But, we are going to start out by building circuits that add binary values together for two reasons. First, if you take any computer science degree, most classes are going to start from the ground up just like we did with addition in kindergarden and first grade and work their way up in difficulty. And the second reason is in early computing, most computers were built to serve basic needs such as solving arithmetic problems. So, I think it would be helpful to follow this course and then build up our knowledge.
 
 You already know that computers can add incredibly large numbers together, but for the sake of us getting started, we will restrict our circuit to adding two 1-bit values (recall that a bit is a binary digit), namely A and B. Let's take an example below as a first contender of a circuit that takes 1-bit values A and B as input and outputs their sum ($$A+B$$) as Y:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/OR_Gate_1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Above we have a circuit representing the equation $$A+B=Y$$ (in other words, $$0_{2}+0_{2}=0_{2}$$). Essentially, this circuit adds two numbers together (in this case, a 0 and a 0) and outputs a number (which again, is 0). Congrats, you just build your first circuit! In this example, what we are trying to demonstrate is that the OR gate can be used to add two numbers together and is a simple addition circuit (which was also briefly mentioned in Chapter 6).
-
-*Aside: In the example above, the A, B, C which are all 0s are not the number 0, but the bit 0, which is equivalent to the number 0. So, technically, we are adding the bit 0 (the number 0) to another bit 0 (the number 0) giving us the bit 0 (the number 0). Review Chapter 3 if this does not make sense!*
+Above we have a circuit representing the equation $$A+B=Y$$. Essentially, this circuit adds two numbers together (in this case, a $$0_{2}$$ and a $$0_{2}$$) and outputs a number (which again, is $$0_{2}$$). In this example, what we are trying to demonstrate is that the OR gate can be used to add two numbers together and is a simple addition circuit (which was also briefly mentioned in Chapter 6). In other words, our equation can be represented like this: $$0_{2}+0_{2}=0_{2}$$. Congrats, you just build your first circuit!
 
 Let's look at a slightly different example:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/OR_Gate_2.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Here, we are adding the bit 0 (number 0) with the bit 1 (number 1) which gives us the bit 1 (number 1). In other terms, this equation can be written as $$0_{2}+1_{2}=1_{2}$$. Makes sense right? I know I'm definetly boring you, so let's look a slightly harder example:
+Here, we are adding $$0_{2}$$ with the $$1_{2}$$ which gives us the $$1_{2}$$. This equation can be written as $$0_{2}+1_{2}=1_{2}$$. Makes sense right? I know I'm definetly boring you, so let's look a slightly harder example:
+
+*Aside: If the above two examples are confusing, convert the Base-2 equations to Base-10 form and attempt to parse through the circuit using that logic. I would highly recommend going back to Chapters 3 and 6 if you are still have trouble.*
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/OR_Gate_3.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Here, we are adding the bit 1 (number 1) with the bit 1 (number 1) which gives us the bit 1 (number 1). If you realized there's a mistake here, you're right. The number 1 plus the number 1 should be returning the number 2 (written as **10** in binary - notice how we need two bits). You might be thinking that there is no possible way we can represent the number two with just one OR gate (since it only outputs one bit). This is where things get exciting.
+Here, we are adding the bit 1 (number 1) with the bit 1 (number 1) which gives us the bit 1 (number 1). If you realized there's a mistake here, you're right. The number 1 plus the number 1 should be returning the number 2 (written as **10** in binary - notice how we need two bits). You might be thinking that there is no possible way we can represent the number two with just one OR gate since it only outputs one bit (notice how $$2_{10}$$ can only be represented with 2 bits). This is where things get exciting.
+
+### Half Adder
 
 Remember when I was talking about legos earlier, this is where we use them. Just like how we can connect different legos with each other to build more complicated things, we can connect different logic gates to build more complicated circuits. Here is where we introduce the half adder:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half_Adder_1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to the number 2 which we saw in the example in the paragraph above (meaning we need to somehow represent two bits in the output of a circuit since the number 2 is represented by two binary digits). We can represent the equation as $$A_{2}+B_{2}=XY_{2}$$. This is where a half adder circuit is useful because we can now represent the sum and carry-out digits (which was talked about in Chapter 3). In the circuit above, the Y acts as the least significant bit (the sum bit) and the X acts as the most significant bit (the carry bit). Now, your question might be how did we know to use the XOR gate to calculate Y and the AND gate to calculate X? Take a look at this truth table below which represents the addition of two 1-bit binary values:
+The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to $$2_{10}$$ which we saw in the example in the paragraph above (meaning we need to somehow represent two bits in the output of a circuit since the number $$2_{10}$$ is represented by two binary digits). We can represent the equation as $$A_{2}+B_{2}=XY_{2}$$. This is where a half adder circuit is useful because we can now represent the sum and carry-out digits (which was talked about in Chapter 3). In the circuit above, the Y acts as the least significant bit (the sum bit) and the X acts as the most significant bit (the carry bit). Now, your question might be how did we know to use the XOR gate to calculate Y and the AND gate to calculate X? Take a look at this truth table below which represents the addition of two 1-bit binary values:
 
 | A | B | Y (Sum) | X (Carry)
 |:---:|:---:|:---:|:---:|
@@ -60,21 +62,25 @@ The issue with using just an OR gate to represent the addition of two bits is th
 | 1 | 0 |  1 | 0
 | 1 | 1 |  0 | 1
 
-Before we go any further, we should note that these calculations are the same as the ones in Chapter 3. First, looking at the Sum Column (Y Output), we can see that it looks pretty familar to one of the truth tables in Chapter 6. If you were thinking an XOR gate, then you're right! And, looking at the Carry Column (X Output), we can see that the output looks similar to an AND gate. Now we can see why the half adder uses a XOR gate and an AND gate instead of using a normal OR gate.
+*Aside: Before we go any further, we should note that these calculations are the same as the ones in Chapter 3.*
 
-If we combine both of these bits together (in the form of XY with the Y bit being the least significant bit and the X bit being the most significant bit), we can have an output now that represents the equation $$1_{2}+1_{2}=2_{10}$$ because the number 2 can be represented as **10** in binary. Here is an example of the circuit below:
+First, looking at the Sum Column (Y Output), we can see that it looks pretty familar to one of the truth tables in Chapter 6. If you were thinking an XOR gate, then you're right! And, looking at the Carry Column (X Output), we can see that the output looks similar to an AND gate. Now we can see why the half adder uses a XOR gate and an AND gate instead of using a normal OR gate.
+
+If we combine the sum bit and the carry bit together (in the form of XY), we can have an output now that represents the equation $$1_{2}+1_{2}=2_{10}$$ (this equation can be represented in our truth table in row #4 where $$A=1$$ and $$B=1$$). Essentially, we are now able to represent $$2_10$$ in binary as $$10_{2}$$. Here is an example of the circuit representing our equation below:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half_Adder_2.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Here is another example of using a half adder for the equation $$1_{2}+0_{2}=1_{01}$$:
+Here is another example of using a half adder for the equation $$1_{2}+0_{2}=01_{2}$$:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half_Adder_3.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-In this example, we can see that the output is **01** (or the number 1). Again, the Y is used as the least significant bit and the X is used as the most significant bit.
+In this example, we can see that the output is $$01_{2}$$. Again, the Y is used as the least significant bit and the X is used as the most significant bit. 
+
+What you should take away from this section is that the Half Adder circuit allows us to represent more complicated addition which involve carry-overs. 
 
 ### Full Adder
 
-Remember how we were talking about lego bricks earlier? Well, you might hate me, but we are going to add another brick on top of our current circuit. Let's say we want to add another input to our circuit and call it the carry-in bit (this will make a lot more sense, I promise). So now we want to add the A, B, and C (carry-in) bits together to output a sum bit (Y) and a carry-out bit (X), so the equation we are now trying to build our circuit for can be represented by $$A_{2}+B_{2}+C_{2}=XY_{2}$$. Let's take a look at the truth table and build the full adder circuit (again, this truth table is a representation of adding 3 1-bit values and their ouputs):
+Remember how we were talking about lego bricks earlier? Well, you might hate me, but we are going to add another brick on top of our current circuit. Let's say we want to add another input to our circuit and call it the carry-in bit (I will explain why this bit is so important in Chapter 8, so hang tight). So now we want to add the A, B, and C (carry-in) bits together to output a sum bit (Y) and a carry-out bit (X), so the equation we are now trying to build our circuit for can be represented by $$A_{2}+B_{2}+C_{2}=XY_{2}$$. Let's take a look at the truth table and build the full adder circuit (again, this truth table is a representation of adding 3 1-bit values and their ouputs):
 
 | A | B | C | Y (Sum) | X (Carry Out)
 |:---:|:---:|:---:|:---:|:---:|
@@ -87,9 +93,13 @@ Remember how we were talking about lego bricks earlier? Well, you might hate me,
 | 1 | 1 | 0 | 0 | 1
 | 1 | 1 | 1 | 1 | 1
 
-*Aside: If the above truth table is still confusing, think about it this way. Again, the equation we are trying to represent with the truth table and circuit is $$A_{2}+B_{2}+C_{2}=XY_{2}$$. If we add any row of values together, such as the last one where all the inputs are equal to the binary bit 1, then an easy trick we can do to find the output is convert all the inputs to numbers (which in this case are all equal to 1), add them (the result being 3), and then convert them back to binary (which gives us **11**).*
+*Aside: If the above truth table is still confusing, think about it this way. Again, the equation we are trying to represent with the truth table and circuit is $$A_{2}+B_{2}+C_{2}=XY_{2}$$. If we add any row of values together, such as the last one where all the inputs are equal to $$1_{2}$$, then an easy trick we can do to find the output is convert all the inputs to numbers (which in this case are all equal to $$1_{10}$$), add them (the result being $$3_{10}$$), and then convert them back to binary (which gives us $$11_{2}$$).*
 
-Next, we are going to use the SOP trick we learned in Chapter 6 to construct and simplify an expression for the truth table above. If you want to skip this part, feel free. I only included this part if you wanted to go over another SOP example (as long as you understand that you can take the ouput of a truth table, convert it to a boolean expression, and then use that expression to build a circuit, you understand the basis of how to build a logical circuit) Let's create an equation for the Sum bit:
+Next, we are going to use the SOP trick we learned in Chapter 6 to construct and simplify an expression for the truth table above. If you want to skip this part, feel free (the equations are provided below the optional section). I only included this part if you wanted to go over another SOP example (as long as you understand that you can take the ouput of a truth table, convert it to a boolean expression, and then use that expression to build a circuit, you understand the basis of how to build a logical circuit). 
+
+*Aside: For the Half Adder, we were able to quickly identify which logic gates to use because that was a simpler example, so we could visually make that connection. Usually to build logic circuits, we need to use the SOP trick!*
+
+#### Optional: Finiding SOP Expressions for Full Adder
 
 * Start with the initial expression from the SOP rule learned in Chapter 6: 
 
