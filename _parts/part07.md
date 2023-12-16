@@ -68,7 +68,7 @@ The issue with using just an OR gate to represent the addition of two bits is th
 
 First, looking at the Sum Column (Y Output), we can see that it looks pretty familar to one of the truth tables in Chapter 6. If you were thinking an XOR gate, then you're right! And, looking at the Carry Column (X Output), we can see that the output looks similar to an AND gate. Now we can see why the half adder uses a XOR gate and an AND gate instead of using a normal OR gate.
 
-Going back to our original problem of adding $$1_{2}$$ and $$1_{2}$$, we can rewrite our equation above as $$1_{2}+1_{2}=10_{2}$$ (this equation is derived from row #4 in our truth table above where $$A=1$$ and $$B=1$$). Essentially, we are now able to represent $$2_10$$ in binary as $$10_{2}$$ in circuit form. Here is an example of the circuit performing the addition of $$1_{2}$$ and $$1_{2}$$:
+Going back to our original problem of adding $$1_{2}$$ and $$1_{2}$$, we can rewrite our equation above as $$1_{2}+1_{2}=10_{2}$$ (this equation is derived from row #4 in our truth table above where $$A=1$$ and $$B=1$$). Essentially, we are now able to represent addition resulting in values greater than $$1_{10}$$ in circuit form. Here is an example of the circuit performing the addition of $$1_{2}$$ and $$1_{2}$$:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half_Adder_2.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
