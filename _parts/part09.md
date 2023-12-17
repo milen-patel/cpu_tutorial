@@ -77,7 +77,7 @@ Now, that we understand those three key principles, let's break down how to buil
 
 Let's first take the example of how to shift 1-bit to the left. Keep in mind, no one in the computer science world really cares about shifting 1 bit to the left and you might be thinking this is a bit silly too, but for our purposes, you will see how starting with this example can be helpful. Going back to our example, if the bit value is 0 and we shift left, nothing will happen. But, if the bit value is 1 and we shift left, we want to replace it with a 0. Below, we will build a simple circuit to help us get started:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/Shift_Left_1.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/Shift_Left_simple.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 For the input $$A_{0}=1$$, let's look at the output when Shift Left is off and when Shift Left is on.
 
