@@ -141,50 +141,77 @@ Finally, we will add the last logical component to our ALU: the bitwise AND logi
 
 #### Using Operands to Select Output
 
+Now that we have all the logical components of our ALU in place, it is time to understand how the ALU chooses the correct output based on the operand we provide. In any given scenario, the ALU will be given two operands, it will calculate the output as shown in the image for all of the possible scenarios, and then we provide the ALU another input, called the opcode, to select the output we desire based on what operation we want the ALU to complete. So if we wanted the ALU to perform the bitwise AND operation, the ALU will also complete calculations for adding/subtracting and the bitwise XOR operation, and based on the operands provided, it will select the result of the bitwise AND operation. You're probably asking what is the purpose of doing all the calculations if we just select the result of one of them at the end. In our situation, we are just trying to demonstrate what the ALU is doing without the thought of efficiency to keep it as simple as possible for now (modern computers are much more efficient). 
 
-#### Output and Flags
+Your other burning question also might be how to implement this. Well, it turns out we are going to be using multiplexors again (surprise). The first thing that we want to do to modify our ALU is make the C bit and Shift Left bit the same. What this essentially means is that there will be one bit to control both of these operations. If we shifting left, we are also doing subtraction and if we do subtraction, we are shifting left. We are going to rename this bit to Opcode 1. Let's check out our circuit below:
 
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_7.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
 
+Remember earlier when I mentioned that we would start choosing the outputs based on the opcode and use multiplexors to do so, well now we can implement them. This won't make much sense at first, but bear with me. We can break our current ALU down into 2 halves. The left half being the Adder-Subtractor which already returns us 1 singular output whether we are doing addition or subtraction. The right half of our ALU is responsible for the bitwise AND logic and shift left logic which returns us 2 outputs. Here, we need to filter logic further for the right half of our circuit to only return 1 output. We can first use a set of multiplexors to choose between the results of the shift left operation and the bitwise AND operation. To be exact, we need 4 multiplexors since each portion or logic returns a 4-bit result. We can feed these multiplexors the value of Opcode 1 (which we created in the previous paragraph) to choose between the bitwise AND logic and shift left logic. Let's look at our updated circuit:
 
-Now that we have all the logical components of our ALU in place, it is time to understand how the ALU chooses the correct output based on the operand we provide. In any given scenario, the ALU will be given two inputs, it will calculate the output as shown in the image for all of the possible scenarios, and then we provide the ALU another input (called the operand) to select the output we desire based on what operation we want the ALU to complete. So if we wanted the ALU to perform the bitwise AND operation, the ALU will also complete calculations for adding/subtracting and the bitwise XOR operation, and based on the operands provided, it will select the result of the bitwise AND operation. You're probably asking what is the purpose of doing all the calculations if we just select the result of one of them at the end. In our situation, we are just trying to demonstrate what the ALU is doing without the thought of efficiency to keep it as simple as possible for now (modern computers are much more efficient). In the image below, we have implemented the operands into the circuit:
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_8.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/1-bit_ALU_5.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+I hope looking at the circuit is making more sense. We are essentially choosing the output of the ALU based on the opcode we provide. Notice how we still have the 2 seperate results (the Adder-Subtractor result and the result between the Shift Left logic and bitwise AND). We can create another opcode and set of multiplexors to filter this result. 
 
-Let's walk through this. The first operand is responsible for selecting whether to do addition or subtraction AND selecting whether to choose the result from the bitwise AND operation or the bitwise XOR operation. So for example, if we wanted to do addition, the first operand would be turned off (0), so the result of the addition logic and bitwise XOR logic would be inputted into the final multiplexor. Then, the second operand will choose between the addition logic and bitwise XOR logic. And since we want to do addition with our ALU, the second operand would be turned on (1) ouputting the result of the addition. Let's look at a truth table and trace the logic using that:
+However, before we create another opcode value, I want to take the time to explain why we can't use the same opcode for those of you wondering. Here is an image of the ALU which feeds in the same opcode (Opcode 1) into the new set of multiplexors (for example purpose - this is incorrect as explained in the paragraph below):
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_9.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Right now, we have 4 different operations we can choose from - addition, subtraction, bitwise AND, shift left. Let's say set Opcode 1 to 0. On the left half of the ALU, our Adder-Subtractor will perform addition. On the right half of the ALU, our ALU will need to choose the result the shift left logic outputs or the result the bitwise AND outputs. Since Opcode 1 is set to 0, we can see from the image above, the ALU will choose the bitwise AND logic to select. If we had another set of multiplexors to now choose between the left and right side and were feeding in the same opcode (Opcode 1), take a second to hypothesize what would be outputted. If you said the bitwise AND logic would be outputted, you're right. 
+
+Now, let's flip the value of Opcode 1 to 1. In this case, our Adder-Subtractor will perform subtraction. On the right half of the ALU, our ALU will perform a shift left operation (since Opcode 1 is also being fed in as the Shift Left bit) and the multiplexors will choose the result of the shift left operation. Then, in the second level of multiplexors, we now need to choose between the subtraction and the shift left and since Opcode 1 is 1, we will be choosing the result of the subtraction logic. 
+
+As you can see, when we only use one opcode bit, we can choose between two operations only (which was previously mentioned in the beginning of the chapter and is demonstrated in our Adder-Subtractor circuit). This is why we need to create another opcode bit to feed into the next level of multiplexors to choose a result between the left half of the ALU and right half of the ALU. Below we create another opcode bit and feed it into the second level of multiplexors:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_10.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+Essentially, we can demonstrate in a table what operations will be performed based on the opcode chosen:
 
 | Operation Performed | Operand 1 | Operand 2 |
 |:--:|:--:|:--:|
-| XOR | 0 | 0 |
-| AND | 1 | 0 |
+| Bitwise AND | 0 | 0 |
+| Shift Left | 1 | 0 |
 | Addition | 0 | 1 |
 | Subtraction | 1 | 1 |
 
-Congrats! You just built your first ALU!
-
-### Multi-Bit ALU
-
-Now that we understand how the logic flows in an ALU, it's time to build a multi-bit ALU (which will make a lot more sense if we want to do calculations)! More specifically, we will be creating a 4-bit ALU. Before we dive into creating the 4-bit ALU, there are some small changes we will make to our 1-bit ALU in order for it to work with 4 bits:
-
-* The first change we will make is to bring back the 4-bit Adder-Subtractor instead of using a 1-bit Adder-Subtractor. And instead of using the entire circuit we can instead use an IC (which was introduced at the end of Chapter 6). We can abstract the complex circuitry we built using the 7483 Full Adder IC. Keep in mind that this circuit is just a 4-bit Ripple Carry Adder, and we still need to invert the A input and add 1 to the carry-in to make it into an Adder-Subtractor. I have included an image of the 7483 IC below:
-	* <img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/7483.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
-		* This IC has multiple inputs/outputs, let me quickly describe what each does to you. The A1, A2, A3, A4 inputs are for responsible for receiving the A input; the B1, B2, B3, B4 inputs are responsible for receiving the B input; the S1, S2, S3, S4 are responsible for outputting the sum of the addition/subtraction; C4 is the final carry-out; C0 is the initial carry-in (to signal whether we are performing addition or subtraction); and the VCC and GND are the power and ground respectively. 
-* Next, we will include 4 AND gates and 4 XOR gates instead of just 1 AND gate and 1 XOR gate since we now how 4 bits for each of the two inputs and need to perform bitwise operations on each corresponding bit.
-* Finally, the last major change our 4-bit ALU will have is we will be increasing the number of multiplexors used to account for the extra bits. For example, notice in our diagram of the 1-bit ALU, we use one multiplexor to choose between the AND and XOR logic. In our 4-bit ALU, we need to use four multiplexors (one multiplexor to choose between each corresponding bit). For example, we need one multiplexor each for the ouput for the first, second, third, and fourth bit. 
-	* We also need to increase the number of multiplexors when displaying our final output where we choose between displaying the result of the addition/subtraction and the AND/OR bitwise logic.
-
-Now that we have read through the changes, let's build out 4-bit ALU:
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_1.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
-
-Keep in mind the same operand inputs apply that we went looked at when we built the 1-bit ALU. 
+#### Output and Flags
 
 The last part to building our ALU is creating the flags: carry, overflow, zero, negative. Here is how we build each one of these flags:
 * Negative: This indicates whether our result was negative and we can use the MSB (Y3) to toggle this flag.
-* Zero: This indicates whether the result is 0 and is an inverted OR gate. This makes sense because we want all of the bits to be turned off and the output of an inverted OR gate will only ever be on if all the inputs are off. 
-* Carry: This indicates whether we have a carry from our addition operations (only used in unsigned addition) and is just the ouput of C4 from the 7483 IC we use.
-* Overflow: This indicates that our output is out of range and cannot be represented by the number of bits we have (for signed operations). The overflow is on when we are adding two positive numbers and the result is negative OR if we are adding two negative numbers and the result is positive (remember, we can check whether an input/output is positive or negative by using the MSB). So in order to build an overflow flag, we can use the equation $$A_{3}B_{3}\overline{Y_{3}+\overlineA_{3}\overlineB_{3}{Y_{3}}$$. The first side of this equation checks if input A and B are both negative, the MSBs have the value of 1, and the ouput is positive, the MSB has the value of 0 (which it flips to 1 with the NOT symbol to make the AND gate true and indicate there is an overflow). The second side of the equation does the vice versa. It checks that the ouput is negative, the MSB has a value of 1, and input A and B are both positive, the MSBs have the value of 0 (which it flips to 1 with the NOT symbol to make the AND gate true and indicate there is an overflow).
+* Zero: This indicates whether the result is 0 and is an NOR gate. This makes sense because we want all of the bits to be turned off and the output of an inverted OR gate will only ever be on if all the inputs are off. 
+* Carry: This indicates if we have an overflow when doing unsigned arithmetic and is just the ouput of C4 from the 7483 IC we use. In the previous chapter, I claimed we could only feed two's complement numbers as the operands into our ALU when doing addition and subtraction. However, we can also perform unsigned addition with our ALU. Remember the Adder-Subtractor we built is technically a Ripple Carry Adder, so it is possible to do unsigned addition which is why we include the Carry flag.
+* Overflow: This indicates if we have an overflow when doing signed arithmetic (with two's complement). The logic behind this flag was explained in the previous chapter.
 
 Here is our finished ALU below:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_2.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_11.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+#### Examples
+
+Below, we are going to display some examples of the ALU performing calculations. My challenge to you is to take your time and trace through these circuits. Try to download the .dig file also and come up with your own examples.
+
+In our first example, we will be doing addition where Input A is $$0010_{2}$$ and Input B is $$0001_{2}$$. Here is our circuit below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_12.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+In our second example, we will be doing addition which results in overflow where Input A is $$1010_{2}$$ and Input B is $10001_{2}$$. Here is our circuit below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_13.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+In our third example, we will be performing subtraction where Input A is $$0010_{2}$$ and Input B is $$0001_{2}$$. Here is our circuit below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_14.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+In our fourth example, we will be performing subtraction which results in overflow where Input A is $0001_{2}$$ and Input B is $1000_{2}$$. Here is our circuit below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_15.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+In our next example, we will be performing a shift left operation on Input A where Input A is $$0111_{2}$$. Here is our circuit below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_16.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
+
+In our final example, we will be performing bitwise AND logic where Input A is $$1110_{2}$$ and Input B is $$0111_{2}$$. Here is our circuit below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part9/images/4-bit_ALU_17.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
 
 Congrats! We finished building our 4-bit ALU. I highly encourage you to download the Digital file and play around with the ALU to ensure you really understand how it works. Try modifying it too! In the later sections, we are going to be looking at and building some more components which are important to how a computer processes and stores information. 
