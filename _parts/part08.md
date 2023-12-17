@@ -103,7 +103,7 @@ Now that you're an expert in Full Adders and Ripple Carry Adders, it's time for 
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Multiplexor.png" style="display: block; margin-left: auto; margin-right: auto;" /> 
 
-	Also, if you noticed this circuit and truth table look a little familiar, they are! In Chapter 6, you actually saw how the circuit looked like (and its inputs and outputs) rather than just the schematic (this circuit will appear a few more times, so make sure you take the time to understand what it's doing).
+ Also, if you noticed this circuit and truth table look a little familiar, they are! In Chapter 6, you actually saw how the circuit looked like (and its inputs and outputs) rather than just the schematic (this circuit will appear a few more times, so make sure you take the time to understand what it's doing).
 
 Cool, now you understand what multiplexors are, so let's review our goal for this section: we need to take the Ripple Carry Adder we learned about and the two ideas mentioned at the start of this section on Adder-Subtractors (two's complement and a multiplexor) and modify the Ripple Carry Adder to also do subtraction. You might be thinking that is impossible, but let's take a closer look at how we can modify our circuit to perform subtraction.
 
