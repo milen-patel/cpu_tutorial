@@ -25,38 +25,36 @@ date: 2023-11-10
 
 Now that we know how to do simple addition using half adders and full adders (which are used to do one-bit addition), I believe we are ready to learn about ripple-carry adders (for, you guessed it, multi-bit addition). Moreover, we will get to learn why the carry-in bit was so crucial that we needed to create a half adder on steriods (the full adder).
 
-### Full Adders and the Carry-In Bit
+### Ripple Carry Adder
+
+#### 2-Bit Example 
 
 Imagine now we are adding two numbers: $$3_{10}$$ and $$1_{10}$$. In binary format, these numbers would be represented as $$11_{2}$$ and $$01_{2}$$ respectively. Essentially, our expression here can be represented as $$11_{2}+01_{2}$$. Let's add these values using a table.
 
 | | Third Bit (Carry Over) | Second Bit | First Bit |
 |:-- |:---:|:---:|:---:|
-| Carry Over from Previous Column  |   | 1 |   |
+| Carry Over from Previous Column  | 1 | 1 |   |
 | Number 3 |   | 1 | 1 |
 | Number 1 |   | 0 | 1 |
 | **Result** | **1** | **0** | **0** |
 
-In the above table, we add the binary equivalent of the $$3_{10}$$ (row 2) with the binary equivalent of the number $$1_{10}$$ (row 3) to get a result of $$100_{2}$$ which is equivalent to $$4_{10}$$ (row 4). But, more importantly, do you notice how we now have a carry-over bit from the first column to the second column? This is why full-adders are so important: now, we can finally use the new carry-in input on the full-adder to account for that carry-over bit in the second column. Hold on a second though. In the last chapter, we learned that Half Adders and Full Adders can be used to do 1-bit addition. But now that we know the advantage of Full Adders lies in their ability to utilize the carry-in input and carry-out output, we can effectively chain multiple Full Adders together. This configuration, known as a Ripple Carry Adder, allows us to represent multi-bit addition with carry-over logic.
+In the last chapter, we learned about Full Adders. It turns out that we can actually chain multiple Full Adders to do multi-bit addition and accurately represent carry-over logic. When we chain multiple Full Adders together, we can create a Ripple Carry Adder. Let's break this down a bit further using our multi-bit example above.
 
-### Ripple Carry Adder
-
-#### 2-Bit Example
-
-Let's analyze how a Ripple Carry Adder is just multiple Full Adders combined before we dive into building the circuit. Notice from the example above how we have two bits for each of the numbers, we can use a full adder to do the addition for each corresponding bit (or each column of the table). So, essentially, we can use a full adder to represent the addition happening in the **First Bit** column and use another full adder to represent the addition happening in the **Second Bit** column. **Each corresponding bit (in other words, each bit in the same position) will be added together from both binary values.** This is pretty similar to how we do regular addition: add the one's place, the ten's place, the hundred's place, and so on. Let's look at the circuit below to see what this example looks like:
+Before we begin to build out the Ripple Carry Adder, let's analyze how Full Adders can be used to do multi-bit additon. Notice from the example above how we have two bits for each of the numbers, we can use a full adder to do the addition for each corresponding bit (or each column of the table). So, essentially, we can use a full adder to represent the addition happening in the **First Bit** column and use another full adder to represent the addition happening in the **Second Bit** column. **Each corresponding bit (in other words, each bit in the same position) will be added together from both binary values.** This is pretty similar to how we do regular addition: add the one's place, the ten's place, the hundred's place, and so on. We can begin building out the above example in circuit form below:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Ripple_Carry_1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-*Aside: As you can see in the above, we don't have our typical circuit with the gates. Usually when we build circuit diagrams, we try to simplify the circuit by using a schematic symbol. In this case, the box we have is used to represent a Full Adder instead of using the entire Full Adder circuit we built in Chapter 7 multiple times. You will see these schematic symbols used throughout the book and I will label them or point out what they should be representing.*
+*Aside: As you can see in the above, we don't have our typical circuit with the gates. Usually when we build circuit diagrams, we try to simplify the circuit by using a schematic symbol. In this case, the box we have is used to represent a Full Adder instead of using the entire Full Adder circuit we built in Chapter 7 multiple times. However, you can see that this schematic symbol works in the same way as the circuit: we have 3 inputs (A, B, Carry-In) and 2 outputs (Sum and Carry-Out)*
 
 *Aside: You might have also seen a weird looking symbol going into the carry-in input (the dash). This symbol is just supposed to represent a grounded input meaning it sends an electrical signal of 0 or off. Don't worry about the carry-in input for the initial Full Adder of our Ripple Carry Adder circuit (we will get to this later).*
 
 Notice in the example above how each corresponding bit in the same place value goes to the same full adder (so the bits A1 and B1 go to Full Adder #1 and the bits A2 and B2 go to Full Adder #2). Intuitively, this makes sense because we are adding bits which are in the same place value (as mentioned earlier).
 
-So, let's review how the carry-in bit comes into play. As pointed out earlier, notice how when we add the bits in the **First Bit** column, there's a carry over? Well, we can use the carry-over bit outputted from the first full adder and insert it into the carry-in input in the second full adder. This is shown in the image below.
+Now, let's review how the carry-in bit comes into play. Notice how when we add the bits in the **First Bit** column, there's a carry over? Well, we can use the carry-over bit outputted from the Full Adder 1 and insert it into the carry-in input in Full Adder 2. This is shown in the image below:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Ripple_Carry_2.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-This is an important concept because now we are on our way to creating our first Ripple Carry Adder. We can use the carry-over bit to now do addition with multi-bit binary values. Without the carry-over output and the carry-in input on a full adder, we wouldn't accurately be able to do multi-bit addition since the carry-over logic wouldn't be supported. 
+Notice how the wire going from the carry-out in Full Adder 1 to the carry-in in Full Adder 2 is light green (which means it carries the value of 1). This is important because we can use the carry-over bit to now do addition with multi-bit binary values. Without the carry-over output and the carry-in input on a full adder, we wouldn't accurately be able to do multi-bit addition since the carry-over logic wouldn't be supported. We are now on the way to building our first Ripple Carry Adder.
 
 Let's finish the circuit by displaying the output:
 
@@ -66,7 +64,7 @@ Congrats! You just built your first Ripple Carry Adder.
 
 #### What the Carry Bit Means
 
-In the example above, you might have noticed that the Carry output was on. Usually, Ripple Carry Adders are used to do unsigned binary addition (review Chapter 5 if you still are unclear on what this means). If you recall, in unsigned binary addition, we have an **error** when the **Carry** bit is on because we are adding 2 2-bit numbers, but our result needs 3-bits in order to be represented accurately. If this still doesn't make sense, I'll make it simple for you in a one-line: if the **Carry** bit is on after performing unsigned binary addition (which is what Ripple Carry adders do), we have an issue.
+In the example above, you might have noticed that the Carry output was on. Usually, Ripple Carry Adders are used to do unsigned binary addition (review Chapter 5 if you still are unclear on what this means). If you recall, in unsigned binary addition, we have an **overflow** when the **Carry** bit is on because we are adding 2 2-bit numbers, but our result needs 3-bits in order to be represented accurately. If this still doesn't make sense, I'll make it simple for you in a one-line: if the **Carry** bit is on after performing unsigned binary addition (which is what Ripple Carry adders do), we have an overflow. The example above is an example of overflow in unsigned addtion.
 
 #### 4-bit Example
 
@@ -79,17 +77,17 @@ Now, let's try a slightly harder example. This time we will be added 2 4-bit bin
 | Number 8 |   | 1 | 0 | 0 | 0 |
 | **Result** |  | **1** | **0** | **1** | **0** |
 
-So the result of $$0010_{2}+1000_{2}$$ was $$1010_{2}$$ which is $$10_{10}$$. Let's build our ripple carry adder:
+So the result of $$0010_{2}+1000_{2}$$ was $$1010_{2}$$ which is $$10_{10}$$ (there is no overflow in this example either). Let's build our ripple carry adder:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Ripple_Carry_4.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-So again, we need to add the bits from the same place values and carry over the carry-over output of one full adder into the carry-in input of the next full adder.
+So again, we need to add the bits from the same place values and carry over the carry-over output of one full adder into the carry-in input of the next full adder when there is carry-over logic involved. 
 
 ### Adder-Subtractor 
 
-Now that you're an expert in Full Adders and Ripple Carry Adders, it's time for another round of roids. This time around we are going to create a circuit called the Adder-Subtractor. An Adder-Subtractor allows us to perform both addition and subtraction with binary values with a few tweaks to our Ripple Carry Adder. Before we introduce the circuit, let's go over 2 important ideas that we need to know about first:
+Now that you're an expert in Full Adders and Ripple Carry Adders, it's time for another round of roids. This time around we are going to create a circuit called the Adder-Subtractor. An Adder-Subtractor allows us to perform both binary addition and binary subtraction with the same circuit. We can tweak our Ripple Carry Adder to create the Adder-Subtractor. Before we introduce the circuit, let's go over 2 important ideas that we need to know about first:
 
-1. When we want to find the value of a negative integer number in binary, we use two's complement. Two's complement follows three simple steps: find the binary representation of the positive version of the negative integer number, flip all the binary bits, and then add one to the result. Review chapter 5 if this does not make sense.
+1. When we want to find the value of a negative integer number in binary, we use two's complement. Two's complement follows three simple steps: find the binary representation of the positive version of the negative integer number, flip all the binary bits, and then add one to the result. Two's complement can be crucial for doing binary subtraction 
 2. We also need to learn what a 2-to-1 multiplexor is. Essentially, we have a selector bit (C in the truth table and circuit below) which chooses between two different inputs. So if we have two inputs, A and B, the A bit will be outputted if the selector bit is 0 and the B bit will outputted if the selector bit is 1. That's it, simple right? I've included the truth table and an example of the circuit below:
 
 | C | A | B | Y |
@@ -103,11 +101,9 @@ Now that you're an expert in Full Adders and Ripple Carry Adders, it's time for 
 | 1 | 1 | 0 | 0 |
 | 1 | 1 | 1 | 1 |
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Multiplexor.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Multiplexor.png" style="display: block; margin-left: auto; margin-right: auto;" /> Also, if you noticed this circuit and truth table look a little familiar, they are! In Chapter 6, you actually saw how the circuit looked like (and its inputs and outputs) rather than just the schematic (this circuit will appear a few more times, so make sure you take the time to understand what it's doing).
 
-Also, if you noticed this circuit and truth table look a little familiar, they are! In Chapter 6, you actually saw how the circuit looked like (and its inputs and outputs) rather than just the schematic (this circuit will appear a few more times, so make sure you take the time to understand what it's doing).
-
-Cool, now you understand what multiplexors are, so let's review our goal for this section: we need to take the Ripple Carry Adder we learned about and the two ideas mentioned at the start of this section on Adder-Subtractors (two's complement and what a multiplexor is) and modify the Ripple Carry Adder to also do subtraction. You might be thinking that is impossible, but let's take a closer look at how we can modify our circuit to perform subtraction.
+Cool, now you understand what multiplexors are, so let's review our goal for this section: we need to take the Ripple Carry Adder we learned about and the two ideas mentioned at the start of this section on Adder-Subtractors (two's complement and a multiplexor) and modify the Ripple Carry Adder to also do subtraction. You might be thinking that is impossible, but let's take a closer look at how we can modify our circuit to perform subtraction.
 
 In our Adder-Subtractor circuit, we are responsible for doing addition which will work the same way as it does in a Ripple Carry Adder. However, to do subtraction (which is represented by the expression $$B-A$$ in our circuit), we can use a trick that we learned in Chapter 5 and has already been mentioned a couple times in the past few paragraphs: two's complement. This will allow us to work the expression $$B+(-A)$$ (which is the equivalent of $$B-A$$) allowing us to sneakily be able to do addition for our subtraction problem. Again, you're now asking why this matters because Ripple Carry Adders can only do addition. Well, if we can figure out how to implement the two's complement conversion for Input A in our Ripple Carry Adder, we can essentially do subtraction with an adder circuit. Before I get into that, I hope you are starting to see how poweful two's complement really is.
 
@@ -135,7 +131,7 @@ Woah! We were just able to flip all of our bits in our circuit by flipping the s
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Transition_1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-However, we are not close to being done because we still have not completed the second step in finding the two's complement on Input A. When doing two's complement, we need to flip all the bits and then also add 1 in order to find the binary opposite. In the image above, we can flip all the bits by turning on the C bit on. But, in order to find the two's complement to Input A, we also need to add 1 to Input A. However, we cannot add 1 directly to Input A. Think about it for a second. In our circuit above, it would be kind of difficult to do that and it would also force us add to the circuit logic which isn't really something we want to do because it will get complicated real quick.
+However, we are not yet done because we still have not completed the second step in finding the two's complement on Input A. When doing two's complement, we need to flip all the bits and then also add 1 in order to find the binary opposite. In the image above, we can flip all the bits by turning on the C bit on. But, in order to find the two's complement to Input A, we also need to add 1 to Input A. However, we cannot add 1 directly to Input A. Think about it for a second. In our circuit above, it would be kind of difficult to do that and it would also force us add to the circuit logic which isn't really something we want to do because it will get complicated real quick.
 
 Instead, what if we just added one to the whole equation in general? Let's think about this for a quick second. Right now, we are attempting to perform subtraction with our Ripple Carry Adder by performing $$B+(-A)$$ instead of $$B-A$$ since it allows us to perform addition and use the Ripple Carry Adder circuit for subtraction. However, what if we instead used the following equation to perform the subtraction: $$B+(~A)+1$$. The **~** symbol represents the flipped bits and then the addition $$+1$$ represents the second step of two's complement. I surmise that the equation $$B+(~A)+1$$ is the same as the equation $$B+(-A)$$ because we are breaking down the two's complement step we perform on Input A into two distinct steps in our equation. This means we can technically add the value of 1 anywhere in the circuit which makes it easier. 
 

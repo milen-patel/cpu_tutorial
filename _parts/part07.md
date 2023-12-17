@@ -35,7 +35,7 @@ You already know that computers can add incredibly large numbers together, but f
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/OR_Gate_1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Above we have a circuit representing the equation $$A+B=Y$$. Essentially, this circuit adds two numbers together (in this case, $$0_{2}$$ and $$0_{2}$$) and outputs a number (which again is $$0_{2}$$). In this example, what we are trying to demonstrate is that the OR gate can be used to add two numbers together and is a simple addition circuit (which was mentioned in Chapter 6). In other words, our equation can be represented like this: $$0_{2}+0_{2}=0_{2}$$. Congrats, you just build your first circuit!
+Above we have a circuit representing the equation $$A+B=Y$$. Essentially, this circuit adds two numbers together (in this case, $$0_{2}$$ and $$0_{2}$$) and outputs a number (which again is $$0_{2}$$). In other words, our equation can be represented like this: $$0_{2}+0_{2}=0_{2}$$. In this example, what we are trying to demonstrate is that the OR gate can be used to add two numbers together and is a simple addition circuit (which was mentioned in Chapter 6). Congrats, you just build your first circuit!
 
 Let's look at a slightly different example:
 
@@ -47,7 +47,7 @@ Here, we are adding $$0_{2}$$ with the $$1_{2}$$ which gives us $$1_{2}$$. This 
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/OR_Gate_3.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Here, we are adding $$1_{2}$$ ($$1_{10}$$) and $$1_{2}$$ ($$1_{10}$$) which gives us $$1_{2}$$ ($$1_{10}$$). If you realized there's a mistake here, you're right. $$1_{10}+1_{10}$$ should be returning $$2_{10}$$. $$2_{10}$$ is written as **10** in binary - notice how we need two bits. You might be thinking that there is no possible way we can represent $$2_{10}$$ with just one OR gate since an OR gate only outputs one bit. This is where things get exciting.
+Here, we are adding $$1_{2}$$ ($$1_{10}$$) and $$1_{2}$$ ($$1_{10}$$) which gives us $$1_{2}$$ ($$1_{10}$$). If you realized there's a mistake here, you're right. $$1_{10}+1_{10}$$ should be returning $$2_{10}$$. $$2_{10}$$ is written as **10** in binary - notice how we need two bits. You might be thinking that there is no possible way we can represent $$2_{10}$$ with our current circuit (which is an OR gate) since an OR gate can only ouput one bit. This is where things get exciting.
 
 ### Half Adder
 
@@ -55,7 +55,13 @@ Remember when I was talking about legos earlier, this is where we use them. Just
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half_Adder_1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to $$2_{10}$$ which we saw in the example in the paragraph above (meaning we need to somehow represent two bits in the output of a circuit since the number $$2_{10}$$ can only be represented by two binary bits). This is where a half adder circuit is useful because we can now represent two bits in our output: the sum and carry-out digits (which was talked about in Chapter 3). When adding $$1_{10}$$ and $$1_{10}$$, the result will have a sum bit of $$0_{2}$$ and carry-out bit of $$1_{2}$$ (if this still does not make sense, reference the table below this paragraph or flip back to Chapter 3). In the circuit above, the Y acts as the least significant bit (the sum bit) and the X acts as the most significant bit (the carry bit). We can combine the sum bit and carry bit in a singular output and represent this circuit in equation format as $$A_{2}+B_{2}=XY_{2}$$. Now, your question might be how did we know to use the XOR gate to calculate Y and the AND gate to calculate X? Take a look at this truth table below which represents the addition of two 1-bit binary values:
+The issue with using just an OR gate to represent the addition of two bits is that sometimes the bits can add up to $$2_{10}$$ (which is represented by 2 binary bits) when we add $$1_{10}$$ and $$1_{10}$$ together which we saw in the example in the paragraph above. We need to build a circuit that outputs 2 bits instead of 1 bit when adding bits together. Essentially, we need a way to represent the equation $$1_{2}+1_{2}=10_{2}$$. 
+
+This is where a half adder circuit is useful because we can now represent two bits in our output: the sum and carry-out digits (which was talked about in Chapter 3). When adding $$1_{10}$$ and $$1_{10}$$, the result will have a sum bit of $$0_{2}$$ and carry-out bit of $$1_{2}$$ (reference Chapter 3 if this does not make sense).
+
+In the circuit above, the Y acts as the least significant bit (the sum bit) and the X acts as the most significant bit (the carry bit). We can combine the sum bit and carry bit in a singular output and represent this circuit in equation format as $$A_{2}+B_{2}=XY_{2}$$. 
+
+Now, your question might be how did we know to use the XOR gate to calculate Y and the AND gate to calculate X? Take a look at this truth table below which represents the addition of two 1-bit binary values:
 
 | A | B | Y (Sum) | X (Carry)
 |:---:|:---:|:---:|:---:|
@@ -68,7 +74,7 @@ The issue with using just an OR gate to represent the addition of two bits is th
 
 First, looking at the Sum Column (Y Output), we can see that it looks pretty familar to one of the truth tables in Chapter 6. If you were thinking an XOR gate, then you're right! And, looking at the Carry Column (X Output), we can see that the output looks similar to an AND gate. Now we can see why the half adder uses a XOR gate and an AND gate instead of using a normal OR gate.
 
-Going back to our original problem of adding $$1_{2}$$ and $$1_{2}$$, we can rewrite our equation above as $$1_{2}+1_{2}=10_{2}$$ (this equation is derived from row #4 in our truth table above where $$A=1$$ and $$B=1$$). Essentially, we are now able to represent addition resulting in values greater than $$1_{10}$$ in circuit form. Here is an example of the circuit performing the addition of $$1_{2}$$ and $$1_{2}$$:
+All the possible combinations of adding 2 1-bit values can now be represented using a Half Adder. The equation $$1_{2}+1_{2}=10_{2}$$ is shown in circuit form below:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half_Adder_2.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
@@ -76,7 +82,7 @@ Here is another example of using a half adder for the equation $$1_{2}+0_{2}=01_
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half_Adder_3.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-In this example, we can see that the output is $$01_{2}$$. Again, the Y is used as the least significant bit and the X is used as the most significant bit. 
+In this example, we can see that the output is $$01_{2}$$. Again, the Y (sum bit) is used as the least significant bit and the X (carry-out bit) is used as the most significant bit. 
 
 What you should take away from this section is that the Half Adder circuit allows us to represent more complicated addition which involve carry-overs. 
 
