@@ -232,7 +232,7 @@ We previously claimed that you can build an entire computer out of logic gates. 
 
 ### Optional: Sum of Products (SOP)
 
-This section isn't too important to the course of the book, but it is a basic idea/rule you should be aware of since it allows us to build circuits given any set of inputs/outputs. Let's say that we were randomly given a truth table which contains 3 inputs and a random assortment of outputs which are true and false:
+This section isn't too important to the course of the book, but it is a basic idea/rule you should be aware of since it allows us to build circuits given any set of inputs/outputs. When building various circuits, it's often easier to start by creating a truth table before thinking about logic gates. Let's say that we were randomly given a truth table which contains 3 inputs and a random assortment of outputs which are true and false:
 
 | X | Y | Z | Output |
 |---|---|---|---|
@@ -247,7 +247,7 @@ This section isn't too important to the course of the book, but it is a basic id
 
 Our challenge is that we need to build a circuit which represents this truth table and it's inputs and outputs accurately. Well, we can actually do that by using the sum of products (SOP) trick! 
 
-The first step of this process is we need to find every row in the table that has an output of 1. In our example, this is row #2, row #4, row #6. The next step is to look individually at each of these rows and come up with a respective formula that gives the output of 1 for that row's inputs. For example, looking at row #2, we see that the output is 1 when $$X=0$$, $$Y=0$, and $$Z=1$$. We, then, multiply the inputs (if the input is a 0, negate the input). This means for row #2, our formula is $$\overline{X}\overline{Y}Z$$. We can use the same trick for row #4 and #6. For row #4, the output is 1 when Y and Z are both 1 and X is 0, so the equation can be represented as $$\overline{X}YZ$$. Finally, for row #6, the output is 1 when X and Z are both 1 and Y is 0, so the equation can be represented as $$\overline{Y}XZ$$. Essentially, we are finding the product equation for every row that has an output of 1 by multiplying the inputs together.
+The first step of this process is we need to find every row in the table that has an output of 1. In our example, this is row #2, row #4, row #6. The next step is to look individually at each of these rows and come up with a respective formula that gives the output of 1 for that row's inputs. For example, looking at row #2, we see that the output is 1 when $$X=0$$, $$Y=0$$, and $$Z=1$$. We, then, multiply the inputs (if the input is a 0, negate the input). This means for row #2, our formula is $$\overline{X}\overline{Y}Z$$. We can use the same trick for row #4 and #6. For row #4, the output is 1 when Y and Z are both 1 and X is 0, so the equation can be represented as $$\overline{X}YZ$$. Finally, for row #6, the output is 1 when X and Z are both 1 and Y is 0, so the equation can be represented as $$\overline{Y}XZ$$. Essentially, we are finding the product equation for every row that has an output of 1 by multiplying the inputs together.
 
 The next step of this process is to add all the products (equations) we found together: $$\overline{X}\overline{Y}Z$$, $$\overline{X}YZ$$, $$\overline{Y}XZ$$. This results in the expression $$\overline{X}\overline{Y}Z + \overline{X}YZ + \overline{Y}XZ$$. Now comes the exciting part. We can further simplify this expression:
 
