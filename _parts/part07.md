@@ -16,7 +16,7 @@ date: 2023-11-10
 **Topics Covered:** Half Adder, Full Adder
 
 
-In Chapter 6, we learned that a circuit allows us to represent more complex logic beyond the basic AND and OR gates, enabling us to transform our binary inputs into the outputs we desire. An easier way to think about this is by using legos. In Chapter 6, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different lego pieces and build our first circuit. As explained in Chapter 6, logic gates are the building blocks of computers and when you chain logic gates together (to build circuits), you can build an entire computer. With that in mind, we move onto the next step of our journey - building the first component of our computer. 
+At the end of Chapter 6, we learned that a circuit allows us to represent more complex logic beyond the basic AND and OR gates, enabling us to transform our binary inputs into the outputs we desire. An easier way to think about this is by using legos. In the previous chapter, we got introduced to the brick blocks, the tile blocks, the plate blocks, etc. Now, it's time for us to take those different lego pieces and build our first meaningful circuit. As explained in Chapter 6, logic gates are the building blocks of computers and when you chain logic gates together (to build circuits), you can build an entire computer. With that in mind, we move onto the next step of our journey - building the first component of our computer. 
 
 In the earliest chapters we were introduced to base-2 and learned how to add two binary numbers together. In this chapter, let's automate this process by designing a circuit that takes in two binary numbers as input and outputs the sum of those two numbers. We only saw a few elementary circuits in the previous chapter, so this task may sound daunting at first. But don't worry! We will build this circuit from the ground up to make it as clear as possible.
 
@@ -24,7 +24,7 @@ I just want to make a quick note by stating that you can build a circuit to do a
 
 You already know that computers can add incredibly large numbers together, but for the sake of us getting started, we will restrict our circuit to adding two 1-bit values (recall that a bit is a binary digit), namely $$A$$ and $$B$$. Let's take an example below as a first contender of a circuit that takes 1-bit values $$A$$ and $$B$$ as input and outputs their sum ($$A+B$$) as $$X$$:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/0OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Wait a minute, isn't this just the OR gate we learned about last chapter? You are indeed correct, but let's look at it closer and see if it is capable of 1-bit addition. We can check the validity of this circuit by seeing what it outputs for different combinations of input values. If the circuit outputs the correct value for every input combination, we have a valid contender. Otherwise, it means we have an error that we must reconsider. Let's see how this circuit behaves when both of the inputs are set to 0 ($$X=Y=0$$):
 
