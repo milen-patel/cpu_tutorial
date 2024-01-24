@@ -42,11 +42,11 @@ In the last chapter, we learned about Full Adders. As I hinted in the last chatp
 
 At the end of the last chapter, we ended by constructing a full-adder which was given by the circuit below: 
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full_Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 In this chapter, we will build circuits that involve multiple full-adders, and using this representation of a full adder would make our circuits both large and difficult to follow. This is not only true of the full adder, we have seen a similar issue with the selectors we build earlier in the series. So, for the remainder of this chapter, we will use the following diagram to represent a full adder:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/Full%20Adder%20Rep.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/Full_Adder_Rep.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 This is functionally equivalent to the circuit above, but makes it far easier to understand diagrams that have more than one full-adder. The circuit still takes in three inputs (the two input bits and a carry-in bit) while outputting two biys (the sum bit and the carry-out bit).
 
@@ -54,9 +54,9 @@ Before we begin to build out the Ripple Carry Adder, let's analyze how Full Adde
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Ripple_Carry_1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-*Aside: As you can see in the above, we don't have our typical circuit with the gates. Usually when we build circuit diagrams, we try to simplify the circuit by using a schematic symbol. In this case, the box we have is used to represent a Full Adder instead of using the entire Full Adder circuit we built in Chapter 7 multiple times. However, you can see that this schematic symbol works in the same way as the circuit: we have 3 inputs (A, B, Carry-In) and 2 outputs (Sum and Carry-Out)*
+*Aside: As I just explained, we don't have our typical circuit with the gates. Usually when we build circuit diagrams, we try to simplify the circuit by using a schematic symbol. In this case, the box we have is used to represent a Full Adder instead of using the entire Full Adder circuit we built in Chapter 7 multiple times. However, you can see that this schematic symbol works in the same way as the circuit: we have 3 inputs (A, B, Carry-In) and 2 outputs (Sum and Carry-Out)*
 
-*Aside: You might have also seen a weird looking symbol going into the carry-in input (the dash). This symbol is just supposed to represent a grounded input meaning it sends an electrical signal of 0 or off. Don't worry about the carry-in input for the initial Full Adder of our Ripple Carry Adder circuit (we will get to this later).*
+*Aside: You might have also seen a weird looking symbol going into the carry-in input (the dash). This symbol is just supposed to represent a grounded input meaning it sends an electrical signal of 0 or off. Don't worry about the carry-in input for the initial Full Adder of our Ripple Carry Adder circuit (we will get to this later). We want to set the carry-in of our right-most adder to zero since we know when we add two numbers, there is never a carry over to account for when adding the right-most digits.*
 
 Notice in the example above how each corresponding bit in the same place value goes to the same full adder (so the bits A1 and B1 go to Full Adder #1 and the bits A2 and B2 go to Full Adder #2). Intuitively, this makes sense because we are adding bits which are in the same place value (as mentioned earlier).
 
