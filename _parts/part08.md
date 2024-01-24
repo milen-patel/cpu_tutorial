@@ -173,3 +173,20 @@ The last example we will take a look at is also a subtraction example, but it wi
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Adder_Subtractor_5.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Wow, that was a lot of information. I would highly recommend understanding everything in detail in this chapter and playing around with the Digital files to really see how the circuits work. In the next chapter, we will be going over the ALU which uses the concept of an Adder-Subtractor and builds on it. 
+
+### Scaling it Up
+
+In a previous chapter, I mentioned the computer we are going to build will exclusively work with 8-bit numbers. In this last section, I will take the 4-bit circuit we have constructed, and scale it up to 8 bits. If you understand how the 4-bit adder/subtractor works, then understanding how to scale it to 8 bits should not come as a suprise. We saw that we can use 2 full-adders to create a 2-bit adder circuit and also saw that we can use 4 full-adders to create a 4-bit adder circuit. So, it shouldn't come as a suprise that we can use 8 full-adders to create a 8-bit adder circuit. If you are having a difficult time reasoning this, think of it as follows: when we add numbers on hand, we add each digit position working right to left. We saw that a full-adder can be used to do addition in one digit position. So, if we are adding two 8-bit numbers, we know we need to add each of the 8 digit positions. And since we already know that a full-adder can do the arithmetic in any one position, then using 8 of them should enable us to add any two 8-bit numbers.
+
+You can try build out this circuit for sake of practice, but it has been given below:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/8 Bit Adder Subtractor.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+As an example, let's see what happens when we add $$54_{10}$$ and $$18_{10}$$:
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/8 Bit Addition Example.png" style="display: block; margin-left: auto; margin-right: auto;" />
+The output, when converted to decimal, is what we would expect: $$72_{10}$$
+
+We can also see an example of subtraction. In the diagram below, we see that $$76_{10}-75_{10}$$ correctly outputs $$-5_{10}$$. 
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/8 Bit Subtraction Example.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+Lastly, we can see that overflow still works on this circuit. If we try to add $$-128_{10}$$ and $$-128_{10}$$, we get an overflow since we know we cannot represent $$-256_{10}$$ in 8 bits.
