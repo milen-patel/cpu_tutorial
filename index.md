@@ -31,9 +31,9 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 08 - [Ripple Carry Adders](/cpu_tutorial/parts/part08.html)
 * Chapter 09 - [Arithmetic Logic Unit (ALU)](/cpu_tutorial/parts/part09.html)
 * Chapter 10 - [Storing Data with Logic Gates](/cpu_tutorial/parts/part10.html)
+* Chapter 1q - [Building a Register](/cpu_tutorial/_parts/part11.html)
 
 # Future Chapters
-* Chapter XX - Building a Register (Determinism vs Non-Determinism)
 * Chapter XX - Interlude: Chaining a Register to the ALU
 * Chapter XX - The Clock (Propogation Delay)
 * Chapter XX - Interlude: Building a Counter
