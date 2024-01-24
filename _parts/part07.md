@@ -200,7 +200,7 @@ You already know that computers can add incredibly large numbers together, but f
 
 Wait a minute, isn't this just the OR gate we learned about last chapter? You are indeed correct, but let's look at it closer and see if it is capable of 1-bit addition. We can check the validity of this circuit by seeing what it outputs for different combinations of input values. If the circuit outputs the correct value for every input combination, we have a valid contender. Otherwise, it means we have an error that we must reconsider. Let's see how this circuit behaves when both of the inputs are set to 0 ($$X=Y=0$$):
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/0+0%20OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/0+0 OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Essentially, this circuit adds two numbers together (in this case, a 0 and a 0) and outputs a number (which again, is 0). This simple, 1-gate circuit outputs the correct value for this specific set of inputs. Congrats, you just build your first circuit! In this example, what we are trying to demonstrate is that the OR gate can be used to add two numbers together and is a simple addition circuit (which was also briefly mentioned in Chapter 6).
 
@@ -208,11 +208,11 @@ Essentially, this circuit adds two numbers together (in this case, a 0 and a 0) 
 
 Let's see how this circuit works for a different set of inputs:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/0+1%20OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/0+1 OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Here, we are adding the bit 0 (number 0) with the bit 1 (number 1) which gives us the bit 1 (number 1). In other terms, this equation can be written as $$0_{2}+1_{2}=1_{2}$$. Once again, this circuit outputs the value we would expect given the inputs. Makes sense right? I know I'm definetly boring you, so let's look a slightly harder example:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/1+1%20OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/1+1 OR.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Here, we are adding the $$1_2$$ (which equals $$1_{10}$$) with $$1_2$$ which gives us $$1_2$$. If you realized there's a mistake here, you're right. $$1_{10}$$ plus $$1_{10}$$ should be returning the number 2 (written as $$10_2$$ in binary - notice how we need two bits to express the result). You might be thinking that there is no possible way we can represent $$10_2$$ with just one OR gate since it only outputs one bit. So clearly, our initial guess that an OR gate could be used to add numbers was incorrect. This doesn't mean that the idea was entirely wrong, but that we will need to expand upon our original circuit to make sure it works correctly for all possible input combinations. This is where things get exciting.
 
@@ -220,7 +220,7 @@ Remember when I was talking about the lego analogy earlier? This is where we use
 
 Instead of trying a bunch of different circuit combinations until we find one that can successfully add two 1-bit numbers, I will go ahead and give you the correct, complete circuit. From there, we will inspect why it is correct. As it turns out, the correct circuit we have been trying to describe is popular enough to have a name: the half-adder; the half adder is given by the diagram below:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Since this circuit has two outputs, we can represent it's equation as $$A_{2}+B_{2}=YX_{2}$$. In the circuit above, the X acts as the least significant bit (the sum bit) and the Y acts as the most significant bit (the carry-out bit). 
 
@@ -243,11 +243,11 @@ Now we can see why the half adder uses a XOR gate and an AND gate instead of usi
 
 If we combine both of these bits together (in the form of YX with the X bit being the least significant bit and the Y bit being the most significant bit), we can have an output now that correctly represents the equation $$1_{2}+1_{2}=2_{10}$$ because the number 2 can be represented as **10** in binary. Here is an example of the circuit below in this scenario:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half%20Adder%201+1.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half Adder 1+1.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Here is another example of using a half adder for the equation $$1_{2}+0_{2}=1_{10}$$:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half%20Adder%201+0.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Half Adder 1+0.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 In this example, we can see that the output is $$01_2$$ (equivalently, $$1_{10}$$). Again, the $$X$$ is used as the least significant bit and the $$Y$$ is used as the most significant bit.
 
@@ -320,19 +320,19 @@ Now, let's look at how to find the equation for the carry over bit:
 
 Now we have both of our equations. The equation for the Sum bit is **$$A \oplus B \oplus C$$** and the equation for the carry over bit is **$$C(A \oplus B) + AB$$**. We can now build our circuit which is below:
 
-<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Let's trace through the inputs in our truth table and look at it's respective circuit:
 
 | A | B | C | X (Sum) | Y (Carry Out) | Picture
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| 0 | 0 | 0 | 0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
-| 0 | 0 | 1 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder%202.png" style="display: block; margin-left: auto; margin-right: auto;" />
-| 0 | 1 | 0 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder%203.png" style="display: block; margin-left: auto; margin-right: auto;" />
-| 0 | 1 | 1 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder%204.png" style="display: block; margin-left: auto; margin-right: auto;" />
-| 1 | 0 | 0 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder%205.png" style="display: block; margin-left: auto; margin-right: auto;" />
-| 1 | 0 | 1 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder%206.png" style="display: block; margin-left: auto; margin-right: auto;" />
-| 1 | 1 | 0 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder%207.png" style="display: block; margin-left: auto; margin-right: auto;" />
-| 1 | 1 | 1 | 1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full%20Adder%208.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 0 | 0 | 0 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 0 | 1 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder 2.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 1 | 0 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder 3.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 0 | 1 | 1 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder 4.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 0 | 0 | 1 | 0 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder 5.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 0 | 1 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder 6.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 1 | 0 | 0 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder 7.png" style="display: block; margin-left: auto; margin-right: auto;" />
+| 1 | 1 | 1 | 1 | 1 | <img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/images/Full Adder 8.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Cool right? Now, you might be thinking how can we further build on this concept. In Chapter 8, we are going to introduce the idea of ripple Ripple Carry Adders which will allow us to combine multiple Full Adders together to do multi-bit addition and subtraction (and, you'll see why the carry-out bit was important to learn about)!
