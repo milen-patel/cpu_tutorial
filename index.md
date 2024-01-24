@@ -31,7 +31,7 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 08 - [Ripple Carry Adders](/cpu_tutorial/parts/part08.html)
 * Chapter 09 - [Arithmetic Logic Unit (ALU)](/cpu_tutorial/parts/part09.html)
 * Chapter 10 - [Storing Data with Logic Gates](/cpu_tutorial/parts/part10.html)
-* Chapter 11 - [Building a Register](/cpu_tutorial/_parts/part11.html)
+* Chapter 11 - [Building a Register](/cpu_tutorial/parts/part11.html)
 
 # Future Chapters
 * Chapter XX - Interlude: Chaining a Register to the ALU
