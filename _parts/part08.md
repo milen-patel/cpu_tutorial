@@ -70,7 +70,7 @@ Let's finish the circuit by displaying the output:
 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/Ripple_Carry_3.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
-Congrats! You just built your first Ripple Carry Adder. 
+We can see that the output is correct since we are adding $$1_{10}$$ and $$3_{10}$$ to get the value of $$4_{10}$$. Congrats! You just built your first Ripple Carry Adder. 
 
 #### What the Carry Bit Means
 
