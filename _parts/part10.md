@@ -108,3 +108,5 @@ For sake of illustration, I have included a timing diagram of a negative latch b
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part10/Negative_Latch_Timing_Diagram.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 That's all you need to know about latches! You will see why I made the distinction between positive and negative latches in the next chapter.
+
+### Optional Chapter: A better way of implementation Latches
