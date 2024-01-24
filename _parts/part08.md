@@ -186,7 +186,7 @@ As an example, let's see what happens when we add $$54_{10}$$ and $$18_{10}$$:
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/8 Bit Addition Example.png" style="display: block; margin-left: auto; margin-right: auto;" />
 The output, when converted to decimal, is what we would expect: $$72_{10}$$
 
-We can also see an example of subtraction. In the diagram below, we see that $$76_{10}-75_{10}$$ correctly outputs $$-5_{10}$$. 
+We can also see an example of subtraction. In the diagram below, we see that $$71_{10}-76_{10}$$ correctly outputs $$-5_{10}$$. 
 <img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/images/8 Bit Subtraction Example.png" style="display: block; margin-left: auto; margin-right: auto;" />
 
 Lastly, we can see that overflow still works on this circuit. If we try to add $$-128_{10}$$ and $$-128_{10}$$, we get an overflow since we know we cannot represent $$-256_{10}$$ in 8 bits.
