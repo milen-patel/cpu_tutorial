@@ -23,7 +23,7 @@ date: 2023-11-10
 # Chapter 08 - Ripple Carry Adders
 **Topics Covered:** Ripple-Carry Adders, Adder-Subtractor
 
-Now that we know how to do simple addition using half adders and full adders (which are used to do one-bit addition), I believe we are ready to learn about ripple-carry adders (for, you guessed it, multi-bit addition). Moreover, we will get to learn why the carry-in bit was so crucial that we needed to create a half adder on steriods (the full adder).
+In the last chapter, we learned how to do simple addition using half adders and full adders. The issue is that these adders are basic since they can only add 1-bit values. In this chapter, I believe we are ready to learn about ripple-carry adders (for, you guessed it, multi-bit addition). Moreover, we will get to learn why the carry-in bit was so crucial that we needed to create a half adder on steriods (the full adder). We briefly saw the motivation in the previous chapter, but in this chapter we will see what it means in its entirety.
 
 ### Ripple Carry Adder
 
@@ -38,7 +38,17 @@ Imagine now we are adding two numbers: $$3_{10}$$ and $$1_{10}$$. In binary form
 | Number 1 |   | 0 | 1 |
 | **Result** | **1** | **0** | **0** |
 
-In the last chapter, we learned about Full Adders. It turns out that we can actually chain multiple Full Adders to do multi-bit addition and accurately represent carry-over logic. When we chain multiple Full Adders together, we can create a Ripple Carry Adder. Let's break this down a bit further using our multi-bit example above.
+In the last chapter, we learned about Full Adders. As I hinted in the last chatper, we can actually chain multiple Full Adders to do multi-bit addition and accurately represent carry-over logic. When we chain multiple Full Adders together, we create a circuit commonly reffered to as a Ripple Carry Adder. Let's break this down a bit further using our multi-bit example above.
+
+At the end of the last chapter, we ended by constructing a full-adder which was given by the circuit below: 
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part7/Full%20Adder.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+In this chapter, we will build circuits that involve multiple full-adders, and using this representation of a full adder would make our circuits both large and difficult to follow. This is not only true of the full adder, we have seen a similar issue with the selectors we build earlier in the series. So, for the remainder of this chapter, we will use the following diagram to represent a full adder:
+
+<img src="https://milen-patel.github.io/cpu_tutorial/assets/part8/Full%20Adder%20Rep.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
+This is functionally equivalent to the circuit above, but makes it far easier to understand diagrams that have more than one full-adder. The circuit still takes in three inputs (the two input bits and a carry-in bit) while outputting two biys (the sum bit and the carry-out bit).
 
 Before we begin to build out the Ripple Carry Adder, let's analyze how Full Adders can be used to do multi-bit additon. Notice from the example above how we have two bits for each of the numbers, we can use a full adder to do the addition for each corresponding bit (or each column of the table). So, essentially, we can use a full adder to represent the addition happening in the **First Bit** column and use another full adder to represent the addition happening in the **Second Bit** column. **Each corresponding bit (in other words, each bit in the same position) will be added together from both binary values.** This is pretty similar to how we do regular addition: add the one's place, the ten's place, the hundred's place, and so on. We can begin building out the above example in circuit form below:
 
