@@ -32,9 +32,9 @@ Whether you are a computer science major or a curious learner without engineerin
 * Chapter 09 - [Arithmetic Logic Unit (ALU)](/cpu_tutorial/parts/part09.html)
 * Chapter 10 - [Storing Data with Logic Gates](/cpu_tutorial/parts/part10.html)
 * Chapter 11 - [Building a Register](/cpu_tutorial/parts/part11.html)
+* Chapter 12 - [An Interlude: How Calculators Work](/cpu_tutorial/parts/part12.html)
 
 # Future Chapters
-* Chapter XX - Interlude: Chaining a Register to the ALU
 * Chapter XX - The Clock (Propogation Delay)
 * Chapter XX - Interlude: Building a Counter
 * Chapter XX - RAM
